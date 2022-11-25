@@ -29,7 +29,7 @@
                   <Font name="System Bold" size="14.0" />
                </font></Text>
             <Label layoutX="373.0" layoutY="149.0" text="Grab your offers when you Login IN!!" wrapText="true" />
-            <Button fx:id="Login" layoutX="373.0" layoutY="187.0" onAction="#handleButtonAction" style="-fx-background-color: #00FF70;" text="Login" />
+            <Button fx:id="Login" layoutX="373.0" layoutY="187.0" onAction="#handlelogin" style="-fx-background-color: #00FF70;" text="Login" />
             <TextField layoutX="157.0" layoutY="87.0" promptText="Enter Name" />
             <Label layoutX="68.0" layoutY="91.0" text="Username" />
          </children></AnchorPane>

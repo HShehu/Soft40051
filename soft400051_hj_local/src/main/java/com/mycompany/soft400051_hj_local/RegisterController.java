@@ -10,6 +10,6 @@ public class RegisterController {
 
     @FXML   
     private void switchToLogin() throws Exception {
-        App.setRoot("test");
+       // App.setRoot("test");
     }    
 }

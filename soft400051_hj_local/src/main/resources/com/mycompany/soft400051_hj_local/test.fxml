@@ -26,7 +26,7 @@
             </ImageView>
             <Text layoutX="395.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New to HJ?" />
             <Label layoutX="395.0" layoutY="149.0" text="Get yout Account Today!!" />
-            <Button fx:id="Register" layoutX="395.0" layoutY="189.0" onAction="#handleButtonAction" style="-fx-background-color: #00FF70;" text="Register"></Button>
+            <Button fx:id="Register" layoutX="395.0" layoutY="189.0" onAction="#handleregister" style="-fx-background-color: #00FF70;" text="Register"></Button>
             <TextField layoutX="157.0" layoutY="87.0" promptText="Enter Name" />
             <Label layoutX="68.0" layoutY="91.0" text="Username" />
          </children></AnchorPane>
