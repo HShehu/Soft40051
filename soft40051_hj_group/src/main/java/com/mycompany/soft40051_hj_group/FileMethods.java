@@ -6,6 +6,11 @@ package com.mycompany.soft40051_hj_group;
 
 import java.io.IOException;
 import java.io.*;
+import java.nio.file.Files;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -15,35 +20,62 @@ import java.util.logging.Logger;
  * @author ntu-user
  */
 public class FileMethods {
-    public static void CreateFile()
+    public static void CreateFile(String content, String name)
     {
-        try(InputStreamReader in = new InputStreamReader(System.in);
-            BufferedReader userIn = new BufferedReader(in);){
-            
-            System.out.printf("""
-                              Write what you want into the file
-                              """);
-            
-            String fileWords = userIn.readLine();
-           
-            String fileName = "User";
-            File userFile = new File("./"+fileName.concat(".txt"));
+        
+        try{
+            File userFile = new File("./"+name.concat(".txt"));
             if(!(userFile.createNewFile()))
             {
-                System.out.println("File " +fileName+ " already exists");
+                System.out.println("File " +name+ " already exists");
             }
-            System.out.println("File " +fileName+ " created");
+            System.out.println("File " +name+ " created");
             
             try(FileWriter fileWriter = new FileWriter(userFile); )
             {
-                fileWriter.write(fileWords);
+                fileWriter.write(content);
             }
             
 
         } catch (IOException ex) {
             Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-       
+//        
+//       
+    }
+    
+    public static void ChunkFile(File ogFile)
+    {
+        try{
+            byte[] fileBytes = Files.readAllBytes(ogFile.toPath());
+            int sizeOfChunk = fileBytes.length / 4 ;
+            int start = 0;
+            int counter = 0;
+           
+            List<File> chunks = Arrays.asList(
+               new File("./",UUID.randomUUID().toString()+".txt"),
+               new File("./",UUID.randomUUID().toString()+".txt"),
+               new File("./",UUID.randomUUID().toString()+".txt"),
+               new File("./",UUID.randomUUID().toString()+".txt")
+            );
+            
+            
+            for(File chunk:chunks)
+            {
+                try(FileWriter writer = new FileWriter(chunk.getPath())){
+                    if(counter == 3)
+                    {
+                        int remChunkSize = fileBytes.length - (sizeOfChunk*3);
+                        writer.write(Arrays.toString(fileBytes), start, remChunkSize); 
+                    }
+                    writer.write(Arrays.toString(fileBytes), start, sizeOfChunk);
+                    start += sizeOfChunk + 1; 
+                }
+                counter++;
+            }
+        }
+        catch(IOException ioerr){
+            
+        }
     }
 }
