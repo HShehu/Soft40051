@@ -14,7 +14,6 @@ import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
  *
  * @author ntu-user
@@ -48,7 +47,7 @@ public class FileMethods {
     {
         try{
             byte[] fileBytes = Files.readAllBytes(ogFile.toPath());
-            int sizeOfChunk = fileBytes.length / 4 ;
+            int sizeOfChunk = Arrays.toString(fileBytes).length()/ 4 ;
             int start = 0;
             int counter = 0;
            
@@ -65,16 +64,38 @@ public class FileMethods {
                 try(FileWriter writer = new FileWriter(chunk.getPath())){
                     if(counter == 3)
                     {
-                        int remChunkSize = fileBytes.length - (sizeOfChunk*3);
+                        int remChunkSize = Arrays.toString(fileBytes).length() - (sizeOfChunk*3);
                         writer.write(Arrays.toString(fileBytes), start, remChunkSize); 
+ 
                     }
-                    writer.write(Arrays.toString(fileBytes), start, sizeOfChunk);
-                    start += sizeOfChunk + 1; 
+                    else
+                    {
+                        
+                        writer.write(Arrays.toString(fileBytes), start, sizeOfChunk);
+                    }
+                    
                 }
                 counter++;
+                start += sizeOfChunk;
             }
+            
+            
+            chunks.forEach((chunk)->{
+            
+              System.out.println(chunk.getPath());
+                
+            });
         }
         catch(IOException ioerr){
+            
+        }
+    }
+    
+    public static void AssembleFile(List<File> chunks)
+    {
+        
+        for(File chunk : chunks)
+        {
             
         }
     }

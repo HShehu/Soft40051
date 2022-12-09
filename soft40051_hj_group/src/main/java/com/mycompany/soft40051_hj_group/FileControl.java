@@ -33,7 +33,7 @@ public static void main(String[] args) {
                 + "software like Aldus PageMaker including versions of Lorem Ipsum.";
         
         String fileName = "UserFile";
-        //FileMethods.CreateFile(fileContent, fileName);      
+        FileMethods.CreateFile(fileContent, fileName);      
         File tmp = new File("./UserFile.txt");
         FileMethods.ChunkFile(tmp);
 }
