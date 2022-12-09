@@ -93,10 +93,31 @@ public class FileMethods {
     
     public static void AssembleFile(List<File> chunks)
     {
-        
+        String str = new String();
         for(File chunk : chunks)
         {
-            
+            try {
+                str += Files.readString(chunk.toPath());
+                
+            } catch (IOException ex) {
+                Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
+        
+        int length = str.length() - 1;
+        
+        String[] StrArray = str.substring(1, length).split(",");
+        
+        byte[] byteArray = new byte[StrArray.length];
+        
+        for(int i = 0 ;i<StrArray.length ;i++)
+        {
+            byteArray[i] =  Byte.parseByte(StrArray[i].trim()); 
+        }
+        
+        String contents = new String(byteArray);
+        
+        System.out.println(contents);
+        
     }
 }
