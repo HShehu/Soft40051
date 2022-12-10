@@ -1,14 +1,10 @@
 package com.mycompany.soft400051_hj_local;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.security.MessageDigest;
@@ -23,23 +19,11 @@ public class dbconnection {
     public static Connection dbconnection(){
         System.out.println("Intializing Db connection parameter");
         Connection connection = null;
-        try{
-            Properties prop=new Properties();
-            FileInputStream ip= new FileInputStream("C:\\Users\\harsh\\Documents\\NetBeansProjects\\soft40051_hj_group\\soft400051_hj_local\\src\\main\\java\\com\\mycompany\\soft400051_hj_local\\db_config.properties");
-            prop.load(ip);
-            
+        try{            
             //Creating Connection to Database 
             connection = DriverManager.getConnection("jdbc:sqlite:hj.db");
-            String tableName = "users";
-            System.out.println("Connection to SQLite Database has been established...");
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Properties File not Found");
-        } catch (IOException ex) {
-            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("Error Reading Properties File");
-        }
+            System.out.println("Connection to SQLite Database has been established...");  
+        } 
         catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -55,7 +39,7 @@ public class dbconnection {
             statement.executeUpdate("create table if not exists users (id integer primary key autoincrement, name string, password string,email string, loginflag integer DEFAULT 0, login_datetime text)");
             System.out.println(password_hashed);
             statement.executeUpdate("insert into users(name, password,email) VALUES('"+Name+"','"+password_hashed+"','"+Email+"')");
-            System.out.println("User Registered Successfully "+Name+" : "+Email);
+            //System.out.println("User Registered Successfully "+Name+" : "+Email);
             flag = true;
         }   catch (SQLException ex) {
                 Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
@@ -181,6 +165,80 @@ public class dbconnection {
                 hexString.insert(0, '0');
             }
             return hexString.toString();
+    }
+    
+    //to delete user
+    public static String data_del(String Name, String Password, int del_status){
+        String flag = "false";
+        Connection connection = dbconnection.dbconnection();
+        try{
+            Statement statement = connection.createStatement();
+            ResultSet count = statement.executeQuery("Select count(*) from users where email like('"+Name+"') and password like('"+Password+"')");
+            count.next();
+            int count_row = count.getInt(1);
+            System.out.println(count_row);
+            if(count_row == 1)
+            {
+                ResultSet value = statement.executeQuery("Select * from users where email like('"+Name+"') and password like('"+Password+"')");
+                value.next();
+                int u_id = value.getInt("id");
+                String name = value.getString("name");
+                int login_flag = value.getInt("loginflag");
+                
+                if(login_flag == 0){
+                    flag = "true";
+                    System.out.println("User Found " +Name);
+                    if(del_status == 1){
+                        statement.executeUpdate("Delete from users where id like ('"+u_id+"')");
+                    }
+                }
+            }
+        }catch (SQLException ex) {
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            connection.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return flag;
+    }
+    
+    public static String user_logout(String Name){
+        String logout_flag = "false";
+            Connection connection = dbconnection.dbconnection();
+        try{
+            Statement statement = connection.createStatement();
+            ResultSet count = statement.executeQuery("Select count(*) from users where email like('"+Name+"')");
+            count.next();
+            int count_row = count.getInt(1);
+            System.out.println("Row Count Found "+count_row);
+            if(count_row == 1)
+            {
+                ResultSet value = statement.executeQuery("Select * from users where email like('"+Name+"')");
+                value.next();
+                int u_id = value.getInt("id");
+                int login_flag = value.getInt("loginflag");
+                
+                if(login_flag == 1){
+                    logout_flag = "true";
+                    System.out.println("User Found and Logging Out " +Name);
+                    statement.executeUpdate("update users SET loginflag = 0, login_datetime = ' ' where id like ('"+u_id+"') ");
+                }
+                else{
+                    logout_flag = "already logged in";
+                    System.out.println("User Already Logged In " +Name);
+                }                
+            }
+        }catch (SQLException ex) {
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            connection.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return logout_flag;
     }
     
     public static void main(String[] args) {

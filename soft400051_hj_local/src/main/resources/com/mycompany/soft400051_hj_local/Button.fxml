@@ -59,5 +59,27 @@
                </children></AnchorPane>
       </content>
     </Tab>
+    <Tab text="Delete">
+      <content>
+        <AnchorPane focusTraversable="true" minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="366.0" fitWidth="600.0" layoutX="4.0" layoutY="1.0" pickOnBounds="true">
+                     <image>
+                        <Image url="file:C:\\Users\\harsh\\Documents\\NetBeansProjects\\resource\\bg_main_login.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label focusTraversable="false" layoutX="230.0" layoutY="32.0" text="Welcome to HJ!!">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="171.0" layoutY="83.0" text="Username" />
+                  <Label layoutX="173.0" layoutY="132.0" text="Password" />
+                  <TextField id="del_username" fx:id="del_username" layoutX="292.0" layoutY="79.0" promptText="Enter Username" />
+                  <PasswordField id="del_password" fx:id="del_password" layoutX="292.0" layoutY="128.0" promptText="Enter Password" />
+                  <Button fx:id="delete" layoutX="292.0" layoutY="183.0" onAction="#deleteuser" mnemonicParsing="false" text="Delete" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
   </tabs>
 </TabPane>

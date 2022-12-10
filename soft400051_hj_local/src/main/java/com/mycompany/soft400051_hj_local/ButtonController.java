@@ -17,10 +17,10 @@ import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
-import javafx.scene.control.Alert.AlertType;
 import static com.mycompany.soft400051_hj_local.App.scene_login;
 import static java.lang.System.exit;
-import javafx.scene.control.Alert;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * FXML Controller class
@@ -36,20 +36,26 @@ public class ButtonController implements Initializable {
     protected static Scene scene2;
     
     @FXML
-    Button Login,Register,login,register;
+    Button Login,Register;
     //private Object loader;
     
     //for Login details
     @FXML
-    public TextField log_username;
+    protected TextField log_username;
     @FXML
-    public PasswordField log_password;
+    protected PasswordField log_password;
     
     //for Register details
     @FXML
-    public TextField reg_username,reg_email;
+    protected TextField reg_username,reg_email;
     @FXML
-    public PasswordField reg_password;
+    protected PasswordField reg_password;
+    
+    //for Delete details
+    @FXML
+    protected TextField del_username;
+    @FXML
+    protected PasswordField del_password;
     
    @FXML 
    public void handleregister() throws Exception
@@ -66,8 +72,7 @@ public class ButtonController implements Initializable {
        System.out.println("Login Page Loading...");
        Parent root = FXMLLoader.load(getClass().getResource("test.fxml"));
        stage = (Stage) Login.getScene().getWindow();
-       stage.setScene(new Scene(root));
-       
+       stage.setScene(new Scene(root));       
    }
     
     @FXML
@@ -144,148 +149,55 @@ public class ButtonController implements Initializable {
     }    
     
     @FXML
-    public void login() throws Exception
+    public void login(ActionEvent event) 
     {
+        Node node = (Node)event.getSource();
+        System.out.println("Node ..... " +node);
         String Name = log_username.getText();
         String Password = log_password.getText();
-        String regexemail1 = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
-        String regexemail2 = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*" + "@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
-        String regexpassword = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,20}$";
-        int loginflag =0;
-        System.out.println("User Input Empty check for login " +Name+ " "+Password);
-        if((Name.isEmpty() || Name.contains(" ")) || Password.isEmpty()){
-            Alert a = new Alert(AlertType.ERROR);
-            String fieldempty = ((Name.isEmpty() && !Name.contains(" ")) == Password.isEmpty())? "All Field are Empty":((Name.isEmpty() || Name.contains(" "))== true) ? "Name is Empty or Contains Space":"Password is Empty";
-            a.setContentText(fieldempty);
-            a.show();    
-            loginflag =1;
+        try{
+            LoginController login_detail = new LoginController();
+            login_detail.login_details_check(Name,Password,node);
         }
-        else{
-            System.out.println("Field is Not Empty");
+        catch(Exception e){
+            System.out.println("Exception In login_details_check function in Login Controller");
         }
-        if(loginflag == 0){
-            if(Name.matches(regexemail1) && Name.matches(regexemail2)){
-                if(Password.matches(regexpassword))
-                {
-                    //byte[] salt = dbconnection.getSalt();
-                    //String password_hashed = dbconnection.getSecurePassword(Password, salt);
-                    String password_hashed = dbconnection.toHexString(dbconnection.getSHA(Password));
-                    System.out.println("Password Encrpted"+ password_hashed);
-                    String user_log_status = dbconnection.data_login(Name, password_hashed);
-                    if(user_log_status.contains("true")){
-                        System.out.println("User Logged In Successfully " +Name);
-                        //System.out.println("User Input " +Name+ " "+Password);    
-                        Alert a = new Alert(AlertType.INFORMATION);
-                        a.setContentText(Name+ " Logged In");
-                        a.show();
-                    }
-                    else if(user_log_status.contains("already logged in")){
-                        System.out.println("User Already Logged in  " +Name);
-                        //System.out.println("User Input " +Name+ " "+Password);    
-                        Alert a = new Alert(AlertType.INFORMATION);
-                        a.setContentText(Name+ " is already Logged In");
-                        a.show();
-                    }
-                    else{
-                        System.out.println("No Such User Found" +Name);
-                        //System.out.println("User Input " +Name+ " "+Password);    
-                        Alert a = new Alert(AlertType.INFORMATION);
-                        a.setContentText("No Details Found");
-                        a.show();
-                    }
-                }
-                else{
-                    System.out.println("Password Format Invalid");
-                    Alert a = new Alert(AlertType.ERROR);
-                    a.setContentText("Password Invalid.\n"
-                            + "It contains at least 8 characters and at most 20 characters.\n" 
-                            + "It contains at least one digit.\n" 
-                            + "It contains at least one upper case alphabet.\n" 
-                            + "It contains at least one lower case alphabet.\n" 
-                            + "It contains at least one special character which includes !@#$%&*()-+=^.\n" 
-                            + "It doesn’t contain any white space." );
-                    a.show();
-                }
-            }
-            else{
-                System.out.println("EmailID Format Invalid");
-                Alert a = new Alert(AlertType.ERROR);
-                a.setContentText("Invalid Email Format");
-                a.show();
-            }
-        }   
     }
     
     @FXML
-    public void register() throws Exception
+    public void register()
     {
         String Name = reg_username.getText();
         String Email = reg_email.getText();
         String Password = reg_password.getText();
-        String regexemail1 = "^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
-        String regexemail2 = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*" + "@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
-        String regexpassword = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,20}$";
-        int flagcheck = 0;
-        if((Name.isEmpty() || Name.contains(" ")) || Email.isEmpty() || Password.isEmpty()){
-            Alert a = new Alert(AlertType.ERROR);
-            String fieldempty = (Name.isEmpty() == Email.isEmpty()) && (Name.isEmpty() == Password.isEmpty())? "All Field are Empty":(Email.isEmpty() == Password.isEmpty() && Name.isEmpty() == false) ? "EMail and Password Field is Empty":(Name.isEmpty()== true) ? "Name is Empty":(Email.isEmpty() == true)? "Email is Empty" : (Password.isEmpty()== true) ? "Password is Empty":"Validation Complete";
-            a.setContentText(fieldempty);
-            a.show();
-            flagcheck = 1;
+        
+        try{
+            LoginController register_detail = new LoginController();
+            register_detail.register_details(Name,Password,Email);
+            reg_username.clear();
+            reg_email.clear();
+            reg_password.clear();
         }
-        else{
-            System.out.println("Field is Not Empty");
+        catch(Exception e){
+            System.out.println("Exception In register_details function in Login Controller");
+            Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, e);
         }
-        //flag to check if above loop has failed do not process next loop
-        if(flagcheck == 0){
-            if(Email.matches(regexemail1) && Email.matches(regexemail2)){
-                if(Password.matches(regexpassword)){
-                    System.out.println("User Input " +Name+" : "+Password+ " : "+Email);
-                    boolean flag_data_exist = dbconnection.data_exist(Name, Email);
-                    if(flag_data_exist == true){
-                        Alert a = new Alert(AlertType.INFORMATION);
-                        a.setContentText("User "+Name+ " : "+Email+ "Already Exist!! \n" + "Go Back to Login page");
-                        a.show();
-                    }
-                    else{
-                        //byte[] salt = dbconnection.getSalt();
-                        //String password_hashed = dbconnection.getSecurePassword(Password, salt);
-                        String password_hashed = dbconnection.toHexString(dbconnection.getSHA(Password));
-                        System.out.println("Password Hashed - Register" +password_hashed);
-                        boolean flag = dbconnection.data_insert(Name,password_hashed,Email);
-                        if(flag == true){
-                            System.out.println("User Registered Successfully " +Name+" : "+Email);
-                            Alert a = new Alert(AlertType.INFORMATION);
-                            a.setContentText("User "+Name+ " : "+Email+ "Registration Successfully \n" + "Go Back to Login page");
-                            a.show();
-                        }
-                        else{
-                            Alert a = new Alert(AlertType.INFORMATION);
-                            a.setContentText("User "+Name+ " : "+Email+ "Registration UnSuccessfully \n" + " Please Contact Support");
-                            a.show();
-                        }
-                    }
-                }
-                else{
-                    System.out.println("Password Format Invalid");
-                    Alert a = new Alert(AlertType.ERROR);
-                    a.setContentText("Password Invalid.\n"
-                            + "It contains at least 8 characters and at most 20 characters.\n" 
-                            + "It contains at least one digit.\n" 
-                            + "It contains at least one upper case alphabet.\n" 
-                            + "It contains at least one lower case alphabet.\n" 
-                            + "It contains at least one special character which includes !@#$%&*()-+=^.\n" 
-                            + "It doesn’t contain any white space." );
-                    a.show();
-                }
-            }
-            else{
-                System.out.println("EmailID Format Invalid");
-                Alert a = new Alert(AlertType.ERROR);
-                a.setContentText("Invalid Email Format");
-                a.show();
-            }
+    }
+    
+    @FXML
+    public void deleteuser(){
+        String Name = del_username.getText();
+        String Password = del_password.getText();
+        try{
+            LoginController delete_detail = new LoginController();
+            delete_detail.delete_details(Name,Password);
+            del_username.clear();
+            del_password.clear();
+
         }
+        catch(Exception e){
+            System.out.println("Exception In delete_detail function in Login Controller");
+        }               
     }
         
 }
