@@ -8,7 +8,8 @@ import javafx.stage.Stage;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
-
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 /**
  * JavaFX App
  */
@@ -28,7 +29,16 @@ public class App extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-        
+        //Logger logger = LoggerFactory.getLogger("sample.txt");
+        //logger.info("application start");
+        //boolean append = true;
+        //FileHandler handler = new FileHandler("defaultlog.log",append);
+        //Logger logger = Logger.getLogger("com.mycompany.soft400051_hj_local");
+        //SimpleFormatter formatter = new SimpleFormatter();
+        //handler.setFormatter(formatter);
+        //logger.addHandler(handler);
+        Logger_Controller.log_info("Application Resource Loading...");
+        //log.info("Application Start");
         Date date = Calendar.getInstance().getTime();          
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss");  
         String strDate = dateFormat.format(date);  
@@ -40,5 +50,7 @@ public class App extends Application {
         stage.setResizable(false);
         stage.setScene(scene_login);
         stage.show();
+        Logger_Controller.log_info("Application Started");
+        //log.info("Application Started");
     }
 }

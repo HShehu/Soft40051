@@ -151,13 +151,20 @@ public class ButtonController implements Initializable {
     @FXML
     public void login(ActionEvent event) 
     {
+        //Logger log = Logger_Controller.log_createfile();
+        //log.info("Logging Button Clicked");
+        Logger_Controller.log_info("Logging Button Clicked");
         Node node = (Node)event.getSource();
         System.out.println("Node ..... " +node);
         String Name = log_username.getText();
         String Password = log_password.getText();
         try{
+            Logger_Controller.log_info("Logging Function Execution to Start");
+            //log.info("Logging Function Execution to Start");
             LoginController login_detail = new LoginController();
             login_detail.login_details_check(Name,Password,node);
+            Logger_Controller.log_info("Logging Function Execution Success");
+            //log.info("Logging Function Execution Success");
         }
         catch(Exception e){
             System.out.println("Exception In login_details_check function in Login Controller");

@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-11T21:07:56</date>
+  <millis>1670773076138</millis>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-11T21:08:01</date>
+  <millis>1670773081553</millis>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Application Started</message>
+</record>
+<record>
+  <date>2022-12-11T21:08:01</date>
+  <millis>1670773081553</millis>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Application Started</message>
+</record>
+<record>
+  <date>2022-12-11T21:08:19</date>
+  <millis>1670773099601</millis>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Logging Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-11T21:08:19</date>
+  <millis>1670773099601</millis>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Logging Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-11T21:08:19</date>
+  <millis>1670773099601</millis>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Logging Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-11T21:08:19</date>
+  <millis>1670773099607</millis>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Logging Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-11T21:08:19</date>
+  <millis>1670773099607</millis>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Logging Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-11T21:08:19</date>
+  <millis>1670773099607</millis>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Logging Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-11T21:08:19</date>
+  <millis>1670773099607</millis>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Logging Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-11T21:08:24</date>
+  <millis>1670773104154</millis>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Logging Function Execution Success</message>
+</record>
+<record>
+  <date>2022-12-11T21:08:24</date>
+  <millis>1670773104154</millis>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Logging Function Execution Success</message>
+</record>
+<record>
+  <date>2022-12-11T21:08:24</date>
+  <millis>1670773104154</millis>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Logging Function Execution Success</message>
+</record>
+<record>
+  <date>2022-12-11T21:08:24</date>
+  <millis>1670773104154</millis>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Logging Function Execution Success</message>
+</record>
+<record>
+  <date>2022-12-11T21:08:24</date>
+  <millis>1670773104154</millis>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Logging Function Execution Success</message>
+</record>
+</log>
