@@ -13,9 +13,17 @@ import java.security.SecureRandom;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 
+/**
+* @brief Creating a class dbconnection to control Database Connection and Query
+* @brief All Queries related to User and File are mentioned in this file
+* @brief Maintaing Flags and String to Control Flow 
+*/
+
 public class dbconnection {
-        protected static String url_connection = null;
-        protected static String table_name = null;
+    
+    protected static String url_connection = null;
+    protected static String table_name = null;
+    
     public static Connection dbconnection(){
         System.out.println("Intializing Db connection parameter");
         Connection connection = null;
@@ -35,19 +43,23 @@ public class dbconnection {
         Boolean flag = false;
         Connection connection = dbconnection.dbconnection();
         try{
+            Logger_Controller.log_info("Function data_insert Started");
             Statement statement = connection.createStatement();
             statement.executeUpdate("create table if not exists users (id integer primary key autoincrement, name string, password string,email string, loginflag integer DEFAULT 0, login_datetime text)");
             System.out.println(password_hashed);
             statement.executeUpdate("insert into users(name, password,email) VALUES('"+Name+"','"+password_hashed+"','"+Email+"')");
             //System.out.println("User Registered Successfully "+Name+" : "+Email);
             flag = true;
+            Logger_Controller.log_info("Insert Query Execution Success for Registration");
         }   catch (SQLException ex) {
                 Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+                Logger_Controller.log_info("SQLException for Registration Query");
             }
         try {
             connection.close();
         } catch (SQLException ex) {
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+            Logger_Controller.log_info("Connection Closing Error for Registration");
         }
         return flag;
     }
@@ -57,6 +69,7 @@ public class dbconnection {
         String flag = "false";
         Connection connection = dbconnection.dbconnection();
         try{
+            Logger_Controller.log_info("Function data_login Started");
             Statement statement = connection.createStatement();
             ResultSet count = statement.executeQuery("Select count(*) from users where email like('"+Name+"') and password like('"+Password+"')");
             count.next();
@@ -74,19 +87,23 @@ public class dbconnection {
                     flag = "true";
                     System.out.println("User Found " +Name);
                     statement.executeUpdate("update users SET loginflag = 1, login_datetime = datetime('now', 'localtime') where id like ('"+u_id+"') ");
+                    Logger_Controller.log_info("User Details Found - Flag set Timestamp Set "+Name);
                 }
                 else{
                     flag = "already logged in";
                     System.out.println("User Already Logged In " +Name);
+                    Logger_Controller.log_info("User Already Logged in DB Checked "+Name);
                 }                
             }
         }catch (SQLException ex) {
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+            Logger_Controller.log_info("SQLException from Login Query");
         }
         try {
             connection.close();
         } catch (SQLException ex) {
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+            Logger_Controller.log_info("Connection Closing error for Login");
         }
         return flag;
     }
@@ -96,6 +113,7 @@ public class dbconnection {
         Boolean flag = false;
         Connection connection = dbconnection.dbconnection();
         try{
+            Logger_Controller.log_info("Function data_exist Started");
             Statement statement = connection.createStatement();
             ResultSet count;
             int count_row = 0;
@@ -107,20 +125,24 @@ public class dbconnection {
             }
             catch(SQLException e){
                 System.out.println("User Table does not exists since its 1st  registration");
+                Logger_Controller.log_info("User table Does not Exist since its the 1st Registrsation");
             }
             
             if(count_row>0)
             {
                 flag = true;
                 System.out.println("User Already Exist" +Email);
+                Logger_Controller.log_info("User Already Exist from DB - data_exist");
             }
         }catch (SQLException ex) {
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+            Logger_Controller.log_info("SQLException Error for data_exist");
         }
         try {
             connection.close();
         } catch (SQLException ex) {
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+            Logger_Controller.log_info("Connection Close Error for data_exist");
         }
         return flag;
     }
@@ -172,6 +194,7 @@ public class dbconnection {
         String flag = "false";
         Connection connection = dbconnection.dbconnection();
         try{
+            Logger_Controller.log_info("Function data_del Started");
             Statement statement = connection.createStatement();
             ResultSet count = statement.executeQuery("Select count(*) from users where email like('"+Name+"') and password like('"+Password+"')");
             count.next();
@@ -188,26 +211,32 @@ public class dbconnection {
                 if(login_flag == 0){
                     flag = "true";
                     System.out.println("User Found " +Name);
+                    Logger_Controller.log_info("User Account Found - For Delete");
                     if(del_status == 1){
                         statement.executeUpdate("Delete from users where id like ('"+u_id+"')");
+                        Logger_Controller.log_info("User Account Deleted "+Name);
                     }
                 }
             }
         }catch (SQLException ex) {
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+            Logger_Controller.log_info("SQLException Error for Accout Deletion");
         }
         try {
             connection.close();
         } catch (SQLException ex) {
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+            Logger_Controller.log_info("Connection Close Error for Account Deletion");
         }
         return flag;
     }
     
+    //to Logout
     public static String user_logout(String Name){
         String logout_flag = "false";
             Connection connection = dbconnection.dbconnection();
         try{
+            Logger_Controller.log_info("Function user_logout Started");
             Statement statement = connection.createStatement();
             ResultSet count = statement.executeQuery("Select count(*) from users where email like('"+Name+"')");
             count.next();
@@ -224,52 +253,28 @@ public class dbconnection {
                     logout_flag = "true";
                     System.out.println("User Found and Logging Out " +Name);
                     statement.executeUpdate("update users SET loginflag = 0, login_datetime = ' ' where id like ('"+u_id+"') ");
+                    Logger_Controller.log_info("User Found and Unset Login and Timestamp");
                 }
                 else{
                     logout_flag = "already logged in";
                     System.out.println("User Already Logged In " +Name);
+                    Logger_Controller.log_info("User ALready Logged In - Logout Checking");
                 }                
             }
         }catch (SQLException ex) {
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+            Logger_Controller.log_info("SQLException Error for Logout ");
         }
         try {
             connection.close();
         } catch (SQLException ex) {
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+            Logger_Controller.log_info("Connection Closing Error for Logout");
         }
         return logout_flag;
     }
     
     public static void main(String[] args) {
-                
-        
-        //try {
-            
-            //Class.forName("org.sqlite.JDBC");
-            //DriverManager.registerDriver(new org.sqlite.JDBC());
-            // db parameters
-            //String url = "jdbc:sqlite:C:/sqlite/db/hj.db";
-            //String url = "jdbc:sqlite:students.db";
-            // create a connection to the database
-            
-            //String user = "Test2";
-            //String password = "testing";
-            
-            //Statement statement = connection.createStatement();
-            //statement.executeUpdate("drop table if exists " + tableName);
-            //statement.executeUpdate("create table if not exists " + tableName + "(id integer primary key autoincrement, name string, password string,email string, loginflag integer)");
-//            statement.executeUpdate("insert into users(name, password) VALUES('"+user+"','"+password+"')");
-//            System.out.println("Inserted Success Logged "+user);
-//            ResultSet rs = statement.executeQuery("Select * from users");
-//             while (rs.next()) {
-//                System.out.println(rs.getInt("id") +  "\t" + 
-//                                   rs.getString("name") + "\t" +
-//                                   rs.getString("password"));
-//            }
-            
-//        } catch (SQLException e) {
-//            System.out.println(e.getMessage());
-//        }
+                        
     }
 }

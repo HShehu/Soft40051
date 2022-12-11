@@ -9,16 +9,11 @@ import java.util.ResourceBundle;
 import javafx.fxml.Initializable;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import javafx.scene.control.TextField;
 import javafx.scene.control.PasswordField;
-import static com.mycompany.soft400051_hj_local.App.scene_login;
-import static java.lang.System.exit;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -27,17 +22,17 @@ import java.util.logging.Logger;
  *
  * @author harsh
  */
+
+/**
+* @brief Creating a class ButtonController to control clicks on button
+* @brief All function are performed in class LoginController
+* @brief Loading Fields for Login, Register, Delete 
+*/
+
 public class ButtonController implements Initializable {
 
-    /**
-     * Initializes the controller class.
-     */
     protected static Stage stage;
     protected static Scene scene2;
-    
-    @FXML
-    Button Login,Register;
-    //private Object loader;
     
     //for Login details
     @FXML
@@ -56,155 +51,75 @@ public class ButtonController implements Initializable {
     protected TextField del_username;
     @FXML
     protected PasswordField del_password;
-    
-   @FXML 
-   public void handleregister() throws Exception
-   {
-       System.out.println("Regsiter Page Loading...");
-       Parent root = FXMLLoader.load(getClass().getResource("register.fxml"));
-       stage = (Stage) Register.getScene().getWindow();
-       stage.setScene(new Scene(root));
-   }
-   
-   @FXML
-   public void handlelogin() throws Exception
-   {
-       System.out.println("Login Page Loading...");
-       Parent root = FXMLLoader.load(getClass().getResource("test.fxml"));
-       stage = (Stage) Login.getScene().getWindow();
-       stage.setScene(new Scene(root));       
-   }
-    
-    @FXML
-    private void handleButtonAction (ActionEvent event) throws Exception {
-        Stage stage;
-        Parent root;
-        String title = "Header";
-        FXMLLoader loader = new FXMLLoader();
         
-        if(event.getSource()==Login){
-            System.out.println("--------Inside IF Login---------");
-            stage = (Stage) Login.getScene().getWindow();   
-            System.out.println("-------Inside IF Try Login--------");
-            //System.out.println("--------------------- "+loader.getLocation());
-            //System.out.println("--------------------- "+loader.getClass());
-            //System.out.println("--------------------- "+loader.getClassLoader());
-            root = FXMLLoader.load(getClass().getResource("./test.fxml"));
-            //loader.setLocation(ButtonController.class.getResource("./test.fxml"));
-            title = "Login";
-            //root = FXMLLoader.load(getClass().getResource("test.fxml"));
-            //root = loader.load();
-        }
-        else{
-            System.out.println(event.getSource());
-            System.out.println(event.getTarget());
-            System.out.println(event.getEventType());
-            System.out.println(event.getClass());
-            System.out.println("-------Inside ELSE Register--------");
-            stage = (Stage) Register.getScene().getWindow();
-            System.out.println("-------Inside ELSE Try Register--------");
-            //System.out.println("--------------------- "+loader.getLocation());
-            //System.out.println("--------------------- "+loader.getClass());
-            //System.out.println("--------------------- "+loader.getClassLoader());
-            root = FXMLLoader.load(getClass().getResource("./register.fxml"));
-            //loader.setLocation(ButtonController.class.getResource("./register.fxml"));
-            title = "Register";
-            //root = FXMLLoader.load(getClass().getClassLoader().getResource("./register.fxml"));
-            //root = loader.load();
-        }
-        //root = loader.load();
-        Scene scene = new Scene(root);
-        stage.setTitle(title);
-        stage.setScene(scene);
-        stage.show();
-    }
-    
-    @FXML
-    private void nextScreen(ActionEvent event) throws Exception
-    {
-        System.out.println("Next Page Loading...");
-        Node node = (Node)event.getSource();
-        System.out.println("Node ..... " +node);
-        stage = (Stage) node.getScene().getWindow();
-        
-        Parent root = FXMLLoader.load(getClass().getResource("./register.fxml"));
-        scene2 = new Scene(root);
-        stage.setTitle("Register");
-        stage.setScene(scene2);
-        //stage.show();
-    }
-    
-    @FXML
-    private void onclickgoback(ActionEvent event) throws Exception
-    {
-        System.out.println("Going Back to Login Page...");
-        //window.setTitle("Login");
-        stage.setScene(scene_login);
-        //window.show();
-    }
-    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+    // TODO
     }    
     
+    //ON Click Button - Login
     @FXML
     public void login(ActionEvent event) 
     {
-        //Logger log = Logger_Controller.log_createfile();
-        //log.info("Logging Button Clicked");
-        Logger_Controller.log_info("Logging Button Clicked");
+        Logger_Controller.log_info("Login Button Clicked");
         Node node = (Node)event.getSource();
-        System.out.println("Node ..... " +node);
+        //System.out.println("Node ..... " +node);
         String Name = log_username.getText();
         String Password = log_password.getText();
         try{
-            Logger_Controller.log_info("Logging Function Execution to Start");
-            //log.info("Logging Function Execution to Start");
+            Logger_Controller.log_info("Login Function Execution to Start");
             LoginController login_detail = new LoginController();
             login_detail.login_details_check(Name,Password,node);
-            Logger_Controller.log_info("Logging Function Execution Success");
-            //log.info("Logging Function Execution Success");
+            Logger_Controller.log_info("Login Function Execution Success");
         }
         catch(Exception e){
-            System.out.println("Exception In login_details_check function in Login Controller");
+            Logger_Controller.log_info("Exception in Login_Details_check function in Login Controller");
+            System.out.println("Exception In login_details_check function in LoginController");
         }
     }
     
+    //ON Click Button - Register
     @FXML
     public void register()
     {
+        Logger_Controller.log_info("Register Button Clicked");
         String Name = reg_username.getText();
         String Email = reg_email.getText();
         String Password = reg_password.getText();
         
         try{
+            Logger_Controller.log_info("Register Function Execution to Start");
             LoginController register_detail = new LoginController();
             register_detail.register_details(Name,Password,Email);
+            Logger_Controller.log_info("Register Function Execution Success");
             reg_username.clear();
             reg_email.clear();
             reg_password.clear();
         }
         catch(Exception e){
-            System.out.println("Exception In register_details function in Login Controller");
+            Logger_Controller.log_info("Exeception in register_details function in LoginController");
+            System.out.println("Exception In register_details function in LoginController");
             Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, e);
         }
     }
     
+    //ON Click Button - Delete
     @FXML
     public void deleteuser(){
+        Logger_Controller.log_info("Delete Button Clicked");
         String Name = del_username.getText();
         String Password = del_password.getText();
         try{
+            Logger_Controller.log_info("Delete Function Execution to Start");
             LoginController delete_detail = new LoginController();
             delete_detail.delete_details(Name,Password);
+            Logger_Controller.log_info("Delete Function Execution Success");
             del_username.clear();
             del_password.clear();
-
         }
         catch(Exception e){
-            System.out.println("Exception In delete_detail function in Login Controller");
+            Logger_Controller.log_info("Exception in delete_detail function in LoginController");
+            System.out.println("Exception In delete_detail function in LoginController");
         }               
     }
-        
 }
