@@ -37,14 +37,16 @@ public static void main(String[] args) {
 //        
 //        String fileName = "UserFile";
 //        FileMethods.CreateFile(fileContent, fileName);      
-//        File tmp = new File("./UserFile.txt");
+        File tmp = new File("./UserFile.txt");
 //        FileMethods.ChunkFile(tmp);
-          List<File> chunks = Arrays.asList(
-               new File("./","3d6abda3-9168-4611-ae8f-53876ede2e3c.txt"),
-               new File("./","0d4641ec-708e-440e-95f8-d967d345ac4d.txt"),
-               new File("./","1340432d-bb31-4f63-b551-d61996c28122.txt"),
-               new File("./","4c6b856a-ef0b-4378-9aba-0de54a475b12.txt")
-            );
-          FileMethods.AssembleFile(chunks);
-}
+//          List<File> chunks = Arrays.asList(
+//               new File("./","3d6abda3-9168-4611-ae8f-53876ede2e3c.txt"),
+//               new File("./","0d4641ec-708e-440e-95f8-d967d345ac4d.txt"),
+//               new File("./","1340432d-bb31-4f63-b551-d61996c28122.txt"),
+//               new File("./","4c6b856a-ef0b-4378-9aba-0de54a475b12.txt")
+//            );
+//          FileMethods.AssembleFile(chunks);
+            FileMethods.SendFile(tmp);
+            
+    }
 }

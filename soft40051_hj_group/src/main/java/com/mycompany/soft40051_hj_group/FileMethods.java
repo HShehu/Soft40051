@@ -4,10 +4,14 @@
  */
 package com.mycompany.soft40051_hj_group;
 
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.Session;
+import com.jcraft.jsch.SftpException;
 import java.io.IOException;
 import java.io.*;
 import java.nio.file.Files;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
@@ -121,11 +125,27 @@ public class FileMethods {
         
     }
     
-    public static void SendFile(List<File> chunks)
+    public static void SendFile(File chunk)
     {
-        try(Jsch sshConn = new Jsch();)
+        try{
+            JSch jsch = new JSch();
+            jsch.setKnownHosts("~/.ssh/known_hosts");
+            Session jschSession = jsch.getSession("root","172.18.0.3");
+            jschSession.setPassword("soft40051_pass");
+            jschSession.connect(100);
+            ChannelSftp sftp = (ChannelSftp) jschSession.openChannel("sftp");
+            sftp.connect(100);
+            
+            //
+            sftp.mkdir("/test");
+            sftp.put(chunk.getPath(),"test/hi.txt");
+            sftp.exit();
+            jschSession.disconnect();
+        }
+        catch(JSchException | SftpException err)
         {
             
         }
+        
     }
 }
