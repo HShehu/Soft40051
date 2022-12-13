@@ -120,4 +120,12 @@ public class FileMethods {
         System.out.println(contents);
         
     }
+    
+    public static void SendFile(List<File> chunks)
+    {
+        try(Jsch sshConn = new Jsch();)
+        {
+            
+        }
+    }
 }
