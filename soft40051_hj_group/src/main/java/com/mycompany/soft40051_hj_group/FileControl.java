@@ -4,12 +4,18 @@
  */
 package com.mycompany.soft40051_hj_group;
 
+import com.jcraft.jsch.ChannelSftp;
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.JSchException;
+import com.jcraft.jsch.Session;
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Scanner;
 import java.util.UUID;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,8 +32,8 @@ public class FileControl {
 //- copy files
     
 public static void main(String[] args) {
-               
-//        String fileContent = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
+
+        //        String fileContent = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. "
 //                + "Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, "
 //                + "when an unknown printer took a galley of type and scrambled it to make a type specimen book. "
 //                + "It has survived not only five centuries, but also the leap into electronic typesetting, "
@@ -36,8 +42,8 @@ public static void main(String[] args) {
 //                + "software like Aldus PageMaker including versions of Lorem Ipsum.";
 //        
 //        String fileName = "UserFile";
-//        FileMethods.CreateFile(fileContent, fileName);      
-        File tmp = new File("./UserFile.txt");
+//        FileMethods.CreateFile(fileContent, fileName);
+    File tmp = new File("./UserFile.txt");
 //        FileMethods.ChunkFile(tmp);
 //          List<File> chunks = Arrays.asList(
 //               new File("./","3d6abda3-9168-4611-ae8f-53876ede2e3c.txt"),
@@ -47,6 +53,6 @@ public static void main(String[] args) {
 //            );
 //          FileMethods.AssembleFile(chunks);
             FileMethods.SendFile(tmp);
-            
+           
     }
 }

@@ -127,25 +127,27 @@ public class FileMethods {
     
     public static void SendFile(File chunk)
     {
-        try{
+        try {
             JSch jsch = new JSch();
             jsch.setKnownHosts("~/.ssh/known_hosts");
+            jsch.addIdentity("~/.ssh/id_rsa");
             Session jschSession = jsch.getSession("root","172.18.0.3");
-            jschSession.setPassword("soft40051_pass");
-            jschSession.connect(100);
-            ChannelSftp sftp = (ChannelSftp) jschSession.openChannel("sftp");
-            sftp.connect(100);
+            jschSession.connect();
             
-            //
-            sftp.mkdir("/test");
+            ChannelSftp sftp = (ChannelSftp)jschSession.openChannel("sftp");
+            sftp.connect();
+            
             sftp.put(chunk.getPath(),"test/hi.txt");
             sftp.exit();
-            jschSession.disconnect();
-        }
-        catch(JSchException | SftpException err)
-        {
             
+            System.out.println("Working");
+            
+            sftp.disconnect();
+            jschSession.disconnect();
+        } catch (JSchException | SftpException ex) {
+            Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-    }
+    } 
 }
+
+        
