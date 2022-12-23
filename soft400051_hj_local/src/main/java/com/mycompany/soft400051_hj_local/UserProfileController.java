@@ -123,6 +123,11 @@ public class UserProfileController implements FileMethods{
             }
             counter++;
         }
+        
+        chunks.forEach((chunk)->{
+        chunk.delete();
+        });
+        
     } 
     public void UploadFile(){
         FileChooser selectFile = new FileChooser();
