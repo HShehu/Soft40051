@@ -6,13 +6,16 @@ package com.mycompany.soft400051_hj_local;
 
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
+import com.jcraft.jsch.SftpException;
 import com.mycompany.soft400051_hj_local.model.FileMethods;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 import java.util.logging.Level;
@@ -82,6 +85,8 @@ public class UserProfileController implements FileMethods{
               System.out.println(chunk.getPath());
                 
             });
+            
+            SendFile(chunks);
         }
         catch(IOException ioerr){
             
@@ -90,29 +95,33 @@ public class UserProfileController implements FileMethods{
     
       public static void SendFile(List<File> chunks)
     {
+        List<String> containers = Arrays.asList("172.18.0.3","172.18.0.4","172.18.0.5","172.18.0.6");
+        Collections.shuffle(containers);
+        int counter = 0;
         for(File chunk:chunks)
         {
-            
-        }
-        try {
-            JSch jsch = new JSch();
-            jsch.setKnownHosts("~/.ssh/known_hosts");
-            jsch.addIdentity("~/.ssh/id_rsa");
-            Session jschSession = jsch.getSession("root","172.18.0.3");
-            jschSession.connect();
-            
-            ChannelSftp sftp = (ChannelSftp)jschSession.openChannel("sftp");
-            sftp.connect();
-            
-            sftp.put(chunk.getPath(),"test/hi.txt");
-            sftp.exit();
-            
-            System.out.println("Working");
-            
-            sftp.disconnect();
-            jschSession.disconnect();
-        } catch (JSchException | SftpException ex) {
-            Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, null, ex);
+            try {
+                JSch jsch = new JSch();
+                jsch.setKnownHosts("~/.ssh/known_hosts");
+                jsch.addIdentity("~/.ssh/id_rsa");
+                String host = containers.get(counter);
+                Session jschSession = jsch.getSession("root",host);
+                jschSession.connect();
+
+                ChannelSftp sftp = (ChannelSftp)jschSession.openChannel("sftp");
+                sftp.connect();
+
+                sftp.put(chunk.getPath(),chunk.getName());
+                sftp.exit();
+
+                System.out.println("Working");
+
+                sftp.disconnect();
+                jschSession.disconnect();
+            } catch (JSchException | SftpException ex) {
+                Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            counter++;
         }
     } 
     public void UploadFile(){
