@@ -41,7 +41,7 @@ public class dbconnection {
         return connection;
     }
     
-    public static boolean filesInsert(String fileName,String owner,List<File> chunks)
+    public static boolean filesInsert(String fileName,String owner,List<String> chunks)
     {
         Boolean flag = false;
         Connection connection = dbconnection.dbconnection();
@@ -69,31 +69,27 @@ public class dbconnection {
                                     CHUNK3,
                                     CHUNK4
                                  )VALUES(?,?,?,?,?,?)"""; 
+        String selectOwnerId = """
+                               SELECT id
+                               FROM users
+                               WHERE email = ?
+                               """;
                               
         
         try{
             Logger_Controller.log_info("Function filesInsert Started");
             Statement statement = connection.createStatement();
-//            PreparedStatement createFile = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Files(\n" +
-//"                                    FILENAME string NOT NULL,\n" +
-//"                                    FILEPATH string DEFAULT './',\n" +
-//"                                    OWNER string NOT NULL,\n" +
-//"                                    CHUNK1 string NOT NULL,\n" +
-//"                                    CHUNK2 string NOT NULL,\n" +
-//"                                    CHUNK3 string NOT NULL,\n" +
-//"                                    CHUNK4 string NOT NULL,\n" +
-//"                                    SHAREDWITH string,\n" +
-//"                                    CONSTRAINT FILEID PRIMARY KEY (FILENAME,FILEPATH,OWNER),\n" +
-//"                                    FOREIGN KEY (OWNER) REFERENCES users(id),\n" +
-//"                                    FOREIGN KEY (SHAREDWITH) REFERENCES users(id)");
+            statement.executeUpdate(createFileTable);
+            PreparedStatement selectId = connection.prepareStatement(selectOwnerId);
+            selectId.setString(1, owner);
+            int ownerId = selectId.executeQuery().getInt("id");
             PreparedStatement insertFile = connection.prepareStatement(insertFileTable);
             insertFile.setString(1, fileName);
-            insertFile.setString(2, owner);
-            insertFile.setString(3, chunks.get(0).getPath());
-            insertFile.setString(4, chunks.get(1).getPath());
-            insertFile.setString(5, chunks.get(2).getPath());
-            insertFile.setString(6, chunks.get(3).getPath());
-            statement.executeUpdate(createFileTable);
+            insertFile.setInt(2, ownerId);
+            insertFile.setString(3, chunks.get(0));
+            insertFile.setString(4, chunks.get(1));
+            insertFile.setString(5, chunks.get(2));
+            insertFile.setString(6, chunks.get(3));
             insertFile.executeUpdate();
 //            statement.executeUpdate(insertFileTable);
             //System.out.println("User Registered Successfully "+Name+" : "+Email);

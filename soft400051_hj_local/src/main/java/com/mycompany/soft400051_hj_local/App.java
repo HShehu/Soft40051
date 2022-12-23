@@ -40,18 +40,18 @@ public class App extends Application {
         String strDate = dateFormat.format(date);  
         System.out.println("Application Started "+strDate);
 
-        Parent root = FXMLLoader.load(getClass().getResource("userProfile.fxml"));
-        scene_login = new Scene(root);
-        stage.setTitle("Welcome!");
-        stage.setResizable(false);
-        stage.setScene(scene_login);
-        stage.show();
-//        Parent root = FXMLLoader.load(getClass().getResource("Button.fxml"));
+//        Parent root = FXMLLoader.load(getClass().getResource("userProfile.fxml"));
 //        scene_login = new Scene(root);
 //        stage.setTitle("Welcome!");
 //        stage.setResizable(false);
 //        stage.setScene(scene_login);
 //        stage.show();
+        Parent root = FXMLLoader.load(getClass().getResource("Button.fxml"));
+        scene_login = new Scene(root);
+        stage.setTitle("Welcome!");
+        stage.setResizable(false);
+        stage.setScene(scene_login);
+        stage.show();
         
         Logger_Controller.log_info("Application Started...");
     }

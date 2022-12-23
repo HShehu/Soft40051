@@ -14,6 +14,7 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -106,6 +107,7 @@ public class UserProfileController implements FileMethods{
      public void SendFile(String fileName, List<File> chunks)
     {
         List<String> containers = Arrays.asList("172.18.0.3","172.18.0.4","172.18.0.5","172.18.0.6");
+        List<String> newChunks = new ArrayList<>();
         Collections.shuffle(containers);
         int counter = 0;
         for(File chunk:chunks)
@@ -117,27 +119,29 @@ public class UserProfileController implements FileMethods{
                 String host = containers.get(counter);
                 Session jschSession = jsch.getSession("root",host);
                 jschSession.connect();
-
                 ChannelSftp sftp = (ChannelSftp)jschSession.openChannel("sftp");
                 sftp.connect();
 
                 sftp.put(chunk.getPath(),chunk.getName());
                 sftp.exit();
-
+                String newname = host+":"+chunk.getName();
+                newChunks.add(newname);
+                System.out.println("Working" +newname);
                 System.out.println("Working");
 
                 sftp.disconnect();
                 jschSession.disconnect();
-            } catch (JSchException | SftpException ex) {
+            } catch (Exception ex) {
                 Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, null, ex);
             }
             counter++;
         }
-        dbconnection.filesInsert(fileName, lbUsername.getText(), chunks);
+        dbconnection.filesInsert(fileName, lbUsername.getText(), newChunks);
         
         chunks.forEach((chunk)->{
         chunk.delete();
         });
+        newChunks.clear();
         
     } 
     public void UploadFile(){

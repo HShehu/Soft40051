@@ -68,7 +68,8 @@ public class LoginController {
                         a.setContentText(Name+ " Logged In");
                         a.showAndWait();
                         //System.out.println("Node ..... " +node);
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource("logged_user.fxml"));
+                        //FXMLLoader loader = new FXMLLoader(getClass().getResource("logged_user.fxml"));
+                        FXMLLoader loader = new FXMLLoader(getClass().getResource("userProfile.fxml"));
                         Parent root = loader.load();
                         //UserdataController controller = loader.getController();
                         UserProfileController controller = loader.getController();
