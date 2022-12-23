@@ -70,8 +70,10 @@ public class LoginController {
                         //System.out.println("Node ..... " +node);
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("logged_user.fxml"));
                         Parent root = loader.load();
-                        UserdataController controller = loader.getController();
-                        controller.setLabelText("Welcome "+Name);
+                        //UserdataController controller = loader.getController();
+                        UserProfileController controller = loader.getController();
+                        controller.setUsername(Name);
+                        //controller.setLabelText("Welcome "+Name);
                         
                         stage2 = new Stage();
                         stage2.setScene(new Scene(root));

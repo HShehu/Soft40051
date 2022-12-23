@@ -1,5 +1,6 @@
 package com.mycompany.soft400051_hj_local;
 
+import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -12,6 +13,8 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
+import java.sql.PreparedStatement;
+import java.util.List;
 
 /**
 * @brief Creating a class dbconnection to control Database Connection and Query
@@ -38,6 +41,76 @@ public class dbconnection {
         return connection;
     }
     
+    public static boolean filesInsert(String fileName,String owner,List<File> chunks)
+    {
+        Boolean flag = false;
+        Connection connection = dbconnection.dbconnection();
+        String createFileTable = """
+                                 CREATE TABLE IF NOT EXISTS Files(
+                                    FILENAME string NOT NULL,
+                                    FILEPATH string DEFAULT './',
+                                    OWNER integer NOT NULL,
+                                    CHUNK1 string NOT NULL,
+                                    CHUNK2 string NOT NULL,
+                                    CHUNK3 string NOT NULL,
+                                    CHUNK4 string NOT NULL,
+                                    SHAREDWITH integer,
+                                    CONSTRAINT FILEID PRIMARY KEY (FILENAME,FILEPATH,OWNER),
+                                    FOREIGN KEY (OWNER) REFERENCES users(id),
+                                    FOREIGN KEY (SHAREDWITH) REFERENCES users(id)
+                                 )
+                                 """;
+        String insertFileTable = """
+                                 INSERT INTO Files(
+                                    FILENAME,
+                                    OWNER,
+                                    CHUNK1,
+                                    CHUNK2,
+                                    CHUNK3,
+                                    CHUNK4
+                                 )VALUES(?,?,?,?,?,?)"""; 
+                              
+        
+        try{
+            Logger_Controller.log_info("Function filesInsert Started");
+            Statement statement = connection.createStatement();
+//            PreparedStatement createFile = connection.prepareStatement("CREATE TABLE IF NOT EXISTS Files(\n" +
+//"                                    FILENAME string NOT NULL,\n" +
+//"                                    FILEPATH string DEFAULT './',\n" +
+//"                                    OWNER string NOT NULL,\n" +
+//"                                    CHUNK1 string NOT NULL,\n" +
+//"                                    CHUNK2 string NOT NULL,\n" +
+//"                                    CHUNK3 string NOT NULL,\n" +
+//"                                    CHUNK4 string NOT NULL,\n" +
+//"                                    SHAREDWITH string,\n" +
+//"                                    CONSTRAINT FILEID PRIMARY KEY (FILENAME,FILEPATH,OWNER),\n" +
+//"                                    FOREIGN KEY (OWNER) REFERENCES users(id),\n" +
+//"                                    FOREIGN KEY (SHAREDWITH) REFERENCES users(id)");
+            PreparedStatement insertFile = connection.prepareStatement(insertFileTable);
+            insertFile.setString(1, fileName);
+            insertFile.setString(2, owner);
+            insertFile.setString(3, chunks.get(0).getPath());
+            insertFile.setString(4, chunks.get(1).getPath());
+            insertFile.setString(5, chunks.get(2).getPath());
+            insertFile.setString(6, chunks.get(3).getPath());
+            statement.executeUpdate(createFileTable);
+            insertFile.executeUpdate();
+//            statement.executeUpdate(insertFileTable);
+            //System.out.println("User Registered Successfully "+Name+" : "+Email);
+            flag = true;
+            Logger_Controller.log_info("Insert Query Execution Success for File");
+        }   catch (SQLException ex) {
+                Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+                Logger_Controller.log_info("SQLException for Registration Query");
+            }
+        try {
+            connection.close();
+        } catch (SQLException ex) {
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+            Logger_Controller.log_info("Connection Closing Error for Registration");
+        }
+        return flag;
+    }
     // Data insertion for registration
     public static boolean data_insert(String Name, String password_hashed, String Email){
         Boolean flag = false;

@@ -20,6 +20,8 @@ import java.util.List;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 
 /**
@@ -27,6 +29,9 @@ import javafx.stage.FileChooser;
  * @author ntu-user
  */
 public class UserProfileController implements FileMethods{
+    
+    @FXML
+    private Label lbUsername;
     
     @Override
     public void CreateFile(String fileName, String filecontent) {
@@ -42,6 +47,11 @@ public class UserProfileController implements FileMethods{
             Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, null, ex);
         } 
     }
+    
+    public void setUsername(String username){
+        lbUsername.setText(username);
+    }
+    
     
      public void ChunkFile(File ogFile)
     {
@@ -86,14 +96,14 @@ public class UserProfileController implements FileMethods{
                 
             });
             
-            SendFile(chunks);
+            SendFile(ogFile.getName(),chunks);
         }
         catch(IOException ioerr){
             
         }
     }
     
-      public static void SendFile(List<File> chunks)
+     public void SendFile(String fileName, List<File> chunks)
     {
         List<String> containers = Arrays.asList("172.18.0.3","172.18.0.4","172.18.0.5","172.18.0.6");
         Collections.shuffle(containers);
@@ -123,6 +133,7 @@ public class UserProfileController implements FileMethods{
             }
             counter++;
         }
+        dbconnection.filesInsert(fileName, lbUsername.getText(), chunks);
         
         chunks.forEach((chunk)->{
         chunk.delete();
