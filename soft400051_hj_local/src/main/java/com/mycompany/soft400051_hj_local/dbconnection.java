@@ -40,6 +40,37 @@ public class dbconnection {
         }
         return connection;
     }
+    public static ResultSet listDirectory(String owner, String filePath){
+        
+        String strStatement = """
+                              SELECT *
+                              FROM Files
+                              WHERE OWNER = ? AND FILEPATH = ?
+                              """;
+        
+        String selectOwnerId = """
+                               SELECT id
+                               FROM users
+                               WHERE email = ?
+                               """;
+        
+        ResultSet userFiles = null;
+        
+        try(Connection connection = dbconnection.dbconnection();){
+            
+            PreparedStatement selectId = connection.prepareStatement(selectOwnerId);
+            selectId.setString(1, owner);
+            int ownerId = selectId.executeQuery().getInt("id");
+            
+            PreparedStatement sqlSelectFiles = connection.prepareStatement(strStatement);
+            sqlSelectFiles.setInt(1, ownerId);
+            sqlSelectFiles.setString(2, filePath);
+            userFiles = sqlSelectFiles.executeQuery();
+        }catch(SQLException err){
+            
+        }
+        return userFiles;
+    }
     
     public static boolean filesInsert(String fileName,String owner,List<String> chunks)
     {
@@ -48,7 +79,8 @@ public class dbconnection {
         String createFileTable = """
                                  CREATE TABLE IF NOT EXISTS Files(
                                     FILENAME string NOT NULL,
-                                    FILEPATH string DEFAULT './',
+                                    FILEPATH string DEFAULT './' NOT NULL,
+                                    ISFILE boolean DEFAULT true NOT NULL,
                                     OWNER integer NOT NULL,
                                     CHUNK1 string NOT NULL,
                                     CHUNK2 string NOT NULL,
@@ -57,8 +89,7 @@ public class dbconnection {
                                     SHAREDWITH integer,
                                     CONSTRAINT FILEID PRIMARY KEY (FILENAME,FILEPATH,OWNER),
                                     FOREIGN KEY (OWNER) REFERENCES users(id),
-                                    FOREIGN KEY (SHAREDWITH) REFERENCES users(id)
-                                 )
+                                    FOREIGN KEY (SHAREDWITH) REFERENCES users(id))
                                  """;
         String insertFileTable = """
                                  INSERT INTO Files(

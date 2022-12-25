@@ -13,15 +13,18 @@ import com.mycompany.soft400051_hj_local.model.FileMethods;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.ResourceBundle;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.stage.FileChooser;
 
@@ -29,10 +32,15 @@ import javafx.stage.FileChooser;
  *
  * @author ntu-user
  */
-public class UserProfileController implements FileMethods{
+public class UserProfileController implements FileMethods, Initializable{
     
     @FXML
     private Label lbUsername;
+    
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
     @Override
     public void CreateFile(String fileName, String filecontent) {
@@ -154,7 +162,5 @@ public class UserProfileController implements FileMethods{
         }
         ChunkFile(uploadFile);      
     }
-
-
-    
+   
 }
