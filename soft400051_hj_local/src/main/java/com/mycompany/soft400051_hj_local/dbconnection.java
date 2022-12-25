@@ -80,7 +80,7 @@ public class dbconnection {
                                  CREATE TABLE IF NOT EXISTS Files(
                                     FILENAME string NOT NULL,
                                     FILEPATH string DEFAULT './' NOT NULL,
-                                    ISFILE boolean DEFAULT true NOT NULL,
+                                    ISFOLDER boolean DEFAULT false NOT NULL,
                                     OWNER integer NOT NULL,
                                     CHUNK1 string NOT NULL,
                                     CHUNK2 string NOT NULL,

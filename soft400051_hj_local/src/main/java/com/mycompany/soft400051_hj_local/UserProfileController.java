@@ -15,6 +15,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
+import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -34,12 +35,15 @@ import javafx.stage.FileChooser;
  */
 public class UserProfileController implements FileMethods, Initializable{
     
+    private String currentDir = "./";
+    private ResultSet userItems;
+    
     @FXML
     private Label lbUsername;
     
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        userItems = dbconnection.listDirectory(lbUsername.getText(), currentDir);
     }
     
     @Override
@@ -55,6 +59,11 @@ public class UserProfileController implements FileMethods, Initializable{
         catch (IOException ex) {
             Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, null, ex);
         } 
+    }
+    
+    public void setCurrentDir(String directory)
+    {
+        this.currentDir = directory;
     }
     
     public void setUsername(String username){
