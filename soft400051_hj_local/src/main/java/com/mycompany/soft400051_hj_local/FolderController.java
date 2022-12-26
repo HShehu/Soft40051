@@ -16,20 +16,23 @@ import javafx.scene.image.ImageView;
  *
  * @author ntu-user
  */
-public class FolderController implements Initializable {
+public class FolderController{
     
     @FXML
     private ImageView imgFolder;
             
     @FXML
     private Label lbFolderName;
-
-    /**
-     * Initializes the controller class.
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
     
+    private String folderPath;
+    private String folderName;
+
+  
+    
+    public void setData(String path , String fName)
+    {
+        this.folderName = fName;
+        this.folderPath = path.concat("/"+fName);
+        lbFolderName.setText(fName);
+    }
 }

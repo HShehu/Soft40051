@@ -16,18 +16,23 @@ import javafx.scene.image.ImageView;
  *
  * @author ntu-user
  */
-public class FileController implements Initializable {
+public class FileController {
     @FXML
     private ImageView imgFile;
 
    @FXML
    private Label lbFileName;
+   
+   private String fileName;
+   
     /**
      * Initializes the controller class.
      */
-    @Override
-    public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-    }    
+   
+
+    void setData(String fName) {
+        this.fileName = fName;
+        lbFileName.setText(fName);
+    }
     
 }

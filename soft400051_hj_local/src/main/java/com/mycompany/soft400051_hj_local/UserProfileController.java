@@ -16,17 +16,23 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 
 /**
@@ -36,14 +42,28 @@ import javafx.stage.FileChooser;
 public class UserProfileController implements FileMethods, Initializable{
     
     private String currentDir = "./";
-    private ResultSet userItems;
+    private Map<String,Boolean> userItems = new HashMap();
+    
     
     @FXML
     private Label lbUsername;
     
+    @FXML
+    private GridPane gpGrid;
+    
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        userItems = dbconnection.listDirectory(lbUsername.getText(), currentDir);
+    public void initialize(URL location, ResourceBundle resources){
+        userItems = dbconnection.listDirectory("joshua@gmail.com", currentDir);
+       
+        
+      userItems.forEach((name,folder)->{
+          System.out.println(name + ": " + folder);
+      });
+            
+      
+      for(Map.Entry<String, Boolean> file : userItems.entrySet()){
+          
+      }
     }
     
     @Override

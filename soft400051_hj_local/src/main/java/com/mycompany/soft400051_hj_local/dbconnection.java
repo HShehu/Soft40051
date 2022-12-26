@@ -14,7 +14,9 @@ import java.security.SecureRandom;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.sql.PreparedStatement;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
 * @brief Creating a class dbconnection to control Database Connection and Query
@@ -40,7 +42,7 @@ public class dbconnection {
         }
         return connection;
     }
-    public static ResultSet listDirectory(String owner, String filePath){
+    public static Map<String,Boolean> listDirectory(String owner, String filePath){
         
         String strStatement = """
                               SELECT *
@@ -54,28 +56,55 @@ public class dbconnection {
                                WHERE email = ?
                                """;
         
-        ResultSet userFiles = null;
+        String createFileTable = """
+                                 CREATE TABLE IF NOT EXISTS Files(
+                                    FILENAME string NOT NULL,
+                                    FILEPATH string DEFAULT './' NOT NULL,
+                                    ISFOLDER boolean DEFAULT false NOT NULL,
+                                    OWNER integer NOT NULL,
+                                    CHUNK1 string NOT NULL,
+                                    CHUNK2 string NOT NULL,
+                                    CHUNK3 string NOT NULL,
+                                    CHUNK4 string NOT NULL,
+                                    SHAREDWITH integer,
+                                    CONSTRAINT FILEID PRIMARY KEY (FILENAME,FILEPATH,OWNER),
+                                    FOREIGN KEY (OWNER) REFERENCES users(id),
+                                    FOREIGN KEY (SHAREDWITH) REFERENCES users(id))
+                                 """;
+        
+        Map<String,Boolean> userMap = new HashMap();
         
         try(Connection connection = dbconnection.dbconnection();){
+            
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(createFileTable);
             
             PreparedStatement selectId = connection.prepareStatement(selectOwnerId);
             selectId.setString(1, owner);
             int ownerId = selectId.executeQuery().getInt("id");
+            System.out.println(ownerId);
             
             PreparedStatement sqlSelectFiles = connection.prepareStatement(strStatement);
             sqlSelectFiles.setInt(1, ownerId);
             sqlSelectFiles.setString(2, filePath);
-            userFiles = sqlSelectFiles.executeQuery();
-        }catch(SQLException err){
+            ResultSet userFiles = sqlSelectFiles.executeQuery();
+            System.out.println("Gotten User Items");
             
+            
+            while(userFiles.next())
+            {
+                userMap.put(userFiles.getString("FILENAME"), userFiles.getBoolean("ISFOLDER"));
+            }
+        }catch(SQLException err){
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, err);
         }
-        return userFiles;
+        return userMap;
     }
     
     public static boolean filesInsert(String fileName,String owner,List<String> chunks)
     {
         Boolean flag = false;
-        Connection connection = dbconnection.dbconnection();
+        
         String createFileTable = """
                                  CREATE TABLE IF NOT EXISTS Files(
                                     FILENAME string NOT NULL,
@@ -107,7 +136,7 @@ public class dbconnection {
                                """;
                               
         
-        try{
+        try(Connection connection = dbconnection.dbconnection();){
             Logger_Controller.log_info("Function filesInsert Started");
             Statement statement = connection.createStatement();
             statement.executeUpdate(createFileTable);
@@ -130,12 +159,12 @@ public class dbconnection {
                 Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
                 Logger_Controller.log_info("SQLException for Registration Query");
             }
-        try {
-            connection.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
-            Logger_Controller.log_info("Connection Closing Error for Registration");
-        }
+//        try {
+//            connection.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger_Controller.log_info("Connection Closing Error for Registration");
+//        }
         return flag;
     }
     // Data insertion for registration
@@ -167,8 +196,8 @@ public class dbconnection {
     //to check for login
     public static String data_login(String Name, String Password){
         String flag = "false";
-        Connection connection = dbconnection.dbconnection();
-        try{
+        
+        try(Connection connection = dbconnection.dbconnection();){
             Logger_Controller.log_info("Function data_login Started");
             Statement statement = connection.createStatement();
             ResultSet count = statement.executeQuery("Select count(*) from users where email like('"+Name+"') and password like('"+Password+"')");
@@ -199,12 +228,12 @@ public class dbconnection {
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
             Logger_Controller.log_info("SQLException from Login Query");
         }
-        try {
-            connection.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
-            Logger_Controller.log_info("Connection Closing error for Login");
-        }
+//        try {
+//            connection.close();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+//            Logger_Controller.log_info("Connection Closing error for Login");
+//        }
         return flag;
     }
     
