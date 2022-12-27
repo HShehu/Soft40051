@@ -13,7 +13,7 @@
             <HBox alignment="CENTER" prefHeight="48.0" prefWidth="183.0" spacing="200.0" BorderPane.alignment="TOP_LEFT">
                <children>
                   <Label fx:id="lbUsername" text="Label" />
-                  <Button id="btnUpload" fx:id="btnUpload" alignment="CENTER" mnemonicParsing="false" onAction="#UploadFile" prefHeight="25.0" prefWidth="122.0" text="Upload File" textAlignment="CENTER" />
+                  <Button id="btnUpload" fx:id="btnUpload" alignment="CENTER" mnemonicParsing="false" onAction="#UploadBtnClicked" prefHeight="25.0" prefWidth="122.0" text="Upload File" textAlignment="CENTER" />
                </children>
             </HBox>
          </top>
