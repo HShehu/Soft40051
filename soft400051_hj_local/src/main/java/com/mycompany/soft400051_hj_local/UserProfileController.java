@@ -211,7 +211,7 @@ public class UserProfileController implements FileMethods, Initializable{
             }
             counter++;
         }
-        dbconnection.filesInsert(fileName, lbUsername.getText(), newChunks);
+        dbconnection.filesInsert(fileName, owner, newChunks);
         
         chunks.forEach((chunk)->{
         chunk.delete();
