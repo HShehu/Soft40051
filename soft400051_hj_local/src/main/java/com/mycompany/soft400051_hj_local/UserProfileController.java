@@ -32,9 +32,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
+import javafx.scene.layout.TilePane;
 import javafx.stage.FileChooser;
 
 /**
@@ -46,7 +48,6 @@ public class UserProfileController implements FileMethods, Initializable{
     private String currentDir;
     private Map<String,Boolean> userItems = new HashMap();
     private final String owner;
-    
     
     @FXML
     private Label lbUsername;
@@ -63,45 +64,7 @@ public class UserProfileController implements FileMethods, Initializable{
     @Override
     public void initialize(URL location, ResourceBundle resources){
         lbUsername.setText("Welcome " + owner);
-        userItems = dbconnection.listDirectory(owner, currentDir);
-        int row = 1;
-        int column = 0;
-        
-      userItems.forEach((name,folder)->{
-          System.out.println(name + ": " + folder);
-      });
-            
-      
-      for(Map.Entry<String, Boolean> file : userItems.entrySet()){
-            try {
-                FXMLLoader loader = new FXMLLoader();
-                System.out.println("Loader Created");
-                loader.setLocation(getClass().getResource("file.fxml"));
-                System.out.println("LoaderSet");
-                
-                AnchorPane aPane = loader.load();
-                System.out.println("anchor Loaded");
-                
-                FileController fileController = loader.getController();
-                System.out.println("Controller Created");
-                fileController.setData(file.getKey());
-                System.out.println("controller Set");
-                
-                gpGrid.add(aPane, column++, row);
-                
-                gpGrid.minWidth(Region.USE_COMPUTED_SIZE);             
-                gpGrid.prefWidth(Region.USE_COMPUTED_SIZE);             
-                gpGrid.maxWidth(Region.USE_PREF_SIZE);
-                
-                gpGrid.minHeight(Region.USE_COMPUTED_SIZE);             
-                gpGrid.prefHeight(Region.USE_COMPUTED_SIZE);             
-                gpGrid.maxHeight(Region.USE_PREF_SIZE);
-                
-                GridPane.setMargin(aPane,new Insets(10));
-            } catch (IOException ex) {
-                Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
-            }
-      }
+        refreshGrid();      
     }
     
     @Override
@@ -227,7 +190,53 @@ public class UserProfileController implements FileMethods, Initializable{
         {
             return;
         }
-        ChunkFile(uploadFile);      
+        ChunkFile(uploadFile);
+        refreshGrid();
+        
+    }
+    
+    public void refreshGrid(){
+        gpGrid.getChildren().clear();
+        
+        userItems = dbconnection.listDirectory(owner, currentDir);
+        int row = 1;
+        int column = 0;
+        
+      userItems.forEach((name,folder)->{
+          System.out.println(name + ": " + folder);
+      });
+            
+      
+      for(Map.Entry<String, Boolean> file : userItems.entrySet()){
+            try {
+                FXMLLoader loader = new FXMLLoader();
+                System.out.println("Loader Created");
+                loader.setLocation(getClass().getResource("file.fxml"));
+                System.out.println("LoaderSet");
+                
+                AnchorPane aPane = loader.load();
+                System.out.println("anchor Loaded");
+                
+                FileController fileController = loader.getController();
+                System.out.println("Controller Created");
+                fileController.setData(file.getKey());
+                System.out.println("controller Set");
+                
+                gpGrid.add(aPane, column++, row);
+                
+                gpGrid.minWidth(Region.USE_COMPUTED_SIZE);             
+                gpGrid.prefWidth(Region.USE_COMPUTED_SIZE);             
+                gpGrid.maxWidth(Region.USE_PREF_SIZE);
+                
+                gpGrid.minHeight(Region.USE_COMPUTED_SIZE);             
+                gpGrid.prefHeight(Region.USE_COMPUTED_SIZE);             
+                gpGrid.maxHeight(Region.USE_PREF_SIZE);
+                
+                GridPane.setMargin(aPane,new Insets(10));
+            } catch (IOException ex) {
+                Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+      }
     }
    
 }
