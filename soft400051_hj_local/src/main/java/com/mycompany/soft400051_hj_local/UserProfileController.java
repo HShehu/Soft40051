@@ -30,9 +30,11 @@ import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
 
 /**
@@ -41,8 +43,9 @@ import javafx.stage.FileChooser;
  */
 public class UserProfileController implements FileMethods, Initializable{
     
-    private String currentDir = "./";
+    private String currentDir;
     private Map<String,Boolean> userItems = new HashMap();
+    private final String owner;
     
     
     @FXML
@@ -51,10 +54,18 @@ public class UserProfileController implements FileMethods, Initializable{
     @FXML
     private GridPane gpGrid;
     
+    UserProfileController(String nowner)
+    {
+        this.owner = nowner;
+        this.currentDir = "./";
+    }
+    
     @Override
     public void initialize(URL location, ResourceBundle resources){
-        userItems = dbconnection.listDirectory("joshua@gmail.com", currentDir);
-       
+        lbUsername.setText("Welcome " + owner);
+        userItems = dbconnection.listDirectory(owner, currentDir);
+        int row = 1;
+        int column = 0;
         
       userItems.forEach((name,folder)->{
           System.out.println(name + ": " + folder);
@@ -62,7 +73,34 @@ public class UserProfileController implements FileMethods, Initializable{
             
       
       for(Map.Entry<String, Boolean> file : userItems.entrySet()){
-          
+            try {
+                FXMLLoader loader = new FXMLLoader();
+                System.out.println("Loader Created");
+                loader.setLocation(getClass().getResource("file.fxml"));
+                System.out.println("LoaderSet");
+                
+                AnchorPane aPane = loader.load();
+                System.out.println("anchor Loaded");
+                
+                FileController fileController = loader.getController();
+                System.out.println("Controller Created");
+                fileController.setData(file.getKey());
+                System.out.println("controller Set");
+                
+                gpGrid.add(aPane, column++, row);
+                
+                gpGrid.minWidth(Region.USE_COMPUTED_SIZE);             
+                gpGrid.prefWidth(Region.USE_COMPUTED_SIZE);             
+                gpGrid.maxWidth(Region.USE_PREF_SIZE);
+                
+                gpGrid.minHeight(Region.USE_COMPUTED_SIZE);             
+                gpGrid.prefHeight(Region.USE_COMPUTED_SIZE);             
+                gpGrid.maxHeight(Region.USE_PREF_SIZE);
+                
+                GridPane.setMargin(aPane,new Insets(10));
+            } catch (IOException ex) {
+                Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
+            }
       }
     }
     

@@ -9,22 +9,26 @@
 <?import javafx.scene.layout.*?>
 
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="200.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.soft400051_hj_local.FileController">
    <children>
-      <ImageView fx:id="imgFile" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../java/com/mycompany/soft400051_hj_local/image/icons8-docket-64.png" />
-         </image>
-      </ImageView>
-      <Separator prefHeight="17.0" prefWidth="200.0" />
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+      <VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="200.0">
          <children>
-            <Label fx:id="lbFileName" alignment="CENTER" text="File Name" textAlignment="CENTER">
-               <font>
-                  <Font size="26.0" />
-               </font>
-            </Label>
+            <ImageView fx:id="imgFile" fitHeight="200.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../../../java/com/mycompany/soft400051_hj_local/image/icons8-docket-64.png" />
+               </image>
+            </ImageView>
+            <Separator prefHeight="17.0" prefWidth="200.0" />
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Label fx:id="lbFileName" alignment="CENTER" text="File Name" textAlignment="CENTER">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
          </children>
-      </HBox>
+      </VBox>
    </children>
-</VBox>
+</AnchorPane>

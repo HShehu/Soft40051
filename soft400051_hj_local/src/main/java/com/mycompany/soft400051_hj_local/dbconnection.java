@@ -83,6 +83,7 @@ public class dbconnection {
             selectId.setString(1, owner);
             int ownerId = selectId.executeQuery().getInt("id");
             System.out.println(ownerId);
+            System.out.println(filePath);
             
             PreparedStatement sqlSelectFiles = connection.prepareStatement(strStatement);
             sqlSelectFiles.setInt(1, ownerId);

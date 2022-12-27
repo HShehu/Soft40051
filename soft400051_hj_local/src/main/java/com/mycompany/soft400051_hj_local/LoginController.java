@@ -69,13 +69,11 @@ public class LoginController {
                         a.showAndWait();
                         //System.out.println("Node ..... " +node);
                         //FXMLLoader loader = new FXMLLoader(getClass().getResource("logged_user.fxml"));
+                        UserProfileController controller = new UserProfileController(Name);
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("userProfile.fxml"));
+                        loader.setController(controller);
                         Parent root = loader.load();
-                        
-                        UserProfileController controller = loader.getController();
-                        controller.setUsername(Name);
-//                        UserdataController controller = loader.getController();
-                        //controller.setLabelText("Welcome "+Name);
+//                       UserdataController controller = loader.getController();
                         
                         stage2 = new Stage();
                         stage2.setScene(new Scene(root));

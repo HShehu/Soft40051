@@ -4,12 +4,11 @@
  */
 package com.mycompany.soft400051_hj_local;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+
+
 
 /**
  * FXML Controller class
@@ -17,22 +16,22 @@ import javafx.scene.image.ImageView;
  * @author ntu-user
  */
 public class FileController {
+    
+    @FXML
+    private Label lbFileName;
+
     @FXML
     private ImageView imgFile;
 
-   @FXML
-   private Label lbFileName;
-   
-   private String fileName;
-   
-    /**
-     * Initializes the controller class.
-     */
-   
 
-    void setData(String fName) {
-        this.fileName = fName;
-        lbFileName.setText(fName);
+ 
+    public void setData(String fileName) {
+        lbFileName.setText(fileName);
     }
-    
+
+    public String viewData() {
+        return this.lbFileName.getText();
+    }
+
+
 }
