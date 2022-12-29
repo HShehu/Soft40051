@@ -1,5 +1,7 @@
 package com.mycompany.soft400051_hj_local;
 
+import com.mycompany.soft400051_hj_local.model.UserFolder;
+import com.mycompany.soft400051_hj_local.model.UserFile;
 import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -14,6 +16,7 @@ import java.security.SecureRandom;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.sql.PreparedStatement;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +46,7 @@ public class dbconnection {
         return connection;
     }
     
-    public static Map<String,Boolean> listDirectory(String owner, String filePath){
+    public static List<UserFile> listDirectory(String owner, String filePath){
         
         String strStatement = """
                               SELECT *
@@ -73,8 +76,7 @@ public class dbconnection {
                                     FOREIGN KEY (SHAREDWITH) REFERENCES users(id))
                                  """;
         
-        Map<String,Boolean> userMap = new HashMap();
-        
+        List<UserFile> fileList = new ArrayList<>();
         try(Connection connection = dbconnection.dbconnection();){
             
             Statement statement = connection.createStatement();
@@ -93,14 +95,30 @@ public class dbconnection {
             System.out.println("Gotten User Items");
             
             
+            
             while(userFiles.next())
             {
-                userMap.put(userFiles.getString("FILENAME"), userFiles.getBoolean("ISFOLDER"));
+                UserFile userFile = new UserFile();
+                if(userFiles.getBoolean("ISFOLDER"))
+                {
+                    userFile = new UserFile(userFiles.getString("FILENAME"),userFiles.getString("FILEPATH"),userFiles.getBoolean("ISFOLDER"));
+                    
+                }
+                
+                else{
+                    userFile.setName(userFiles.getString("FILENAME"));
+                    userFile.setPath(userFiles.getString("FILEPATH"));
+                    userFile.setChunk1(userFiles.getString("CHUNK1"));
+                    userFile.setChunk1(userFiles.getString("CHUNK2"));
+                    userFile.setChunk1(userFiles.getString("CHUNK3"));
+                    userFile.setChunk1(userFiles.getString("CHUNK4"));
+                }
+                fileList.add(userFile);
             }
         }catch(SQLException err){
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, err);
         }
-        return userMap;
+        return fileList;
     }
     
     public static boolean filesInsert(String fileName,String owner,List<String> chunks)

@@ -9,14 +9,6 @@
 <AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <BorderPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
-         <top>
-            <HBox alignment="CENTER" prefHeight="48.0" prefWidth="183.0" spacing="200.0" BorderPane.alignment="TOP_LEFT">
-               <children>
-                  <Label fx:id="lbUsername" text="Label" />
-                  <Button id="btnUpload" fx:id="btnUpload" alignment="CENTER" mnemonicParsing="false" onAction="#UploadBtnClicked" prefHeight="25.0" prefWidth="122.0" text="Upload File" textAlignment="CENTER" />
-               </children>
-            </HBox>
-         </top>
          <center>
             <VBox>
                <children>
@@ -25,9 +17,43 @@
                         <TilePane fx:id="tilePane" orientation="VERTICAL" prefColumns="3" prefHeight="50.0" prefWidth="72.0" />
                      </content>
                   </ScrollPane>
+                  <ToolBar prefHeight="40.0" prefWidth="200.0">
+                     <items>
+                        <Button fx:id="btnDeleteFile" mnemonicParsing="false" text="Delete File" />
+                        <Button fx:id="btnCreateFile" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" text="Create File" />
+                        <Button fx:id="btnCopyFile" layoutX="102.0" layoutY="10.0" mnemonicParsing="false" text="Copy FIle" />
+                        <Button fx:id="btnRenameFile" layoutX="195.0" layoutY="10.0" mnemonicParsing="false" text="Rename File" />
+                        <Button fx:id="btnMoveFile" layoutX="278.0" layoutY="10.0" mnemonicParsing="false" text="Move File" />
+                     </items>
+                  </ToolBar>
+                  <TableView fx:id="tableFiles" prefHeight="200.0" prefWidth="200.0">
+                    <columns>
+                      <TableColumn fx:id="colFileName" prefWidth="216.0" text="File Name" />
+                      <TableColumn fx:id="colCreatedAt" minWidth="0.0" prefWidth="104.0" text="Created At" />
+                        <TableColumn fx:id="colSharedWith" minWidth="0.0" prefWidth="277.0" text="Shared With" />
+                    </columns>
+                  </TableView>
                </children>
             </VBox>
          </center>
+         <top>
+            <ToolBar prefHeight="40.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+              <items>
+                  <HBox alignment="CENTER">
+                     <children>
+                        <Label fx:id="lbUsername" text="Label" />
+                        <Pane prefHeight="48.0" prefWidth="54.0" />
+                      <Button mnemonicParsing="false" text="Button" />
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER" prefHeight="48.0" prefWidth="183.0" spacing="200.0">
+                     <children>
+                        <Button id="btnUpload" fx:id="btnUpload" alignment="CENTER" mnemonicParsing="false" onAction="#UploadBtnClicked" prefHeight="25.0" prefWidth="122.0" text="Upload File" textAlignment="CENTER" />
+                     </children>
+                  </HBox>
+              </items>
+            </ToolBar>
+         </top>
       </BorderPane>
    </children>
 </AnchorPane>
