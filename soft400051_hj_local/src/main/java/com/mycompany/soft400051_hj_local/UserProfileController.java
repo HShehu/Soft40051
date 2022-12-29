@@ -102,32 +102,46 @@ public class UserProfileController extends FileMethods implements Initializable 
         tilePane.getChildren().clear();
         filesList.clear();
         
-        filesList =FXCollections.observableArrayList(dbconnection.listDirectory(owner, currentDir));
+        List<UserFile> userFiles = dbconnection.listDirectory(owner, currentDir);
+        List<UserFolder> userFolders = new ArrayList<>();
+        
+        System.out.println("Start iteration");
+        
+        userFiles.forEach(item ->{     
+            if(item.isFolderPath()){
+                UserFolder folder = new UserFolder(item.getName(),item.getPath(),item.isFolderPath());
+                userFolders.add(folder);
+                userFiles.remove(item);
+            }
+        });
+        
+        System.out.println("Create Link");
+        
+        filesList = FXCollections.observableArrayList(userFiles);
         tableFiles.setItems(filesList);
         
-        
+        System.out.println("Llinking");
         colFileName.setCellValueFactory(new PropertyValueFactory("name"));
-        
-        
-            
-
-//        for(Map.Entry<String, Boolean> file : userItems.entrySet()){
+        System.out.println("Table Made");
+//        
+//            
+//        
+//        for(UserFolder folder : userFolders){
 //            try {
-//                //
 //                FXMLLoader fxLoader = new FXMLLoader();
 //                System.out.println("Loader Created");
-//                fxLoader.setLocation(getClass().getResource("file.fxml"));
+//                fxLoader.setLocation(getClass().getResource("folder.fxml"));
 //                System.out.println("Location Set");
 //
-//                VBox aPane = fxLoader.load();
+//                VBox vBox = fxLoader.load();
 //                System.out.println("anchor Loaded");
 //
-//                FileController fileController = fxLoader.getController();
+//                FolderController folderController = new FolderController(folder);
 //                System.out.println("Controller Created");
-//                fileController.setData(file.getKey());
+//                fxLoader.setController(folderController);
 //                System.out.println("controller Set");
 //
-//                tilePane.getChildren().add(aPane);          
+//                tilePane.getChildren().add(vBox);          
 //            } catch (IOException ex) {
 //                Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
 //            }
