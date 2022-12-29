@@ -55,4 +55,9 @@ public class App extends Application {
         
         Logger_Controller.log_info("Application Started...");
     }
+    
+//     @Override
+//    public void stop() {
+//        // executed when the application shuts down
+//    }
 }
