@@ -96,8 +96,10 @@ public class dbconnection {
             
             
             
+            
+            
             while(userFiles.next())
-            {
+            {   
                 UserFile userFile = new UserFile();
                 if(userFiles.getBoolean("ISFOLDER"))
                 {

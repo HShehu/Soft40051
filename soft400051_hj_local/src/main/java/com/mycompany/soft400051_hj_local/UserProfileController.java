@@ -10,25 +10,26 @@ import com.mycompany.soft400051_hj_local.model.UserFolder;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Insets;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.Region;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
 /**
@@ -86,7 +87,29 @@ public class UserProfileController extends FileMethods implements Initializable 
     @Override
     public void initialize(URL location, ResourceBundle resources){
         lbUsername.setText("Welcome " + owner);
+        List<Button> allButtons = Arrays.asList(btnMoveFile,btnCopyFile,btnDeleteFile,btnRenameFile);
+        allButtons.forEach((button)->{
+            button.disableProperty().bind(Bindings.isNull(tableFiles.getSelectionModel().selectedItemProperty()));
+        });
         refreshGrid();      
+    }
+    
+    public void CopyBtnClicked()
+    {
+        Alert btnAlert = new Alert(AlertType.WARNING);
+        btnAlert.contentTextProperty().setValue("Are you Sure you want to copy this File?");
+        Optional<ButtonType> result = btnAlert.showAndWait();
+        if(result.isPresent())
+        {
+//            UserFile srcFile = tableFiles.getSelectionModel().getSelectedItem();  
+//            CopyFile(srcFile.getName(),srcFile.getPath());
+        }  
+    }
+    public void CreateBtnClicked()
+    {
+        String createdFile = CreateDialog.display();
+        CreateFile(createdFile,currentDir);
+        refreshGrid();
     }
     
     public void UploadBtnClicked()
@@ -105,8 +128,6 @@ public class UserProfileController extends FileMethods implements Initializable 
         List<UserFile> userFiles = dbconnection.listDirectory(owner, currentDir);
         List<UserFolder> userFolders = new ArrayList<>();
         
-        System.out.println("Start iteration");
-        
         userFiles.forEach(item ->{     
             if(item.isFolderPath()){
                 UserFolder folder = new UserFolder(item.getName(),item.getPath(),item.isFolderPath());
@@ -115,37 +136,34 @@ public class UserProfileController extends FileMethods implements Initializable 
             }
         });
         
-        System.out.println("Create Link");
         
         filesList = FXCollections.observableArrayList(userFiles);
         tableFiles.setItems(filesList);
         
-        System.out.println("Llinking");
         colFileName.setCellValueFactory(new PropertyValueFactory("name"));
-        System.out.println("Table Made");
-//        
-//            
-//        
-//        for(UserFolder folder : userFolders){
-//            try {
-//                FXMLLoader fxLoader = new FXMLLoader();
-//                System.out.println("Loader Created");
-//                fxLoader.setLocation(getClass().getResource("folder.fxml"));
-//                System.out.println("Location Set");
-//
-//                VBox vBox = fxLoader.load();
-//                System.out.println("anchor Loaded");
-//
-//                FolderController folderController = new FolderController(folder);
-//                System.out.println("Controller Created");
-//                fxLoader.setController(folderController);
-//                System.out.println("controller Set");
-//
-//                tilePane.getChildren().add(vBox);          
-//            } catch (IOException ex) {
-//                Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
-//            }
-//        }
+        
+            
+        
+        for(UserFolder folder : userFolders){
+            try {
+                FXMLLoader fxLoader = new FXMLLoader();
+                System.out.println("Loader Created");
+                fxLoader.setLocation(getClass().getResource("folder.fxml"));
+                System.out.println("Location Set");
+
+                VBox vBox = fxLoader.load();
+                System.out.println("anchor Loaded");
+
+                FolderController folderController = new FolderController(folder);
+                System.out.println("Controller Created");
+                fxLoader.setController(folderController);
+                System.out.println("controller Set");
+
+                tilePane.getChildren().add(vBox);          
+            } catch (IOException ex) {
+                Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }
    
 }

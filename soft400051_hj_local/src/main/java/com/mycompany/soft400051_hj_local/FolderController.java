@@ -4,12 +4,9 @@
  */
 package com.mycompany.soft400051_hj_local;
 
-import java.net.URL;
-import java.util.ResourceBundle;
+import com.mycompany.soft400051_hj_local.model.UserFolder;
 import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 
 /**
  * FXML Controller class
@@ -18,21 +15,20 @@ import javafx.scene.image.ImageView;
  */
 public class FolderController{
     
-    @FXML
-    private ImageView imgFolder;
-            
+    private UserFolder folder;
+
     @FXML
     private Label lbFolderName;
     
-    private String folderPath;
-    private String folderName;
 
-  
-    
-    public void setData(String path , String fName)
-    {
-        this.folderName = fName;
-        this.folderPath = path.concat("/"+fName);
-        lbFolderName.setText(fName);
+    FolderController(UserFolder folder){
+        this.folder = folder;
+        lbFolderName.setText(folder.getName());
     }
+
+//    public void setData(UserFolder folder)
+//    {
+//        
+//    }
+
 }

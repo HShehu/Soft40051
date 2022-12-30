@@ -12,7 +12,7 @@
    <children>
       <ImageView fx:id="imgFolder" fitHeight="200.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../java/com/mycompany/soft400051_hj_local/image/icons8-live-folder-64.png" />
+            <Image url="@image/icons8-live-folder-64.png" />
          </image>
       </ImageView>
       <Separator prefHeight="17.0" prefWidth="200.0" />

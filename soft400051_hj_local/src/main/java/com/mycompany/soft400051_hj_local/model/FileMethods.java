@@ -6,7 +6,9 @@ package com.mycompany.soft400051_hj_local.model;
 
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.JSchException;
 import com.jcraft.jsch.Session;
+import com.jcraft.jsch.SftpException;
 import com.mycompany.soft400051_hj_local.dbconnection;
 import java.io.File;
 import java.io.FileWriter;
@@ -35,7 +37,26 @@ public abstract class FileMethods {
     }
     
     
-        public static void CreateFile(){};
+        public void CreateFile(String fileNameContent,String filePath){
+        try {
+            String fileName = fileNameContent.split("#")[0];
+            String fileContent = fileNameContent.split("#")[1];
+            
+            
+            File userFile = new File(fileName + ".txt");
+            userFile.createNewFile();
+            userFile.deleteOnExit();
+            
+            try(FileWriter fileWriter = new FileWriter(userFile); )
+            {
+                fileWriter.write(fileContent);
+            }
+            ChunkFile(userFile);
+            
+        } catch (IOException ex) {
+            Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        };
         
         public  void ChunkFile(File ogFile)
     {
@@ -81,6 +102,7 @@ public abstract class FileMethods {
             });
             
             SendFile(ogFile.getName(),chunks);
+            ogFile.delete();
         }
         catch(IOException ioerr){
             
@@ -114,7 +136,7 @@ public abstract class FileMethods {
 
                 sftp.disconnect();
                 jschSession.disconnect();
-            } catch (Exception ex) {
+            } catch (JSchException | SftpException ex) {
                 Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, null, ex);
             }
             counter++;
@@ -138,5 +160,10 @@ public abstract class FileMethods {
         }
         ChunkFile(uploadFile); 
     }
+        
+        public void CopyFile(String fileName,String filePath)
+        {
+            
+        }
     
 }

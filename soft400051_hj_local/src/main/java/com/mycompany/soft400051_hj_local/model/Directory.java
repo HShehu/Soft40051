@@ -11,7 +11,7 @@ package com.mycompany.soft400051_hj_local.model;
 public class Directory {
     private String name;
     private String path;
-    private Boolean isFolder;
+    private Boolean isFolder = false;
     
     Directory(String name,String path , Boolean isFolder){
         this.name = name;
