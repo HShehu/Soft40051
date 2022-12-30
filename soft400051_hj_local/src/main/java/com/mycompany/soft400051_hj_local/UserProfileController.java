@@ -101,14 +101,16 @@ public class UserProfileController extends FileMethods implements Initializable 
         Optional<ButtonType> result = btnAlert.showAndWait();
         if(result.isPresent())
         {
-//            UserFile srcFile = tableFiles.getSelectionModel().getSelectedItem();  
-//            CopyFile(srcFile.getName(),srcFile.getPath());
+            UserFile srcFile = tableFiles.getSelectionModel().getSelectedItem();  
+            CopyFile(srcFile);
+            refreshGrid();
         }  
     }
     public void CreateBtnClicked()
     {
-        String createdFile = CreateDialog.display();
-        CreateFile(createdFile,currentDir);
+        String[] createdFile = CreateDialog.display();
+        
+        CreateFile(createdFile[0],createdFile[1],currentDir);
         refreshGrid();
     }
     
@@ -140,6 +142,9 @@ public class UserProfileController extends FileMethods implements Initializable 
         filesList = FXCollections.observableArrayList(userFiles);
         tableFiles.setItems(filesList);
         
+        filesList.forEach(user->{
+            System.out.println(user.toString());
+        });
         colFileName.setCellValueFactory(new PropertyValueFactory("name"));
         
             

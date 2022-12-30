@@ -18,7 +18,7 @@ public class CreateDialog {
      
      static String name, content;
  
-    public static String display() {
+    public static String[] display() {
         Stage stage = new Stage();
         stage.initModality(Modality.APPLICATION_MODAL);
          
@@ -53,7 +53,7 @@ public class CreateDialog {
         stage.setTitle("Dialog");
         stage.setScene(scene);
         stage.showAndWait();
-         
-        return name + "#" + content;
+        
+        return new String[]{name,content};
     }
 }

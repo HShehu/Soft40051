@@ -37,11 +37,8 @@ public abstract class FileMethods {
     }
     
     
-        public void CreateFile(String fileNameContent,String filePath){
+        public void CreateFile(String fileName,String fileContent,String filePath){
         try {
-            String fileName = fileNameContent.split("#")[0];
-            String fileContent = fileNameContent.split("#")[1];
-            
             
             File userFile = new File(fileName + ".txt");
             userFile.createNewFile();
@@ -161,9 +158,79 @@ public abstract class FileMethods {
         ChunkFile(uploadFile); 
     }
         
-        public void CopyFile(String fileName,String filePath)
+        public void CopyFile(UserFile srcFile)
         {
+            CreateFile("copy"+srcFile.getName(),grabFile(srcFile),srcFile.getPath());
+        }
+        
+        public String grabFile(UserFile userFile)
+        {
+            List<String> chunks = Arrays.asList(
+                    userFile.getChunk1(),
+                    userFile.getChunk2(),
+                    userFile.getChunk3(),
+                    userFile.getChunk4()
+            );
+            List<File> reFiles = new ArrayList<>();
             
+            for(String chunk : chunks){
+                String container = chunk.split(":")[0];
+                String fileName = chunk.split(":")[1];
+
+                System.out.println(container + "      " + fileName);
+                    try {
+                    JSch jsch = new JSch();
+                    jsch.setKnownHosts("~/.ssh/known_hosts");
+                    jsch.addIdentity("~/.ssh/id_rsa");
+                    Session jschSession = jsch.getSession("root",container);
+                    jschSession.connect();
+                    ChannelSftp sftp = (ChannelSftp)jschSession.openChannel("sftp");
+                    sftp.connect();
+
+                    sftp.get(fileName,"./");
+                    sftp.exit();
+                    System.out.println("Working");
+
+                    sftp.disconnect();
+                    jschSession.disconnect();
+                } catch (JSchException | SftpException ex) {
+                    Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                File nFile = new File(fileName);
+                reFiles.add(nFile);
+            }
+            
+            return assembleFile(reFiles);
+        }
+        
+        public String assembleFile(List<File> chunks){
+            
+            String str = new String();
+            
+            for(File chunk : chunks)
+            {
+                try {
+                    str += Files.readString(chunk.toPath());
+
+                } catch (IOException ex) {
+                    Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+
+            int length = str.length() - 1;
+
+            String[] StrArray = str.substring(1, length).split(",");
+
+            byte[] byteArray = new byte[StrArray.length];
+
+            for(int i = 0 ;i<StrArray.length ;i++)
+            {
+                byteArray[i] =  Byte.parseByte(StrArray[i].trim()); 
+            }
+
+            String contents = new String(byteArray);
+
+            return contents; 
         }
     
 }

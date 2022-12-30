@@ -111,9 +111,9 @@ public class dbconnection {
                     userFile.setName(userFiles.getString("FILENAME"));
                     userFile.setPath(userFiles.getString("FILEPATH"));
                     userFile.setChunk1(userFiles.getString("CHUNK1"));
-                    userFile.setChunk1(userFiles.getString("CHUNK2"));
-                    userFile.setChunk1(userFiles.getString("CHUNK3"));
-                    userFile.setChunk1(userFiles.getString("CHUNK4"));
+                    userFile.setChunk2(userFiles.getString("CHUNK2"));
+                    userFile.setChunk3(userFiles.getString("CHUNK3"));
+                    userFile.setChunk4(userFiles.getString("CHUNK4"));
                 }
                 fileList.add(userFile);
             }

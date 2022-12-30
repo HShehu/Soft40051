@@ -40,16 +40,22 @@ public class UserFile extends Directory {
         this.chunk4 = chunk4;
     }
     
-    public String setChunk1(){
+    public String getChunk1(){
         return this.chunk1;
     }
-    public String setChunk2(){
+    public String getChunk2(){
     return this.chunk2;
     }
-    public String setChunk3(){
+    public String getChunk3(){
     return this.chunk3;
     }
-    public String setChunk4(){
+    public String getChunk4(){
     return this.chunk4;
+    }
+    
+    @Override
+    public String toString()
+    {
+        return getName() + getChunk1()+ getChunk2()+ getChunk3()+ getChunk4();
     }
 }
