@@ -123,6 +123,58 @@ public class dbconnection {
         return fileList;
     }
     
+    public static void filesUpdate(enum operation, String newValue, UserFile userFile,String owner){
+        String strStatement = """
+                              UPDATE Files
+                              SET ? = ?,
+                              WHERE FILENAME = ? AND FILEPATH = ? AND OWNER = ?;
+                              """;
+        
+        String selectOwnerId = """
+                               SELECT id
+                               FROM users
+                               WHERE email = ?
+                               """;
+        
+        
+         try(Connection connection = dbconnection.dbconnection();){
+            String op;
+                    
+            PreparedStatement selectId = connection.prepareStatement(selectOwnerId);
+            selectId.setString(1, owner);
+            
+            int ownerId = selectId.executeQuery().getInt("id");
+            
+            
+            
+            switch(operation){
+                case RENAME:
+                   op = "FILENAME";
+                   break;
+                   
+                case MOVE:
+                    op = "FILEPATH";
+                    break;
+                    
+                default:
+                    break;
+                          
+            }
+            
+            PreparedStatement updateFiles = connection.prepareStatement(strStatement);
+            updateFiles.setString(1,op);
+            updateFiles.setString(2,newValue)
+            updateFiles.setString(1,userFile);
+            updateFiles.setString(2,newValue)
+            ResultSet userFiles = sqlSelectFiles.executeQuery();
+            
+         }catch(Exception err){
+             
+         }
+         
+        
+    }
+    
     public static boolean filesInsert(String fileName,String owner,List<String> chunks)
     {
         Boolean flag = false;
