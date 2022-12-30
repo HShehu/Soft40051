@@ -1981,3 +1981,27 @@
   <thread>23</thread>
   <message>Insert Query Execution Success for File</message>
 </record>
+<record>
+  <date>2022-12-30T14:54:50.327106101Z</date>
+  <millis>1672412090327</millis>
+  <nanos>106101</nanos>
+  <sequence>13</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function filesInsert Started</message>
+</record>
+<record>
+  <date>2022-12-30T14:54:50.333101100Z</date>
+  <millis>1672412090333</millis>
+  <nanos>101100</nanos>
+  <sequence>14</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Insert Query Execution Success for File</message>
+</record>
