@@ -22,6 +22,8 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Button;
@@ -32,6 +34,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 /**
  *
  * @author ntu-user
@@ -78,6 +82,8 @@ public class UserProfileController extends FileMethods implements Initializable 
     @FXML
     private TableColumn<?, ?> colCreatedAt;
     
+    String childReceive = "";
+    
     UserProfileController(String owner)
     {   
         super(owner);
@@ -119,6 +125,29 @@ public class UserProfileController extends FileMethods implements Initializable 
         UploadFile();
         refreshGrid();
     };
+    public void RenameBtnClicked()
+    {
+        try {
+            Stage renameWindow = new Stage();
+            renameWindow.initModality(Modality.APPLICATION_MODAL);
+            
+            RenameDialog rename = new RenameDialog(this);
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("renameDialog.fxml"));
+            loader.setController(rename);
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            renameWindow.setScene(scene);
+            renameWindow.showAndWait();
+            
+            if(!childReceive.isBlank()){
+                System.out.println("Ready for Input");
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
  
     
@@ -170,5 +199,7 @@ public class UserProfileController extends FileMethods implements Initializable 
             }
         }
     }
+    
+    public void ReceiveRename(String newName){this.childReceive = newName;}
    
 }
