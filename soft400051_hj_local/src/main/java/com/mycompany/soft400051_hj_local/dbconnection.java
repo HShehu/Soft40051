@@ -124,7 +124,7 @@ public class dbconnection {
         return fileList;
     }
     
-    public static void filesUpdate(Operation operation, String newValue, UserFile userFile,String owner){
+    public static void filesUpdate(String newValue, UserFile userFile,String owner){
         String strStatement = """
                               UPDATE Files
                               SET FILENAME = ?
@@ -148,20 +148,10 @@ public class dbconnection {
             
             
             
-//            switch(operation){
-//                case RENAME -> op = "FILENAME";
-//                   
-//                case MOVE -> op = "FILEPATH";
-//                    
-//                default -> {
-//                }
-//                          
-//            }
-            
+
             
             PreparedStatement updateFiles = connection.prepareStatement(strStatement);
             
-            //updateFiles.setString(1,op);
             updateFiles.setString(1,newValue);
             updateFiles.setString(2,userFile.getName());
             updateFiles.setString(3,userFile.getPath());

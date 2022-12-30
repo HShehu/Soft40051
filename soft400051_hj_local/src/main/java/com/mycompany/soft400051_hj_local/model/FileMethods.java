@@ -238,7 +238,7 @@ public abstract class FileMethods {
         }
         
         public void  RenameFile(String newName, UserFile userFile){
-            dbconnection.filesUpdate(Operation.RENAME,newName,userFile,owner);
+            dbconnection.filesUpdate(newName,userFile,owner);
         }
     
 }
