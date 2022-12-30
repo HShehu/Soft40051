@@ -44,13 +44,13 @@ public class UserFile extends Directory {
         return this.chunk1;
     }
     public String getChunk2(){
-    return this.chunk2;
+        return this.chunk2;
     }
     public String getChunk3(){
-    return this.chunk3;
+        return this.chunk3;
     }
     public String getChunk4(){
-    return this.chunk4;
+        return this.chunk4;
     }
     
     @Override

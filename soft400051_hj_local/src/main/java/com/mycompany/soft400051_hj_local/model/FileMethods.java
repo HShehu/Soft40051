@@ -31,6 +31,10 @@ import javafx.stage.FileChooser;
 public abstract class FileMethods {
     
     protected final String owner;
+    public static enum Operation{
+        MOVE,
+        RENAME
+    }
     
     protected FileMethods(String email){
         this.owner = email;
@@ -231,6 +235,10 @@ public abstract class FileMethods {
             String contents = new String(byteArray);
 
             return contents; 
+        }
+        
+        public void  RenameFile(String newName, UserFile userFile){
+            dbconnection.filesUpdate(Operation.RENAME,newName,userFile,owner);
         }
     
 }

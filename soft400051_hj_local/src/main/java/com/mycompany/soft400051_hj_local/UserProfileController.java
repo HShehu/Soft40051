@@ -142,7 +142,9 @@ public class UserProfileController extends FileMethods implements Initializable 
             renameWindow.showAndWait();
             
             if(!childReceive.isBlank()){
-                System.out.println("Ready for Input");
+                UserFile srcFile = tableFiles.getSelectionModel().getSelectedItem();
+                RenameFile(childReceive,srcFile);
+                refreshGrid();
             }
         } catch (IOException ex) {
             Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);

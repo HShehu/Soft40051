@@ -1,5 +1,6 @@
 package com.mycompany.soft400051_hj_local;
 
+import com.mycompany.soft400051_hj_local.model.FileMethods.Operation;
 import com.mycompany.soft400051_hj_local.model.UserFolder;
 import com.mycompany.soft400051_hj_local.model.UserFile;
 import java.io.File;
@@ -123,11 +124,11 @@ public class dbconnection {
         return fileList;
     }
     
-    public static void filesUpdate(enum operation, String newValue, UserFile userFile,String owner){
+    public static void filesUpdate(Operation operation, String newValue, UserFile userFile,String owner){
         String strStatement = """
                               UPDATE Files
-                              SET ? = ?,
-                              WHERE FILENAME = ? AND FILEPATH = ? AND OWNER = ?;
+                              SET FILENAME = ?
+                              WHERE FILENAME = ? AND FILEPATH = ? AND OWNER = ?
                               """;
         
         String selectOwnerId = """
@@ -138,7 +139,7 @@ public class dbconnection {
         
         
          try(Connection connection = dbconnection.dbconnection();){
-            String op;
+//            String op = "";
                     
             PreparedStatement selectId = connection.prepareStatement(selectOwnerId);
             selectId.setString(1, owner);
@@ -147,30 +148,29 @@ public class dbconnection {
             
             
             
-            switch(operation){
-                case RENAME:
-                   op = "FILENAME";
-                   break;
-                   
-                case MOVE:
-                    op = "FILEPATH";
-                    break;
-                    
-                default:
-                    break;
-                          
-            }
+//            switch(operation){
+//                case RENAME -> op = "FILENAME";
+//                   
+//                case MOVE -> op = "FILEPATH";
+//                    
+//                default -> {
+//                }
+//                          
+//            }
+            
             
             PreparedStatement updateFiles = connection.prepareStatement(strStatement);
-            updateFiles.setString(1,op);
-            updateFiles.setString(2,newValue)
-            updateFiles.setString(1,userFile);
-            updateFiles.setString(2,newValue)
-            ResultSet userFiles = sqlSelectFiles.executeQuery();
             
-         }catch(Exception err){
-             
-         }
+            //updateFiles.setString(1,op);
+            updateFiles.setString(1,newValue);
+            updateFiles.setString(2,userFile.getName());
+            updateFiles.setString(3,userFile.getPath());
+            updateFiles.setInt(4,ownerId);
+            updateFiles.executeUpdate();
+            
+         } catch (SQLException ex) {
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
          
         
     }
