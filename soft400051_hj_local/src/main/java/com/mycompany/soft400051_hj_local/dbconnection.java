@@ -15,7 +15,11 @@ import java.security.SecureRandom;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.sql.PreparedStatement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -43,6 +47,24 @@ public class dbconnection {
         return connection;
     }
     
+    public static void permaDeleteFile(){ 
+        
+        initDeletedTable();
+        String delStatement = """
+                            DELETE 
+                            FROM Deleted
+                            WHERE JULIANDAY('NOW') - JULIANDAY(DELETED_AT) >= 30  
+                              """;
+        
+         try(Connection connection = dbconnection.dbconnection();){
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(delStatement);
+        } catch (SQLException ex) {
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+       
+    }
+    
     public static Integer getOwnerId(String Owner){
          String selectOwnerId = """
                                SELECT id
@@ -65,6 +87,69 @@ public class dbconnection {
          return ownerId;
     }
     
+    public static void DeleteFile(String Owner, UserFile userFile)
+    {
+        
+        String delStatement = """
+                              DELETE
+                              FROM Files
+                              WHERE OWNER = ? AND FILEPATH = ? AND FILENAME = ? 
+                              """;
+        
+        Boolean flag = insertDeletedTable(Owner,userFile); 
+        
+        if(flag == true){
+            try(Connection connection = dbconnection.dbconnection();){
+                PreparedStatement sqlDeleteFile = connection.prepareStatement(delStatement);
+                sqlDeleteFile.setInt(1, getOwnerId(Owner));
+                sqlDeleteFile.setString(2, userFile.getPath());
+                sqlDeleteFile.setString(3, userFile.getName());
+                sqlDeleteFile.executeUpdate();
+            } catch (SQLException ex) {
+                Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    public static Boolean insertDeletedTable(String Owner, UserFile userFile){
+        Boolean flag = false;
+        
+        String insertFileTable = """
+                                 INSERT INTO Deleted(
+                                    FILENAME,
+                                    OWNER,
+                                    FILEPATH,
+                                    CHUNK1,
+                                    CHUNK2,
+                                    CHUNK3,
+                                    CHUNK4,
+                                    DELETED_AT
+                                 )VALUES(?,?,?,?,?,?,?,JULIANDAY('NOW'))"""; 
+
+                              
+        initDeletedTable();
+        try(Connection connection = dbconnection.dbconnection();){
+            Logger_Controller.log_info("Function filesDeleted Started");
+          
+            int ownerId = getOwnerId(Owner);
+            
+            PreparedStatement insertFile = connection.prepareStatement(insertFileTable);
+            insertFile.setString(1, userFile.getName());
+            insertFile.setInt(2, ownerId);
+            insertFile.setString(3, userFile.getPath());
+            insertFile.setString(4, userFile.getChunk1());
+            insertFile.setString(5, userFile.getChunk2());
+            insertFile.setString(6, userFile.getChunk3());
+            insertFile.setString(7, userFile.getChunk4());
+            insertFile.executeUpdate();
+            flag = true;
+            Logger_Controller.log_info("Insert Query Execution Success for Deleted");
+        }   catch (SQLException ex) {
+                Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+                Logger_Controller.log_info("SQLException for Insert into Deleted Query");
+            }
+        
+        return flag;
+    }
     public static void initFilesTable(){
         String createFileTable = """
                                  CREATE TABLE IF NOT EXISTS Files(
@@ -91,6 +176,33 @@ public class dbconnection {
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    public static void initDeletedTable(){
+        String createFileTable = """
+                                CREATE TABLE IF NOT EXISTS Deleted(
+                                    FILEID integer PRIMARY KEY AUTOINCREMENT,
+                                    FILENAME string NOT NULL,
+                                    FILEPATH string DEFAULT './' NOT NULL,
+                                    ISFOLDER boolean DEFAULT false NOT NULL,
+                                    OWNER integer NOT NULL,
+                                    CHUNK1 string ,
+                                    CHUNK2 string ,
+                                    CHUNK3 string ,
+                                    CHUNK4 string ,
+                                    SHAREDWITH integer,
+                                    DELETED_AT DATETIME,
+                                    FOREIGN KEY (OWNER) REFERENCES users(id),
+                                    FOREIGN KEY (SHAREDWITH) REFERENCES users(id)
+                                )
+                                 """;
+        
+        
+        try(Connection connection = dbconnection.dbconnection();){
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(createFileTable);
+        } catch (SQLException ex) {
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     
     public static List<UserFile> listDirectory(String owner, String filePath){
         
@@ -100,21 +212,13 @@ public class dbconnection {
                               WHERE OWNER = ? AND FILEPATH = ?
                               """;
         
-        String selectOwnerId = """
-                               SELECT id
-                               FROM users
-                               WHERE email = ?
-                               """;
-        
         
         
         List<UserFile> fileList = new ArrayList<>();
         try(Connection connection = dbconnection.dbconnection();){
             
             
-            PreparedStatement selectId = connection.prepareStatement(selectOwnerId);
-            selectId.setString(1, owner);
-            int ownerId = selectId.executeQuery().getInt("id");
+            int ownerId = getOwnerId(owner);
          
             
             PreparedStatement sqlSelectFiles = connection.prepareStatement(strStatement);
@@ -233,19 +337,13 @@ public class dbconnection {
                                     CHUNK3,
                                     CHUNK4
                                  )VALUES(?,?,?,?,?,?)"""; 
-        String selectOwnerId = """
-                               SELECT id
-                               FROM users
-                               WHERE email = ?
-                               """;
+
                               
         
         try(Connection connection = dbconnection.dbconnection();){
             Logger_Controller.log_info("Function filesInsert Started");
-            
-            PreparedStatement selectId = connection.prepareStatement(selectOwnerId);
-            selectId.setString(1, owner);
-            int ownerId = selectId.executeQuery().getInt("id");
+          
+            int ownerId = getOwnerId(owner);
             
             PreparedStatement insertFile = connection.prepareStatement(insertFileTable);
             insertFile.setString(1, fileName);

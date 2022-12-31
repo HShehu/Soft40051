@@ -103,7 +103,7 @@ public abstract class FileMethods {
             });
             
             SendFile(ogFile.getName(),chunks);
-            ogFile.delete();
+            //ogFile.delete();
         }
         catch(IOException ioerr){
             
@@ -132,7 +132,6 @@ public abstract class FileMethods {
                 sftp.exit();
                 String newname = host+":"+chunk.getName();
                 newChunks.add(newname);
-                System.out.println("Working" +newname);
                 System.out.println("Working");
 
                 sftp.disconnect();
@@ -242,6 +241,58 @@ public abstract class FileMethods {
         }
         public void  MoveFile(String dstPath, UserFile userFile){
             dbconnection.filesUpdate(Operation.MOVE,dstPath,userFile,owner);
+        }
+        public void DeleteFile(UserFile userFile)
+        {
+           List<String> chunks = Arrays.asList(
+                    userFile.getChunk1(),
+                    userFile.getChunk2(),
+                    userFile.getChunk3(),
+                    userFile.getChunk4()
+            );
+            
+           try{
+            for(String chunk : chunks){
+                String container = chunk.split(":")[0];
+                String fileName = chunk.split(":")[1];
+
+                System.out.println(container + "########" + fileName);
+                    try {
+                    JSch jsch = new JSch();
+                    jsch.setKnownHosts("~/.ssh/known_hosts");
+                    jsch.addIdentity("~/.ssh/id_rsa");
+                    Session jschSession = jsch.getSession("root",container);
+                    jschSession.connect();
+                    ChannelSftp sftp = (ChannelSftp)jschSession.openChannel("sftp");
+                    sftp.connect();
+                    
+                    try{
+                        sftp.get(fileName, "./");
+                        sftp.rm(fileName);
+                        sftp.put("./"+fileName,"deleted");
+                        File tmp = new File("./"+fileName);
+                        tmp.delete();
+                    }catch(SftpException ex){
+                        Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, "Deleted Folder Does not Exist\n Creating it.....", ex);
+                        sftp.mkdir("deleted");
+                        sftp.rename("./"+fileName, "deleted");
+                    }
+                    
+                    
+                    sftp.exit();
+                    System.out.println("Working");
+
+                    sftp.disconnect();
+                    jschSession.disconnect();
+                } catch (JSchException | SftpException ex) {
+                    Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            
+            dbconnection.DeleteFile(owner, userFile);
+           }catch(Exception err){
+               
+           }
         }
     
 }

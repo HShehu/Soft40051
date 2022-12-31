@@ -120,6 +120,7 @@ public class UserProfileController extends FileMethods implements Initializable 
             refreshGrid();
         }  
     }
+    
     public void CreateBtnClicked()
     {
         String[] createdFile = CreateDialog.display();
@@ -133,6 +134,7 @@ public class UserProfileController extends FileMethods implements Initializable 
         UploadFile();
         refreshGrid();
     };
+    
     public void RenameBtnClicked()
     {
         try {
@@ -189,6 +191,18 @@ public class UserProfileController extends FileMethods implements Initializable 
             }
         } catch (IOException ex) {
             Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void DeleteBtnClicked()
+    {
+        Alert btnAlert = new Alert(AlertType.WARNING);
+        btnAlert.contentTextProperty().setValue("Are you Sure you want to Delete this File?");
+        Optional<ButtonType> result = btnAlert.showAndWait();
+        if(result.isPresent())
+        {
+            DeleteFile(tableFiles.getSelectionModel().getSelectedItem());
+            refreshGrid();
         }
     }
     

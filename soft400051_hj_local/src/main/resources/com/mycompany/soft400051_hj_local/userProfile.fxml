@@ -25,7 +25,7 @@
                         <Button fx:id="btnCopyFile" layoutX="102.0" layoutY="10.0" mnemonicParsing="false" onAction="#CopyBtnClicked" text="Copy FIle" />
                         <Button fx:id="btnRenameFile" layoutX="195.0" layoutY="10.0" mnemonicParsing="false" onAction="#RenameBtnClicked" text="Rename File" />
                         <Button fx:id="btnMoveFile" layoutX="278.0" layoutY="10.0" mnemonicParsing="false" onAction="#MoveBtnClicked" text="Move File" />
-                        <Button fx:id="btnDeleteFile" mnemonicParsing="false" text="Delete File" />
+                        <Button fx:id="btnDeleteFile" mnemonicParsing="false" onAction="#DeleteBtnClicked" text="Delete File" />
                      </items>
                   </ToolBar>
                   <TableView fx:id="tableFiles" prefHeight="200.0" prefWidth="200.0">
