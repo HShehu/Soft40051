@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
@@ -12,18 +13,19 @@
          <center>
             <VBox>
                <children>
-                  <ScrollPane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                  <ScrollPane prefHeight="133.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
                      <content>
                         <TilePane fx:id="tilePane" orientation="VERTICAL" prefColumns="3" prefHeight="50.0" prefWidth="72.0" />
                      </content>
                   </ScrollPane>
                   <ToolBar prefHeight="40.0" prefWidth="200.0">
                      <items>
-                        <Button fx:id="btnDeleteFile" mnemonicParsing="false" text="Delete File" />
+                        <Button id="btnUpload" fx:id="btnUpload" alignment="CENTER" mnemonicParsing="false" onAction="#UploadBtnClicked" prefHeight="25.0" prefWidth="122.0" text="Upload File" textAlignment="CENTER" />
                         <Button fx:id="btnCreateFile" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#CreateBtnClicked" text="Create File" />
                         <Button fx:id="btnCopyFile" layoutX="102.0" layoutY="10.0" mnemonicParsing="false" onAction="#CopyBtnClicked" text="Copy FIle" />
                         <Button fx:id="btnRenameFile" layoutX="195.0" layoutY="10.0" mnemonicParsing="false" onAction="#RenameBtnClicked" text="Rename File" />
                         <Button fx:id="btnMoveFile" layoutX="278.0" layoutY="10.0" mnemonicParsing="false" onAction="#MoveBtnClicked" text="Move File" />
+                        <Button fx:id="btnDeleteFile" mnemonicParsing="false" text="Delete File" />
                      </items>
                   </ToolBar>
                   <TableView fx:id="tableFiles" prefHeight="200.0" prefWidth="200.0">
@@ -46,11 +48,13 @@
                       <Button mnemonicParsing="false" text="Button" />
                      </children>
                   </HBox>
-                  <HBox alignment="CENTER" prefHeight="48.0" prefWidth="183.0" spacing="200.0">
-                     <children>
-                        <Button id="btnUpload" fx:id="btnUpload" alignment="CENTER" mnemonicParsing="false" onAction="#UploadBtnClicked" prefHeight="25.0" prefWidth="122.0" text="Upload File" textAlignment="CENTER" />
-                     </children>
-                  </HBox>
+                  <Pane prefHeight="48.0" prefWidth="135.0" />
+                  <Label fx:id="lbUsername1" text="Current Directory">
+                     <font>
+                        <Font name="System Bold" size="10.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblCurDir" text="Current Directory" textFill="#ee2b2b" />
               </items>
             </ToolBar>
          </top>

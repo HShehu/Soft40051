@@ -72,6 +72,8 @@ public class UserProfileController extends FileMethods implements Initializable 
 
     @FXML
     private Label lbUsername;
+    @FXML
+    private Label lblCurDir;
 
     @FXML
     private Button btnMoveFile;
@@ -98,6 +100,7 @@ public class UserProfileController extends FileMethods implements Initializable 
     public void initialize(URL location, ResourceBundle resources){
         
         lbUsername.setText("Welcome " + owner);
+        SetLblCurDir(currentDir);
         List<Button> allButtons = Arrays.asList(btnMoveFile,btnCopyFile,btnDeleteFile,btnRenameFile);
         allButtons.forEach((button)->{
             button.disableProperty().bind(Bindings.isNull(tableFiles.getSelectionModel().selectedItemProperty()));
@@ -182,6 +185,7 @@ public class UserProfileController extends FileMethods implements Initializable 
             if(Objects.nonNull(dstFolder))
             {
                 MoveFile(dstFolder.getPath().concat(dstFolder.getName()),srcFile);
+                refreshGrid();
             }
         } catch (IOException ex) {
             Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
@@ -194,6 +198,7 @@ public class UserProfileController extends FileMethods implements Initializable 
         
         tilePane.getChildren().clear();
         filesList.clear();
+        userFolders.clear();
         
         List<UserFile> userFiles = dbconnection.listDirectory(owner, currentDir);
         //List<UserFolder> userFolders = new ArrayList<>();
@@ -245,6 +250,15 @@ public class UserProfileController extends FileMethods implements Initializable 
         }
     }
     
+    public void SetLblCurDir(String curDir)
+    {
+        if("./".equals(curDir)){
+            lblCurDir.setText("home");
+        }
+        else{
+            lblCurDir.setText(curDir);
+        }
+    }
     public void ReceiveRename(String newName){this.childReceive = newName;}
     public void RecieveMoveFolder(UserFolder dstFolder){this.dstFolder = dstFolder;};
    
