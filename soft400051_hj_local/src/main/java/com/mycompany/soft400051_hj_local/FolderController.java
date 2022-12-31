@@ -5,7 +5,10 @@
 package com.mycompany.soft400051_hj_local;
 
 import com.mycompany.soft400051_hj_local.model.UserFolder;
+import java.net.URL;
+import java.util.ResourceBundle;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
 /**
@@ -13,7 +16,7 @@ import javafx.scene.control.Label;
  *
  * @author ntu-user
  */
-public class FolderController{
+public class FolderController implements Initializable{
     
     private UserFolder folder;
 
@@ -23,12 +26,17 @@ public class FolderController{
 
     FolderController(UserFolder folder){
         this.folder = folder;
-        lbFolderName.setText(folder.getName());
+       
     }
 
 //    public void setData(UserFolder folder)
 //    {
 //        
 //    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+         lbFolderName.setText(folder.getName());
+    }
 
 }

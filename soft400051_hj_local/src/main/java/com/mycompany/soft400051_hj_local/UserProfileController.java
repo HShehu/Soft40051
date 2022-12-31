@@ -92,6 +92,7 @@ public class UserProfileController extends FileMethods implements Initializable 
     
     @Override
     public void initialize(URL location, ResourceBundle resources){
+        
         lbUsername.setText("Welcome " + owner);
         List<Button> allButtons = Arrays.asList(btnMoveFile,btnCopyFile,btnDeleteFile,btnRenameFile);
         allButtons.forEach((button)->{
@@ -160,23 +161,29 @@ public class UserProfileController extends FileMethods implements Initializable 
         
         List<UserFile> userFiles = dbconnection.listDirectory(owner, currentDir);
         List<UserFolder> userFolders = new ArrayList<>();
+        List<UserFile> onlyUserFiles = new ArrayList<>();
         
-        userFiles.forEach(item ->{     
+        System.out.println("Initialize");
+        
+        userFiles.forEach((UserFile item) ->{     
             if(item.isFolderPath()){
                 UserFolder folder = new UserFolder(item.getName(),item.getPath(),item.isFolderPath());
                 userFolders.add(folder);
-                userFiles.remove(item);
+            }else{
+                onlyUserFiles.add(item);
             }
         });
         
         
-        filesList = FXCollections.observableArrayList(userFiles);
+        
+        filesList = FXCollections.observableArrayList(onlyUserFiles);
         tableFiles.setItems(filesList);
         
         filesList.forEach(user->{
             System.out.println(user.toString());
         });
         colFileName.setCellValueFactory(new PropertyValueFactory("name"));
+        
         
             
         
@@ -187,13 +194,13 @@ public class UserProfileController extends FileMethods implements Initializable 
                 fxLoader.setLocation(getClass().getResource("folder.fxml"));
                 System.out.println("Location Set");
 
-                VBox vBox = fxLoader.load();
-                System.out.println("anchor Loaded");
-
                 FolderController folderController = new FolderController(folder);
                 System.out.println("Controller Created");
                 fxLoader.setController(folderController);
                 System.out.println("controller Set");
+
+                VBox vBox = fxLoader.load();
+                System.out.println("anchor Loaded");
 
                 tilePane.getChildren().add(vBox);          
             } catch (IOException ex) {

@@ -1,0 +1,5432 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-31T01:57:00.670955112Z</date>
+  <millis>1672451820670</millis>
+  <nanos>955112</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-31T01:57:02.114141519Z</date>
+  <millis>1672451822114</millis>
+  <nanos>141519</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-31T01:57:22.176582452Z</date>
+  <millis>1672451842176</millis>
+  <nanos>582452</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T01:57:22.177883378Z</date>
+  <millis>1672451842177</millis>
+  <nanos>883378</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T01:57:22.179959657Z</date>
+  <millis>1672451842179</millis>
+  <nanos>959657</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T01:57:22.181564485Z</date>
+  <millis>1672451842181</millis>
+  <nanos>564485</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T01:57:22.374155217Z</date>
+  <millis>1672451842374</millis>
+  <nanos>155217</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T01:57:25.407734232Z</date>
+  <millis>1672451845407</millis>
+  <nanos>734232</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local.dbconnection</logger>
+  <level>SEVERE</level>
+  <class>com.mycompany.soft400051_hj_local.dbconnection</class>
+  <method>data_login</method>
+  <thread>23</thread>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_BUSY] The database file is locked (database is locked)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1135</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1146</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1106</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>89</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>lambda$executeLargeUpdate$2</method>
+      <line>128</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>withConnectionTimeout</method>
+      <line>454</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeLargeUpdate</method>
+      <line>115</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.dbconnection</class>
+      <method>data_login</method>
+      <line>321</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.LoginController</class>
+      <method>login_details_check</method>
+      <line>62</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.ButtonController</class>
+      <method>login</method>
+      <line>72</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.reflect.DirectMethodHandleAccessor</class>
+      <method>invoke</method>
+      <line>104</line>
+    </frame>
+    <frame>
+      <class>java.lang.reflect.Method</class>
+      <method>invoke</method>
+      <line>578</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.reflect.Trampoline</class>
+      <method>invoke</method>
+      <line>77</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.reflect.DirectMethodHandleAccessor</class>
+      <method>invoke</method>
+      <line>104</line>
+    </frame>
+    <frame>
+      <class>java.lang.reflect.Method</class>
+      <method>invoke</method>
+      <line>578</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.reflect.MethodUtil</class>
+      <method>invoke</method>
+      <line>275</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.fxml.MethodHelper</class>
+      <method>invoke</method>
+      <line>84</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader$MethodHandler</class>
+      <method>invoke</method>
+      <line>1852</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader$ControllerMethodEventHandler</class>
+      <method>handle</method>
+      <line>1724</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler</class>
+      <method>dispatchBubblingEvent</method>
+      <line>86</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>234</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>191</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventDispatcher</class>
+      <method>dispatchBubblingEvent</method>
+      <line>59</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>58</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEventImpl</method>
+      <line>74</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEvent</method>
+      <line>49</line>
+    </frame>
+    <frame>
+      <class>javafx.event.Event</class>
+      <method>fireEvent</method>
+      <line>198</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Node</class>
+      <method>fireEvent</method>
+      <line>8923</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.control.Button</class>
+      <method>fire</method>
+      <line>203</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.scene.control.behavior.ButtonBehavior</class>
+      <method>mouseReleased</method>
+      <line>207</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.scene.control.inputmap.InputMap</class>
+      <method>handle</method>
+      <line>274</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord</class>
+      <method>handleBubblingEvent</method>
+      <line>247</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler</class>
+      <method>dispatchBubblingEvent</method>
+      <line>80</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>234</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>191</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventDispatcher</class>
+      <method>dispatchBubblingEvent</method>
+      <line>59</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>58</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEventImpl</method>
+      <line>74</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEvent</method>
+      <line>54</line>
+    </frame>
+    <frame>
+      <class>javafx.event.Event</class>
+      <method>fireEvent</method>
+      <line>198</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$MouseHandler</class>
+      <method>process</method>
+      <line>3894</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene</class>
+      <method>processMouseEvent</method>
+      <line>1887</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$ScenePeerListener</class>
+      <method>mouseEvent</method>
+      <line>2620</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification</class>
+      <method>run</method>
+      <line>411</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification</class>
+      <method>run</method>
+      <line>301</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+      <line>399</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler</class>
+      <method>lambda$handleMouseEvent$2</method>
+      <line>450</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.QuantumToolkit</class>
+      <method>runWithoutRenderLock</method>
+      <line>424</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler</class>
+      <method>handleMouseEvent</method>
+      <line>449</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.View</class>
+      <method>handleMouseEvent</method>
+      <line>551</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.View</class>
+      <method>notifyMouse</method>
+      <line>937</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.gtk.GtkApplication</class>
+      <method>_runLoop</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.gtk.GtkApplication</class>
+      <method>lambda$runLoop$11</method>
+      <line>316</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>1589</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-12-31T01:57:25.418940343Z</date>
+  <millis>1672451845418</millis>
+  <nanos>940343</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>SQLException from Login Query</message>
+</record>
+<record>
+  <date>2022-12-31T01:57:25.421812753Z</date>
+  <millis>1672451845421</millis>
+  <nanos>812753</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T01:57:26.845587415Z</date>
+  <millis>1672451846845</millis>
+  <nanos>587415</nanos>
+  <sequence>10</sequence>
+  <logger>com.mycompany.soft400051_hj_local.dbconnection</logger>
+  <level>SEVERE</level>
+  <class>com.mycompany.soft400051_hj_local.dbconnection</class>
+  <method>createFolders</method>
+  <thread>23</thread>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_ERROR] SQL error or missing database (near "=": syntax error)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1135</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1146</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1106</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>prepare_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>prepare</method>
+      <line>122</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>prepare</method>
+      <line>264</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.CorePreparedStatement</class>
+      <method>&lt;init&gt;</method>
+      <line>46</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>&lt;init&gt;</method>
+      <line>31</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc4.JDBC4PreparedStatement</class>
+      <method>&lt;init&gt;</method>
+      <line>25</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc4.JDBC4Connection</class>
+      <method>prepareStatement</method>
+      <line>34</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Connection</class>
+      <method>prepareStatement</method>
+      <line>226</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Connection</class>
+      <method>prepareStatement</method>
+      <line>206</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.dbconnection</class>
+      <method>createFolders</method>
+      <line>171</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.UserProfileController</class>
+      <method>initialize</method>
+      <line>96</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2655</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2548</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>load</method>
+      <line>2516</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.LoginController</class>
+      <method>login_details_check</method>
+      <line>76</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.ButtonController</class>
+      <method>login</method>
+      <line>72</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.reflect.DirectMethodHandleAccessor</class>
+      <method>invoke</method>
+      <line>104</line>
+    </frame>
+    <frame>
+      <class>java.lang.reflect.Method</class>
+      <method>invoke</method>
+      <line>578</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.reflect.Trampoline</class>
+      <method>invoke</method>
+      <line>77</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.reflect.DirectMethodHandleAccessor</class>
+      <method>invoke</method>
+      <line>104</line>
+    </frame>
+    <frame>
+      <class>java.lang.reflect.Method</class>
+      <method>invoke</method>
+      <line>578</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.reflect.MethodUtil</class>
+      <method>invoke</method>
+      <line>275</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.fxml.MethodHelper</class>
+      <method>invoke</method>
+      <line>84</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader$MethodHandler</class>
+      <method>invoke</method>
+      <line>1852</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader$ControllerMethodEventHandler</class>
+      <method>handle</method>
+      <line>1724</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler</class>
+      <method>dispatchBubblingEvent</method>
+      <line>86</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>234</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>191</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventDispatcher</class>
+      <method>dispatchBubblingEvent</method>
+      <line>59</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>58</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEventImpl</method>
+      <line>74</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEvent</method>
+      <line>49</line>
+    </frame>
+    <frame>
+      <class>javafx.event.Event</class>
+      <method>fireEvent</method>
+      <line>198</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Node</class>
+      <method>fireEvent</method>
+      <line>8923</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.control.Button</class>
+      <method>fire</method>
+      <line>203</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.scene.control.behavior.ButtonBehavior</class>
+      <method>mouseReleased</method>
+      <line>207</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.scene.control.inputmap.InputMap</class>
+      <method>handle</method>
+      <line>274</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord</class>
+      <method>handleBubblingEvent</method>
+      <line>247</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler</class>
+      <method>dispatchBubblingEvent</method>
+      <line>80</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>234</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>191</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventDispatcher</class>
+      <method>dispatchBubblingEvent</method>
+      <line>59</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>58</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEventImpl</method>
+      <line>74</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEvent</method>
+      <line>54</line>
+    </frame>
+    <frame>
+      <class>javafx.event.Event</class>
+      <method>fireEvent</method>
+      <line>198</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$MouseHandler</class>
+      <method>process</method>
+      <line>3894</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene</class>
+      <method>processMouseEvent</method>
+      <line>1887</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$ScenePeerListener</class>
+      <method>mouseEvent</method>
+      <line>2620</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification</class>
+      <method>run</method>
+      <line>411</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification</class>
+      <method>run</method>
+      <line>301</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+      <line>399</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler</class>
+      <method>lambda$handleMouseEvent$2</method>
+      <line>450</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.QuantumToolkit</class>
+      <method>runWithoutRenderLock</method>
+      <line>424</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler</class>
+      <method>handleMouseEvent</method>
+      <line>449</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.View</class>
+      <method>handleMouseEvent</method>
+      <line>551</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.View</class>
+      <method>notifyMouse</method>
+      <line>937</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.gtk.GtkApplication</class>
+      <method>_runLoop</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.gtk.GtkApplication</class>
+      <method>lambda$runLoop$11</method>
+      <line>316</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>1589</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-12-31T01:57:27.025587800Z</date>
+  <millis>1672451847025</millis>
+  <nanos>587800</nanos>
+  <sequence>11</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Screen Loaded to User </message>
+</record>
+<record>
+  <date>2022-12-31T01:57:27.027373674Z</date>
+  <millis>1672451847027</millis>
+  <nanos>373674</nanos>
+  <sequence>12</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution Success</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-31T02:00:27.516369978Z</date>
+  <millis>1672452027516</millis>
+  <nanos>369978</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-31T02:00:28.752364072Z</date>
+  <millis>1672452028752</millis>
+  <nanos>364072</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-31T02:00:47.829943286Z</date>
+  <millis>1672452047829</millis>
+  <nanos>943286</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:00:47.831435769Z</date>
+  <millis>1672452047831</millis>
+  <nanos>435769</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:00:47.833804817Z</date>
+  <millis>1672452047833</millis>
+  <nanos>804817</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:00:47.835303762Z</date>
+  <millis>1672452047835</millis>
+  <nanos>303762</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:00:48.037504574Z</date>
+  <millis>1672452048037</millis>
+  <nanos>504574</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:00:48.098546728Z</date>
+  <millis>1672452048098</millis>
+  <nanos>546728</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:00:48.100075721Z</date>
+  <millis>1672452048100</millis>
+  <nanos>75721</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:00:48.950009992Z</date>
+  <millis>1672452048950</millis>
+  <nanos>9992</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:00:48.955960707Z</date>
+  <millis>1672452048955</millis>
+  <nanos>960707</nanos>
+  <sequence>10</sequence>
+  <logger>com.mycompany.soft400051_hj_local.dbconnection</logger>
+  <level>SEVERE</level>
+  <class>com.mycompany.soft400051_hj_local.dbconnection</class>
+  <method>createFolders</method>
+  <thread>23</thread>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_NOTNULL] A NOT NULL constraint failed (NOT NULL constraint failed: Files.CHUNK1)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1135</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1146</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>execute</method>
+      <line>941</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>executeUpdate</method>
+      <line>1010</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>lambda$executeLargeUpdate$2</method>
+      <line>118</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>withConnectionTimeout</method>
+      <line>454</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>executeLargeUpdate</method>
+      <line>117</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>executeUpdate</method>
+      <line>99</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.dbconnection</class>
+      <method>createFolders</method>
+      <line>174</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.UserProfileController</class>
+      <method>initialize</method>
+      <line>96</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2655</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2548</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>load</method>
+      <line>2516</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.LoginController</class>
+      <method>login_details_check</method>
+      <line>76</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.ButtonController</class>
+      <method>login</method>
+      <line>72</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.reflect.DirectMethodHandleAccessor</class>
+      <method>invoke</method>
+      <line>104</line>
+    </frame>
+    <frame>
+      <class>java.lang.reflect.Method</class>
+      <method>invoke</method>
+      <line>578</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.reflect.Trampoline</class>
+      <method>invoke</method>
+      <line>77</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.reflect.DirectMethodHandleAccessor</class>
+      <method>invoke</method>
+      <line>104</line>
+    </frame>
+    <frame>
+      <class>java.lang.reflect.Method</class>
+      <method>invoke</method>
+      <line>578</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.reflect.MethodUtil</class>
+      <method>invoke</method>
+      <line>275</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.fxml.MethodHelper</class>
+      <method>invoke</method>
+      <line>84</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader$MethodHandler</class>
+      <method>invoke</method>
+      <line>1852</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader$ControllerMethodEventHandler</class>
+      <method>handle</method>
+      <line>1724</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler</class>
+      <method>dispatchBubblingEvent</method>
+      <line>86</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>234</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>191</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventDispatcher</class>
+      <method>dispatchBubblingEvent</method>
+      <line>59</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>58</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEventImpl</method>
+      <line>74</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEvent</method>
+      <line>49</line>
+    </frame>
+    <frame>
+      <class>javafx.event.Event</class>
+      <method>fireEvent</method>
+      <line>198</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Node</class>
+      <method>fireEvent</method>
+      <line>8923</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.control.Button</class>
+      <method>fire</method>
+      <line>203</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.scene.control.behavior.ButtonBehavior</class>
+      <method>mouseReleased</method>
+      <line>207</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.scene.control.inputmap.InputMap</class>
+      <method>handle</method>
+      <line>274</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord</class>
+      <method>handleBubblingEvent</method>
+      <line>247</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler</class>
+      <method>dispatchBubblingEvent</method>
+      <line>80</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>234</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>191</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventDispatcher</class>
+      <method>dispatchBubblingEvent</method>
+      <line>59</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>58</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEventImpl</method>
+      <line>74</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEvent</method>
+      <line>54</line>
+    </frame>
+    <frame>
+      <class>javafx.event.Event</class>
+      <method>fireEvent</method>
+      <line>198</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$MouseHandler</class>
+      <method>process</method>
+      <line>3894</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene</class>
+      <method>processMouseEvent</method>
+      <line>1887</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$ScenePeerListener</class>
+      <method>mouseEvent</method>
+      <line>2620</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification</class>
+      <method>run</method>
+      <line>411</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification</class>
+      <method>run</method>
+      <line>301</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+      <line>399</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler</class>
+      <method>lambda$handleMouseEvent$2</method>
+      <line>450</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.QuantumToolkit</class>
+      <method>runWithoutRenderLock</method>
+      <line>424</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler</class>
+      <method>handleMouseEvent</method>
+      <line>449</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.View</class>
+      <method>handleMouseEvent</method>
+      <line>551</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.View</class>
+      <method>notifyMouse</method>
+      <line>937</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.gtk.GtkApplication</class>
+      <method>_runLoop</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.gtk.GtkApplication</class>
+      <method>lambda$runLoop$11</method>
+      <line>316</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>1589</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-12-31T02:00:49.123376476Z</date>
+  <millis>1672452049123</millis>
+  <nanos>376476</nanos>
+  <sequence>11</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Screen Loaded to User </message>
+</record>
+<record>
+  <date>2022-12-31T02:00:49.124447523Z</date>
+  <millis>1672452049124</millis>
+  <nanos>447523</nanos>
+  <sequence>12</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution Success</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-31T02:05:11.361252052Z</date>
+  <millis>1672452311361</millis>
+  <nanos>252052</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-31T02:05:12.581707154Z</date>
+  <millis>1672452312581</millis>
+  <nanos>707154</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-31T02:05:26.179181878Z</date>
+  <millis>1672452326179</millis>
+  <nanos>181878</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:05:26.180392482Z</date>
+  <millis>1672452326180</millis>
+  <nanos>392482</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:05:26.182672190Z</date>
+  <millis>1672452326182</millis>
+  <nanos>672190</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:05:26.184131529Z</date>
+  <millis>1672452326184</millis>
+  <nanos>131529</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:05:26.388516316Z</date>
+  <millis>1672452326388</millis>
+  <nanos>516316</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:05:26.448184583Z</date>
+  <millis>1672452326448</millis>
+  <nanos>184583</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:05:26.449892739Z</date>
+  <millis>1672452326449</millis>
+  <nanos>892739</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:05:27.289394698Z</date>
+  <millis>1672452327289</millis>
+  <nanos>394698</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:05:27.297167636Z</date>
+  <millis>1672452327297</millis>
+  <nanos>167636</nanos>
+  <sequence>10</sequence>
+  <logger>com.mycompany.soft400051_hj_local.dbconnection</logger>
+  <level>SEVERE</level>
+  <class>com.mycompany.soft400051_hj_local.dbconnection</class>
+  <method>createFolders</method>
+  <thread>23</thread>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: CK_FOLDER)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1135</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1146</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>execute</method>
+      <line>941</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>executeUpdate</method>
+      <line>1010</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>lambda$executeLargeUpdate$2</method>
+      <line>118</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>withConnectionTimeout</method>
+      <line>454</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>executeLargeUpdate</method>
+      <line>117</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>executeUpdate</method>
+      <line>99</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.dbconnection</class>
+      <method>createFolders</method>
+      <line>174</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.UserProfileController</class>
+      <method>initialize</method>
+      <line>96</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2655</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2548</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>load</method>
+      <line>2516</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.LoginController</class>
+      <method>login_details_check</method>
+      <line>76</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.ButtonController</class>
+      <method>login</method>
+      <line>72</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.reflect.DirectMethodHandleAccessor</class>
+      <method>invoke</method>
+      <line>104</line>
+    </frame>
+    <frame>
+      <class>java.lang.reflect.Method</class>
+      <method>invoke</method>
+      <line>578</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.reflect.Trampoline</class>
+      <method>invoke</method>
+      <line>77</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.reflect.DirectMethodHandleAccessor</class>
+      <method>invoke</method>
+      <line>104</line>
+    </frame>
+    <frame>
+      <class>java.lang.reflect.Method</class>
+      <method>invoke</method>
+      <line>578</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.reflect.MethodUtil</class>
+      <method>invoke</method>
+      <line>275</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.fxml.MethodHelper</class>
+      <method>invoke</method>
+      <line>84</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader$MethodHandler</class>
+      <method>invoke</method>
+      <line>1852</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader$ControllerMethodEventHandler</class>
+      <method>handle</method>
+      <line>1724</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler</class>
+      <method>dispatchBubblingEvent</method>
+      <line>86</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>234</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>191</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventDispatcher</class>
+      <method>dispatchBubblingEvent</method>
+      <line>59</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>58</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEventImpl</method>
+      <line>74</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEvent</method>
+      <line>49</line>
+    </frame>
+    <frame>
+      <class>javafx.event.Event</class>
+      <method>fireEvent</method>
+      <line>198</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Node</class>
+      <method>fireEvent</method>
+      <line>8923</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.control.Button</class>
+      <method>fire</method>
+      <line>203</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.scene.control.behavior.ButtonBehavior</class>
+      <method>mouseReleased</method>
+      <line>207</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.scene.control.inputmap.InputMap</class>
+      <method>handle</method>
+      <line>274</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord</class>
+      <method>handleBubblingEvent</method>
+      <line>247</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler</class>
+      <method>dispatchBubblingEvent</method>
+      <line>80</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>234</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>191</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventDispatcher</class>
+      <method>dispatchBubblingEvent</method>
+      <line>59</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>58</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEventImpl</method>
+      <line>74</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEvent</method>
+      <line>54</line>
+    </frame>
+    <frame>
+      <class>javafx.event.Event</class>
+      <method>fireEvent</method>
+      <line>198</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$MouseHandler</class>
+      <method>process</method>
+      <line>3894</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene</class>
+      <method>processMouseEvent</method>
+      <line>1887</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$ScenePeerListener</class>
+      <method>mouseEvent</method>
+      <line>2620</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification</class>
+      <method>run</method>
+      <line>411</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification</class>
+      <method>run</method>
+      <line>301</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+      <line>399</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler</class>
+      <method>lambda$handleMouseEvent$2</method>
+      <line>450</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.QuantumToolkit</class>
+      <method>runWithoutRenderLock</method>
+      <line>424</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler</class>
+      <method>handleMouseEvent</method>
+      <line>449</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.View</class>
+      <method>handleMouseEvent</method>
+      <line>551</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.View</class>
+      <method>notifyMouse</method>
+      <line>937</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.gtk.GtkApplication</class>
+      <method>_runLoop</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.gtk.GtkApplication</class>
+      <method>lambda$runLoop$11</method>
+      <line>316</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>1589</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-12-31T02:05:27.469863569Z</date>
+  <millis>1672452327469</millis>
+  <nanos>863569</nanos>
+  <sequence>11</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Screen Loaded to User </message>
+</record>
+<record>
+  <date>2022-12-31T02:05:27.471280387Z</date>
+  <millis>1672452327471</millis>
+  <nanos>280387</nanos>
+  <sequence>12</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution Success</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-31T02:08:33.802347029Z</date>
+  <millis>1672452513802</millis>
+  <nanos>347029</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-31T02:08:34.976712920Z</date>
+  <millis>1672452514976</millis>
+  <nanos>712920</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-31T02:08:48.513313420Z</date>
+  <millis>1672452528513</millis>
+  <nanos>313420</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:08:48.514623695Z</date>
+  <millis>1672452528514</millis>
+  <nanos>623695</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:08:48.516799554Z</date>
+  <millis>1672452528516</millis>
+  <nanos>799554</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:08:48.519385637Z</date>
+  <millis>1672452528519</millis>
+  <nanos>385637</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:08:48.710827904Z</date>
+  <millis>1672452528710</millis>
+  <nanos>827904</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:08:48.755823905Z</date>
+  <millis>1672452528755</millis>
+  <nanos>823905</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:08:48.757309755Z</date>
+  <millis>1672452528757</millis>
+  <nanos>309755</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:08:49.440950091Z</date>
+  <millis>1672452529440</millis>
+  <nanos>950091</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:08:49.448141528Z</date>
+  <millis>1672452529448</millis>
+  <nanos>141528</nanos>
+  <sequence>10</sequence>
+  <logger>com.mycompany.soft400051_hj_local.dbconnection</logger>
+  <level>SEVERE</level>
+  <class>com.mycompany.soft400051_hj_local.dbconnection</class>
+  <method>createFolders</method>
+  <thread>23</thread>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_CHECK] A CHECK constraint failed (CHECK constraint failed: CK_FOLDER)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1135</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1146</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>execute</method>
+      <line>941</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>executeUpdate</method>
+      <line>1010</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>lambda$executeLargeUpdate$2</method>
+      <line>118</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>withConnectionTimeout</method>
+      <line>454</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>executeLargeUpdate</method>
+      <line>117</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>executeUpdate</method>
+      <line>99</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.dbconnection</class>
+      <method>createFolders</method>
+      <line>174</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.UserProfileController</class>
+      <method>initialize</method>
+      <line>96</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2655</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2548</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>load</method>
+      <line>2516</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.LoginController</class>
+      <method>login_details_check</method>
+      <line>76</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.ButtonController</class>
+      <method>login</method>
+      <line>72</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.reflect.DirectMethodHandleAccessor</class>
+      <method>invoke</method>
+      <line>104</line>
+    </frame>
+    <frame>
+      <class>java.lang.reflect.Method</class>
+      <method>invoke</method>
+      <line>578</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.reflect.Trampoline</class>
+      <method>invoke</method>
+      <line>77</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.reflect.DirectMethodHandleAccessor</class>
+      <method>invoke</method>
+      <line>104</line>
+    </frame>
+    <frame>
+      <class>java.lang.reflect.Method</class>
+      <method>invoke</method>
+      <line>578</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.reflect.MethodUtil</class>
+      <method>invoke</method>
+      <line>275</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.fxml.MethodHelper</class>
+      <method>invoke</method>
+      <line>84</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader$MethodHandler</class>
+      <method>invoke</method>
+      <line>1852</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader$ControllerMethodEventHandler</class>
+      <method>handle</method>
+      <line>1724</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler</class>
+      <method>dispatchBubblingEvent</method>
+      <line>86</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>234</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>191</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventDispatcher</class>
+      <method>dispatchBubblingEvent</method>
+      <line>59</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>58</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEventImpl</method>
+      <line>74</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEvent</method>
+      <line>49</line>
+    </frame>
+    <frame>
+      <class>javafx.event.Event</class>
+      <method>fireEvent</method>
+      <line>198</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Node</class>
+      <method>fireEvent</method>
+      <line>8923</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.control.Button</class>
+      <method>fire</method>
+      <line>203</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.scene.control.behavior.ButtonBehavior</class>
+      <method>mouseReleased</method>
+      <line>207</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.scene.control.inputmap.InputMap</class>
+      <method>handle</method>
+      <line>274</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord</class>
+      <method>handleBubblingEvent</method>
+      <line>247</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler</class>
+      <method>dispatchBubblingEvent</method>
+      <line>80</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>234</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>191</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventDispatcher</class>
+      <method>dispatchBubblingEvent</method>
+      <line>59</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>58</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEventImpl</method>
+      <line>74</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEvent</method>
+      <line>54</line>
+    </frame>
+    <frame>
+      <class>javafx.event.Event</class>
+      <method>fireEvent</method>
+      <line>198</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$MouseHandler</class>
+      <method>process</method>
+      <line>3894</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene</class>
+      <method>processMouseEvent</method>
+      <line>1887</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$ScenePeerListener</class>
+      <method>mouseEvent</method>
+      <line>2620</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification</class>
+      <method>run</method>
+      <line>411</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification</class>
+      <method>run</method>
+      <line>301</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+      <line>399</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler</class>
+      <method>lambda$handleMouseEvent$2</method>
+      <line>450</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.QuantumToolkit</class>
+      <method>runWithoutRenderLock</method>
+      <line>424</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler</class>
+      <method>handleMouseEvent</method>
+      <line>449</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.View</class>
+      <method>handleMouseEvent</method>
+      <line>551</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.View</class>
+      <method>notifyMouse</method>
+      <line>937</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.gtk.GtkApplication</class>
+      <method>_runLoop</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.gtk.GtkApplication</class>
+      <method>lambda$runLoop$11</method>
+      <line>316</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>1589</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-12-31T02:08:49.625316723Z</date>
+  <millis>1672452529625</millis>
+  <nanos>316723</nanos>
+  <sequence>11</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Screen Loaded to User </message>
+</record>
+<record>
+  <date>2022-12-31T02:08:49.626519392Z</date>
+  <millis>1672452529626</millis>
+  <nanos>519392</nanos>
+  <sequence>12</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution Success</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-31T02:10:36.517667139Z</date>
+  <millis>1672452636517</millis>
+  <nanos>667139</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-31T02:10:37.701444750Z</date>
+  <millis>1672452637701</millis>
+  <nanos>444750</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-31T02:10:51.555917371Z</date>
+  <millis>1672452651555</millis>
+  <nanos>917371</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:10:51.557265949Z</date>
+  <millis>1672452651557</millis>
+  <nanos>265949</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:10:51.559487025Z</date>
+  <millis>1672452651559</millis>
+  <nanos>487025</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:10:51.561343253Z</date>
+  <millis>1672452651561</millis>
+  <nanos>343253</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:10:51.759219772Z</date>
+  <millis>1672452651759</millis>
+  <nanos>219772</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:10:51.820814914Z</date>
+  <millis>1672452651820</millis>
+  <nanos>814914</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:10:51.822473344Z</date>
+  <millis>1672452651822</millis>
+  <nanos>473344</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:10:53.437258737Z</date>
+  <millis>1672452653437</millis>
+  <nanos>258737</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:10:53.463191549Z</date>
+  <millis>1672452653463</millis>
+  <nanos>191549</nanos>
+  <sequence>10</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Exception in Login_Details_check function in Login Controller</message>
+</record>
+<record>
+  <date>2022-12-31T02:11:15.515824533Z</date>
+  <millis>1672452675515</millis>
+  <nanos>824533</nanos>
+  <sequence>11</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:11:15.517165186Z</date>
+  <millis>1672452675517</millis>
+  <nanos>165186</nanos>
+  <sequence>12</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:11:15.518535776Z</date>
+  <millis>1672452675518</millis>
+  <nanos>535776</nanos>
+  <sequence>13</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:11:15.519832555Z</date>
+  <millis>1672452675519</millis>
+  <nanos>832555</nanos>
+  <sequence>14</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:11:15.522354245Z</date>
+  <millis>1672452675522</millis>
+  <nanos>354245</nanos>
+  <sequence>15</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:11:15.525365111Z</date>
+  <millis>1672452675525</millis>
+  <nanos>365111</nanos>
+  <sequence>16</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Already Logged in DB Checked joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:11:15.526938959Z</date>
+  <millis>1672452675526</millis>
+  <nanos>938959</nanos>
+  <sequence>17</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Already Logged in joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:11:15.550398813Z</date>
+  <millis>1672452675550</millis>
+  <nanos>398813</nanos>
+  <sequence>18</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:11:30.190557600Z</date>
+  <millis>1672452690190</millis>
+  <nanos>557600</nanos>
+  <sequence>19</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:11:30.191692038Z</date>
+  <millis>1672452690191</millis>
+  <nanos>692038</nanos>
+  <sequence>20</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:11:30.193081233Z</date>
+  <millis>1672452690193</millis>
+  <nanos>81233</nanos>
+  <sequence>21</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:11:30.194307738Z</date>
+  <millis>1672452690194</millis>
+  <nanos>307738</nanos>
+  <sequence>22</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:11:30.197530628Z</date>
+  <millis>1672452690197</millis>
+  <nanos>530628</nanos>
+  <sequence>23</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:11:30.211419537Z</date>
+  <millis>1672452690211</millis>
+  <nanos>419537</nanos>
+  <sequence>24</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:11:30.212427023Z</date>
+  <millis>1672452690212</millis>
+  <nanos>427023</nanos>
+  <sequence>25</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:11:30.995953264Z</date>
+  <millis>1672452690995</millis>
+  <nanos>953264</nanos>
+  <sequence>26</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:11:31.000834655Z</date>
+  <millis>1672452691000</millis>
+  <nanos>834655</nanos>
+  <sequence>27</sequence>
+  <logger>com.mycompany.soft400051_hj_local.dbconnection</logger>
+  <level>SEVERE</level>
+  <class>com.mycompany.soft400051_hj_local.dbconnection</class>
+  <method>createFolders</method>
+  <thread>23</thread>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Files.FILENAME, Files.FILEPATH, Files.OWNER)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1135</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1146</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>execute</method>
+      <line>941</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>executeUpdate</method>
+      <line>1010</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>lambda$executeLargeUpdate$2</method>
+      <line>118</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>withConnectionTimeout</method>
+      <line>454</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>executeLargeUpdate</method>
+      <line>117</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>executeUpdate</method>
+      <line>99</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.dbconnection</class>
+      <method>createFolders</method>
+      <line>173</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.UserProfileController</class>
+      <method>initialize</method>
+      <line>96</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2655</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2548</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>load</method>
+      <line>2516</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.LoginController</class>
+      <method>login_details_check</method>
+      <line>76</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.ButtonController</class>
+      <method>login</method>
+      <line>72</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.reflect.DirectMethodHandleAccessor</class>
+      <method>invoke</method>
+      <line>104</line>
+    </frame>
+    <frame>
+      <class>java.lang.reflect.Method</class>
+      <method>invoke</method>
+      <line>578</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.reflect.Trampoline</class>
+      <method>invoke</method>
+      <line>77</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.reflect.DirectMethodHandleAccessor</class>
+      <method>invoke</method>
+      <line>104</line>
+    </frame>
+    <frame>
+      <class>java.lang.reflect.Method</class>
+      <method>invoke</method>
+      <line>578</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.reflect.MethodUtil</class>
+      <method>invoke</method>
+      <line>275</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.fxml.MethodHelper</class>
+      <method>invoke</method>
+      <line>84</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader$MethodHandler</class>
+      <method>invoke</method>
+      <line>1852</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader$ControllerMethodEventHandler</class>
+      <method>handle</method>
+      <line>1724</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler</class>
+      <method>dispatchBubblingEvent</method>
+      <line>86</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>234</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>191</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventDispatcher</class>
+      <method>dispatchBubblingEvent</method>
+      <line>59</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>58</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEventImpl</method>
+      <line>74</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEvent</method>
+      <line>49</line>
+    </frame>
+    <frame>
+      <class>javafx.event.Event</class>
+      <method>fireEvent</method>
+      <line>198</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Node</class>
+      <method>fireEvent</method>
+      <line>8923</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.control.Button</class>
+      <method>fire</method>
+      <line>203</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.scene.control.behavior.ButtonBehavior</class>
+      <method>mouseReleased</method>
+      <line>207</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.scene.control.inputmap.InputMap</class>
+      <method>handle</method>
+      <line>274</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord</class>
+      <method>handleBubblingEvent</method>
+      <line>247</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler</class>
+      <method>dispatchBubblingEvent</method>
+      <line>80</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>234</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>191</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventDispatcher</class>
+      <method>dispatchBubblingEvent</method>
+      <line>59</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>58</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEventImpl</method>
+      <line>74</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEvent</method>
+      <line>54</line>
+    </frame>
+    <frame>
+      <class>javafx.event.Event</class>
+      <method>fireEvent</method>
+      <line>198</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$MouseHandler</class>
+      <method>process</method>
+      <line>3894</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene</class>
+      <method>processMouseEvent</method>
+      <line>1887</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$ScenePeerListener</class>
+      <method>mouseEvent</method>
+      <line>2620</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification</class>
+      <method>run</method>
+      <line>411</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification</class>
+      <method>run</method>
+      <line>301</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+      <line>399</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler</class>
+      <method>lambda$handleMouseEvent$2</method>
+      <line>450</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.QuantumToolkit</class>
+      <method>runWithoutRenderLock</method>
+      <line>424</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler</class>
+      <method>handleMouseEvent</method>
+      <line>449</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.View</class>
+      <method>handleMouseEvent</method>
+      <line>551</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.View</class>
+      <method>notifyMouse</method>
+      <line>937</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.gtk.GtkApplication</class>
+      <method>_runLoop</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.gtk.GtkApplication</class>
+      <method>lambda$runLoop$11</method>
+      <line>316</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>1589</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-12-31T02:11:31.006346331Z</date>
+  <millis>1672452691006</millis>
+  <nanos>346331</nanos>
+  <sequence>28</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Exception in Login_Details_check function in Login Controller</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-31T02:15:56.733905012Z</date>
+  <millis>1672452956733</millis>
+  <nanos>905012</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-31T02:15:57.930735134Z</date>
+  <millis>1672452957930</millis>
+  <nanos>735134</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-31T02:16:08.302767571Z</date>
+  <millis>1672452968302</millis>
+  <nanos>767571</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:16:08.304243994Z</date>
+  <millis>1672452968304</millis>
+  <nanos>243994</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:16:08.306481450Z</date>
+  <millis>1672452968306</millis>
+  <nanos>481450</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:16:08.308052664Z</date>
+  <millis>1672452968308</millis>
+  <nanos>52664</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:16:08.509645654Z</date>
+  <millis>1672452968509</millis>
+  <nanos>645654</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:16:08.567999499Z</date>
+  <millis>1672452968567</millis>
+  <nanos>999499</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:16:08.569560382Z</date>
+  <millis>1672452968569</millis>
+  <nanos>560382</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:16:09.445233074Z</date>
+  <millis>1672452969445</millis>
+  <nanos>233074</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:16:09.452182998Z</date>
+  <millis>1672452969452</millis>
+  <nanos>182998</nanos>
+  <sequence>10</sequence>
+  <logger>com.mycompany.soft400051_hj_local.dbconnection</logger>
+  <level>SEVERE</level>
+  <class>com.mycompany.soft400051_hj_local.dbconnection</class>
+  <method>createFolders</method>
+  <thread>23</thread>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY] A PRIMARY KEY constraint failed (UNIQUE constraint failed: Files.FILENAME, Files.FILEPATH, Files.OWNER)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1135</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1146</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>execute</method>
+      <line>941</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>executeUpdate</method>
+      <line>1010</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>lambda$executeLargeUpdate$2</method>
+      <line>118</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>withConnectionTimeout</method>
+      <line>454</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>executeLargeUpdate</method>
+      <line>117</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3PreparedStatement</class>
+      <method>executeUpdate</method>
+      <line>99</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.dbconnection</class>
+      <method>createFolders</method>
+      <line>173</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.UserProfileController</class>
+      <method>initialize</method>
+      <line>98</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2655</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>loadImpl</method>
+      <line>2548</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader</class>
+      <method>load</method>
+      <line>2516</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.LoginController</class>
+      <method>login_details_check</method>
+      <line>76</line>
+    </frame>
+    <frame>
+      <class>com.mycompany.soft400051_hj_local.ButtonController</class>
+      <method>login</method>
+      <line>72</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.reflect.DirectMethodHandleAccessor</class>
+      <method>invoke</method>
+      <line>104</line>
+    </frame>
+    <frame>
+      <class>java.lang.reflect.Method</class>
+      <method>invoke</method>
+      <line>578</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.reflect.Trampoline</class>
+      <method>invoke</method>
+      <line>77</line>
+    </frame>
+    <frame>
+      <class>jdk.internal.reflect.DirectMethodHandleAccessor</class>
+      <method>invoke</method>
+      <line>104</line>
+    </frame>
+    <frame>
+      <class>java.lang.reflect.Method</class>
+      <method>invoke</method>
+      <line>578</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.reflect.MethodUtil</class>
+      <method>invoke</method>
+      <line>275</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.fxml.MethodHelper</class>
+      <method>invoke</method>
+      <line>84</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader$MethodHandler</class>
+      <method>invoke</method>
+      <line>1852</line>
+    </frame>
+    <frame>
+      <class>javafx.fxml.FXMLLoader$ControllerMethodEventHandler</class>
+      <method>handle</method>
+      <line>1724</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler</class>
+      <method>dispatchBubblingEvent</method>
+      <line>86</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>234</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>191</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventDispatcher</class>
+      <method>dispatchBubblingEvent</method>
+      <line>59</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>58</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEventImpl</method>
+      <line>74</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEvent</method>
+      <line>49</line>
+    </frame>
+    <frame>
+      <class>javafx.event.Event</class>
+      <method>fireEvent</method>
+      <line>198</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Node</class>
+      <method>fireEvent</method>
+      <line>8923</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.control.Button</class>
+      <method>fire</method>
+      <line>203</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.scene.control.behavior.ButtonBehavior</class>
+      <method>mouseReleased</method>
+      <line>207</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.scene.control.inputmap.InputMap</class>
+      <method>handle</method>
+      <line>274</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler$NormalEventHandlerRecord</class>
+      <method>handleBubblingEvent</method>
+      <line>247</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventHandler</class>
+      <method>dispatchBubblingEvent</method>
+      <line>80</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>234</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventHandlerManager</class>
+      <method>dispatchBubblingEvent</method>
+      <line>191</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.CompositeEventDispatcher</class>
+      <method>dispatchBubblingEvent</method>
+      <line>59</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>58</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.BasicEventDispatcher</class>
+      <method>dispatchEvent</method>
+      <line>56</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventDispatchChainImpl</class>
+      <method>dispatchEvent</method>
+      <line>114</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEventImpl</method>
+      <line>74</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.event.EventUtil</class>
+      <method>fireEvent</method>
+      <line>54</line>
+    </frame>
+    <frame>
+      <class>javafx.event.Event</class>
+      <method>fireEvent</method>
+      <line>198</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$MouseHandler</class>
+      <method>process</method>
+      <line>3894</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene</class>
+      <method>processMouseEvent</method>
+      <line>1887</line>
+    </frame>
+    <frame>
+      <class>javafx.scene.Scene$ScenePeerListener</class>
+      <method>mouseEvent</method>
+      <line>2620</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification</class>
+      <method>run</method>
+      <line>411</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler$MouseEventNotification</class>
+      <method>run</method>
+      <line>301</line>
+    </frame>
+    <frame>
+      <class>java.security.AccessController</class>
+      <method>doPrivileged</method>
+      <line>399</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler</class>
+      <method>lambda$handleMouseEvent$2</method>
+      <line>450</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.QuantumToolkit</class>
+      <method>runWithoutRenderLock</method>
+      <line>424</line>
+    </frame>
+    <frame>
+      <class>com.sun.javafx.tk.quantum.GlassViewEventHandler</class>
+      <method>handleMouseEvent</method>
+      <line>449</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.View</class>
+      <method>handleMouseEvent</method>
+      <line>551</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.View</class>
+      <method>notifyMouse</method>
+      <line>937</line>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.gtk.GtkApplication</class>
+      <method>_runLoop</method>
+    </frame>
+    <frame>
+      <class>com.sun.glass.ui.gtk.GtkApplication</class>
+      <method>lambda$runLoop$11</method>
+      <line>316</line>
+    </frame>
+    <frame>
+      <class>java.lang.Thread</class>
+      <method>run</method>
+      <line>1589</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-12-31T02:16:09.462311138Z</date>
+  <millis>1672452969462</millis>
+  <nanos>311138</nanos>
+  <sequence>11</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Exception in Login_Details_check function in Login Controller</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-31T02:18:36.666901279Z</date>
+  <millis>1672453116666</millis>
+  <nanos>901279</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-31T02:18:37.826832648Z</date>
+  <millis>1672453117826</millis>
+  <nanos>832648</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-31T02:18:51.446828370Z</date>
+  <millis>1672453131446</millis>
+  <nanos>828370</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:18:51.448235560Z</date>
+  <millis>1672453131448</millis>
+  <nanos>235560</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:18:51.450719748Z</date>
+  <millis>1672453131450</millis>
+  <nanos>719748</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:18:51.452536811Z</date>
+  <millis>1672453131452</millis>
+  <nanos>536811</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:18:51.650550209Z</date>
+  <millis>1672453131650</millis>
+  <nanos>550209</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:18:51.710159895Z</date>
+  <millis>1672453131710</millis>
+  <nanos>159895</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:18:51.711949906Z</date>
+  <millis>1672453131711</millis>
+  <nanos>949906</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:18:53.081458743Z</date>
+  <millis>1672453133081</millis>
+  <nanos>458743</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Exception in Login_Details_check function in Login Controller</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-31T02:22:48.658839180Z</date>
+  <millis>1672453368658</millis>
+  <nanos>839180</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-31T02:22:49.906593915Z</date>
+  <millis>1672453369906</millis>
+  <nanos>593915</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-31T02:23:13.702703507Z</date>
+  <millis>1672453393702</millis>
+  <nanos>703507</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:23:13.704251726Z</date>
+  <millis>1672453393704</millis>
+  <nanos>251726</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:23:13.706971846Z</date>
+  <millis>1672453393706</millis>
+  <nanos>971846</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:23:13.709021014Z</date>
+  <millis>1672453393709</millis>
+  <nanos>21014</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:23:13.921614001Z</date>
+  <millis>1672453393921</millis>
+  <nanos>614001</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:23:13.981444949Z</date>
+  <millis>1672453393981</millis>
+  <nanos>444949</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:23:13.982982428Z</date>
+  <millis>1672453393982</millis>
+  <nanos>982428</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:23:16.810641831Z</date>
+  <millis>1672453396810</millis>
+  <nanos>641831</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Exception in Login_Details_check function in Login Controller</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-31T02:24:41.197926034Z</date>
+  <millis>1672453481197</millis>
+  <nanos>926034</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-31T02:24:42.387086514Z</date>
+  <millis>1672453482387</millis>
+  <nanos>86514</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-31T02:24:52.949934318Z</date>
+  <millis>1672453492949</millis>
+  <nanos>934318</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:24:52.951280472Z</date>
+  <millis>1672453492951</millis>
+  <nanos>280472</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:24:52.953596709Z</date>
+  <millis>1672453492953</millis>
+  <nanos>596709</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:24:52.955403653Z</date>
+  <millis>1672453492955</millis>
+  <nanos>403653</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:24:53.199604008Z</date>
+  <millis>1672453493199</millis>
+  <nanos>604008</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:24:53.263301498Z</date>
+  <millis>1672453493263</millis>
+  <nanos>301498</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:24:53.265151464Z</date>
+  <millis>1672453493265</millis>
+  <nanos>151464</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:24:54.003442917Z</date>
+  <millis>1672453494003</millis>
+  <nanos>442917</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Exception in Login_Details_check function in Login Controller</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-31T02:30:14.715933036Z</date>
+  <millis>1672453814715</millis>
+  <nanos>933036</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-31T02:30:15.939618462Z</date>
+  <millis>1672453815939</millis>
+  <nanos>618462</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-31T02:30:27.024516349Z</date>
+  <millis>1672453827024</millis>
+  <nanos>516349</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:30:27.025764304Z</date>
+  <millis>1672453827025</millis>
+  <nanos>764304</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:30:27.027742345Z</date>
+  <millis>1672453827027</millis>
+  <nanos>742345</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:30:27.029112835Z</date>
+  <millis>1672453827029</millis>
+  <nanos>112835</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:30:27.229160742Z</date>
+  <millis>1672453827229</millis>
+  <nanos>160742</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:30:27.289707518Z</date>
+  <millis>1672453827289</millis>
+  <nanos>707518</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:30:27.292197728Z</date>
+  <millis>1672453827292</millis>
+  <nanos>197728</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:30:28.332680017Z</date>
+  <millis>1672453828332</millis>
+  <nanos>680017</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Exception in Login_Details_check function in Login Controller</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-31T02:31:31.283192609Z</date>
+  <millis>1672453891283</millis>
+  <nanos>192609</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-31T02:31:32.681629928Z</date>
+  <millis>1672453892681</millis>
+  <nanos>629928</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-31T02:31:43.626660917Z</date>
+  <millis>1672453903626</millis>
+  <nanos>660917</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:31:43.628247990Z</date>
+  <millis>1672453903628</millis>
+  <nanos>247990</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:31:43.630605466Z</date>
+  <millis>1672453903630</millis>
+  <nanos>605466</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:31:43.632606732Z</date>
+  <millis>1672453903632</millis>
+  <nanos>606732</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:31:43.854434882Z</date>
+  <millis>1672453903854</millis>
+  <nanos>434882</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:31:43.872861174Z</date>
+  <millis>1672453903872</millis>
+  <nanos>861174</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:31:43.874365280Z</date>
+  <millis>1672453903874</millis>
+  <nanos>365280</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:33:09.090260699Z</date>
+  <millis>1672453989090</millis>
+  <nanos>260699</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Exception in Login_Details_check function in Login Controller</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-31T02:36:27.567995676Z</date>
+  <millis>1672454187567</millis>
+  <nanos>995676</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-31T02:36:28.964706795Z</date>
+  <millis>1672454188964</millis>
+  <nanos>706795</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-31T02:36:39.576510911Z</date>
+  <millis>1672454199576</millis>
+  <nanos>510911</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:36:39.578011600Z</date>
+  <millis>1672454199578</millis>
+  <nanos>11600</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:36:39.580524554Z</date>
+  <millis>1672454199580</millis>
+  <nanos>524554</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:36:39.582335515Z</date>
+  <millis>1672454199582</millis>
+  <nanos>335515</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:36:39.827556792Z</date>
+  <millis>1672454199827</millis>
+  <nanos>556792</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:36:39.889765135Z</date>
+  <millis>1672454199889</millis>
+  <nanos>765135</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:36:39.891430749Z</date>
+  <millis>1672454199891</millis>
+  <nanos>430749</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:39:21.452998350Z</date>
+  <millis>1672454361452</millis>
+  <nanos>998350</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Exception in Login_Details_check function in Login Controller</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-31T02:42:22.027238335Z</date>
+  <millis>1672454542027</millis>
+  <nanos>238335</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-31T02:42:23.379415216Z</date>
+  <millis>1672454543379</millis>
+  <nanos>415216</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-31T02:42:35.686932221Z</date>
+  <millis>1672454555686</millis>
+  <nanos>932221</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:42:35.688406500Z</date>
+  <millis>1672454555688</millis>
+  <nanos>406500</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:42:35.690574744Z</date>
+  <millis>1672454555690</millis>
+  <nanos>574744</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:42:35.692121561Z</date>
+  <millis>1672454555692</millis>
+  <nanos>121561</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:42:35.917241573Z</date>
+  <millis>1672454555917</millis>
+  <nanos>241573</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:42:35.929058402Z</date>
+  <millis>1672454555929</millis>
+  <nanos>58402</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>User Already Logged in DB Checked joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:42:35.930658681Z</date>
+  <millis>1672454555930</millis>
+  <nanos>658681</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>User Already Logged in joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:42:36.003514827Z</date>
+  <millis>1672454556003</millis>
+  <nanos>514827</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Login Function Execution Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:42:47.384795969Z</date>
+  <millis>1672454567384</millis>
+  <nanos>795969</nanos>
+  <sequence>10</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:42:47.386125280Z</date>
+  <millis>1672454567386</millis>
+  <nanos>125280</nanos>
+  <sequence>11</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:42:47.387156391Z</date>
+  <millis>1672454567387</millis>
+  <nanos>156391</nanos>
+  <sequence>12</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:42:47.388461476Z</date>
+  <millis>1672454567388</millis>
+  <nanos>461476</nanos>
+  <sequence>13</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:42:47.390918122Z</date>
+  <millis>1672454567390</millis>
+  <nanos>918122</nanos>
+  <sequence>14</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:42:47.393414424Z</date>
+  <millis>1672454567393</millis>
+  <nanos>414424</nanos>
+  <sequence>15</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>User Already Logged in DB Checked joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:42:47.394768101Z</date>
+  <millis>1672454567394</millis>
+  <nanos>768101</nanos>
+  <sequence>16</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>User Already Logged in joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:42:47.421331428Z</date>
+  <millis>1672454567421</millis>
+  <nanos>331428</nanos>
+  <sequence>17</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>26</thread>
+  <message>Login Function Execution Success</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-31T02:43:23.976969826Z</date>
+  <millis>1672454603976</millis>
+  <nanos>969826</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-31T02:43:25.154867628Z</date>
+  <millis>1672454605154</millis>
+  <nanos>867628</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-31T02:43:35.726722360Z</date>
+  <millis>1672454615726</millis>
+  <nanos>722360</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:43:35.728123288Z</date>
+  <millis>1672454615728</millis>
+  <nanos>123288</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:43:35.730322713Z</date>
+  <millis>1672454615730</millis>
+  <nanos>322713</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:43:35.732179011Z</date>
+  <millis>1672454615732</millis>
+  <nanos>179011</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:43:35.932235694Z</date>
+  <millis>1672454615932</millis>
+  <nanos>235694</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:43:35.943463126Z</date>
+  <millis>1672454615943</millis>
+  <nanos>463126</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Already Logged in DB Checked joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:43:35.945074435Z</date>
+  <millis>1672454615945</millis>
+  <nanos>74435</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Already Logged in joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:43:36.004584210Z</date>
+  <millis>1672454616004</millis>
+  <nanos>584210</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:43:56.829535884Z</date>
+  <millis>1672454636829</millis>
+  <nanos>535884</nanos>
+  <sequence>10</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:43:56.830906053Z</date>
+  <millis>1672454636830</millis>
+  <nanos>906053</nanos>
+  <sequence>11</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:43:56.832296701Z</date>
+  <millis>1672454636832</millis>
+  <nanos>296701</nanos>
+  <sequence>12</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:43:56.833623768Z</date>
+  <millis>1672454636833</millis>
+  <nanos>623768</nanos>
+  <sequence>13</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:43:56.836083550Z</date>
+  <millis>1672454636836</millis>
+  <nanos>83550</nanos>
+  <sequence>14</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:43:56.847622426Z</date>
+  <millis>1672454636847</millis>
+  <nanos>622426</nanos>
+  <sequence>15</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:43:56.849492902Z</date>
+  <millis>1672454636849</millis>
+  <nanos>492902</nanos>
+  <sequence>16</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:43:58.277433778Z</date>
+  <millis>1672454638277</millis>
+  <nanos>433778</nanos>
+  <sequence>17</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Exception in Login_Details_check function in Login Controller</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-31T02:47:18.511757281Z</date>
+  <millis>1672454838511</millis>
+  <nanos>757281</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-31T02:47:19.729259208Z</date>
+  <millis>1672454839729</millis>
+  <nanos>259208</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-31T02:47:30.635096539Z</date>
+  <millis>1672454850635</millis>
+  <nanos>96539</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:47:30.636766090Z</date>
+  <millis>1672454850636</millis>
+  <nanos>766090</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:47:30.639379566Z</date>
+  <millis>1672454850639</millis>
+  <nanos>379566</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:47:30.641178465Z</date>
+  <millis>1672454850641</millis>
+  <nanos>178465</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:47:30.842300986Z</date>
+  <millis>1672454850842</millis>
+  <nanos>300986</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:47:30.902423912Z</date>
+  <millis>1672454850902</millis>
+  <nanos>423912</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:47:30.904144250Z</date>
+  <millis>1672454850904</millis>
+  <nanos>144250</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:47:33.234753370Z</date>
+  <millis>1672454853234</millis>
+  <nanos>753370</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Screen Loaded to User </message>
+</record>
+<record>
+  <date>2022-12-31T02:47:33.237128941Z</date>
+  <millis>1672454853237</millis>
+  <nanos>128941</nanos>
+  <sequence>10</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution Success</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-31T02:56:59.030684945Z</date>
+  <millis>1672455419030</millis>
+  <nanos>684945</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-31T02:57:00.210705195Z</date>
+  <millis>1672455420210</millis>
+  <nanos>705195</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-31T02:57:10.764417296Z</date>
+  <millis>1672455430764</millis>
+  <nanos>417296</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:57:10.766491821Z</date>
+  <millis>1672455430766</millis>
+  <nanos>491821</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:57:10.769285281Z</date>
+  <millis>1672455430769</millis>
+  <nanos>285281</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:57:10.771265066Z</date>
+  <millis>1672455430771</millis>
+  <nanos>265066</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:57:10.988466021Z</date>
+  <millis>1672455430988</millis>
+  <nanos>466021</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:57:11.050418415Z</date>
+  <millis>1672455431050</millis>
+  <nanos>418415</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:57:11.053067950Z</date>
+  <millis>1672455431053</millis>
+  <nanos>67950</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:57:12.037244278Z</date>
+  <millis>1672455432037</millis>
+  <nanos>244278</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Screen Loaded to User </message>
+</record>
+<record>
+  <date>2022-12-31T02:57:12.038789131Z</date>
+  <millis>1672455432038</millis>
+  <nanos>789131</nanos>
+  <sequence>10</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution Success</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-31T02:59:04.407610969Z</date>
+  <millis>1672455544407</millis>
+  <nanos>610969</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-31T02:59:05.621718878Z</date>
+  <millis>1672455545621</millis>
+  <nanos>718878</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-31T02:59:21.920752629Z</date>
+  <millis>1672455561920</millis>
+  <nanos>752629</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T02:59:21.922250453Z</date>
+  <millis>1672455561922</millis>
+  <nanos>250453</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T02:59:21.924432153Z</date>
+  <millis>1672455561924</millis>
+  <nanos>432153</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:59:21.925894659Z</date>
+  <millis>1672455561925</millis>
+  <nanos>894659</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T02:59:22.120033752Z</date>
+  <millis>1672455562120</millis>
+  <nanos>33752</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T02:59:22.183683520Z</date>
+  <millis>1672455562183</millis>
+  <nanos>683520</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:59:22.185072065Z</date>
+  <millis>1672455562185</millis>
+  <nanos>72065</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T02:59:23.111090453Z</date>
+  <millis>1672455563111</millis>
+  <nanos>90453</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Screen Loaded to User </message>
+</record>
+<record>
+  <date>2022-12-31T02:59:23.112595610Z</date>
+  <millis>1672455563112</millis>
+  <nanos>595610</nanos>
+  <sequence>10</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution Success</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-31T03:02:01.943325761Z</date>
+  <millis>1672455721943</millis>
+  <nanos>325761</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-31T03:02:03.167780758Z</date>
+  <millis>1672455723167</millis>
+  <nanos>780758</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-31T03:02:14.847186624Z</date>
+  <millis>1672455734847</millis>
+  <nanos>186624</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-31T03:02:14.848867096Z</date>
+  <millis>1672455734848</millis>
+  <nanos>867096</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-31T03:02:14.851291019Z</date>
+  <millis>1672455734851</millis>
+  <nanos>291019</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-31T03:02:14.854349916Z</date>
+  <millis>1672455734854</millis>
+  <nanos>349916</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-31T03:02:15.068586064Z</date>
+  <millis>1672455735068</millis>
+  <nanos>586064</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-31T03:02:15.130436072Z</date>
+  <millis>1672455735130</millis>
+  <nanos>436072</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T03:02:15.131928054Z</date>
+  <millis>1672455735131</millis>
+  <nanos>928054</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-31T03:02:17.771783476Z</date>
+  <millis>1672455737771</millis>
+  <nanos>783476</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Screen Loaded to User </message>
+</record>
+<record>
+  <date>2022-12-31T03:02:17.773344880Z</date>
+  <millis>1672455737773</millis>
+  <nanos>344880</nanos>
+  <sequence>10</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution Success</message>
+</record>

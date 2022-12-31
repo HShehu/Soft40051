@@ -47,6 +47,55 @@ public class dbconnection {
         return connection;
     }
     
+    public static Integer getOwnerId(String Owner){
+         String selectOwnerId = """
+                               SELECT id
+                               FROM users
+                               WHERE email = ?
+                               """;
+         int ownerId = 0;
+                 
+         try(Connection connection = dbconnection.dbconnection();){
+            Logger_Controller.log_info("Function getOwnerId Started");
+            
+            PreparedStatement selectId = connection.prepareStatement(selectOwnerId);
+            selectId.setString(1, Owner);
+            
+            ownerId = selectId.executeQuery().getInt("id");
+            
+         } catch (SQLException ex) {
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return ownerId;
+    }
+    
+    public static void initFilesTable(){
+        String createFileTable = """
+                                 CREATE TABLE IF NOT EXISTS Files(
+                                    FILENAME string NOT NULL,
+                                    FILEPATH string DEFAULT './' NOT NULL,
+                                    ISFOLDER boolean DEFAULT false NOT NULL,
+                                    OWNER integer NOT NULL,
+                                    CHUNK1 string ,
+                                    CHUNK2 string ,
+                                    CHUNK3 string ,
+                                    CHUNK4 string ,
+                                    SHAREDWITH integer,
+                                    CONSTRAINT FILEID PRIMARY KEY (FILENAME,FILEPATH,OWNER),
+                                    FOREIGN KEY (OWNER) REFERENCES users(id),
+                                    FOREIGN KEY (SHAREDWITH) REFERENCES users(id)
+                                 )
+                                 """;
+        
+        
+        try(Connection connection = dbconnection.dbconnection();){
+            Statement statement = connection.createStatement();
+            statement.executeUpdate(createFileTable);
+        } catch (SQLException ex) {
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     public static List<UserFile> listDirectory(String owner, String filePath){
         
         String strStatement = """
@@ -61,42 +110,22 @@ public class dbconnection {
                                WHERE email = ?
                                """;
         
-        String createFileTable = """
-                                 CREATE TABLE IF NOT EXISTS Files(
-                                    FILENAME string NOT NULL,
-                                    FILEPATH string DEFAULT './' NOT NULL,
-                                    ISFOLDER boolean DEFAULT false NOT NULL,
-                                    OWNER integer NOT NULL,
-                                    CHUNK1 string NOT NULL,
-                                    CHUNK2 string NOT NULL,
-                                    CHUNK3 string NOT NULL,
-                                    CHUNK4 string NOT NULL,
-                                    SHAREDWITH integer,
-                                    CONSTRAINT FILEID PRIMARY KEY (FILENAME,FILEPATH,OWNER),
-                                    FOREIGN KEY (OWNER) REFERENCES users(id),
-                                    FOREIGN KEY (SHAREDWITH) REFERENCES users(id))
-                                 """;
+        
         
         List<UserFile> fileList = new ArrayList<>();
         try(Connection connection = dbconnection.dbconnection();){
             
-            Statement statement = connection.createStatement();
-            statement.executeUpdate(createFileTable);
             
             PreparedStatement selectId = connection.prepareStatement(selectOwnerId);
             selectId.setString(1, owner);
             int ownerId = selectId.executeQuery().getInt("id");
-            System.out.println(ownerId);
-            System.out.println(filePath);
+         
             
             PreparedStatement sqlSelectFiles = connection.prepareStatement(strStatement);
             sqlSelectFiles.setInt(1, ownerId);
             sqlSelectFiles.setString(2, filePath);
             ResultSet userFiles = sqlSelectFiles.executeQuery();
-            System.out.println("Gotten User Items");
-            
-            
-            
+           
             
             
             while(userFiles.next())
@@ -121,8 +150,29 @@ public class dbconnection {
         }catch(SQLException err){
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, err);
         }
+        
+        System.out.println("Gotten User Items Done");
         return fileList;
     }
+    
+//    public static void createFolders(String Owner)
+//    {
+//        String insertFileTable = """
+//                                 INSERT INTO Files(
+//                                    FILENAME,
+//                                    OWNER,
+//                                    ISFOLDER
+//                                 )VALUES(?,?,TRUE)"""; 
+//        
+//        try(Connection connection = dbconnection.dbconnection();){
+//        PreparedStatement insertFile = connection.prepareStatement(insertFileTable);
+//        insertFile.setString(1, "Folder1");
+//        insertFile.setInt(2, getOwnerId(Owner));
+//        insertFile.executeUpdate();
+//        } catch (SQLException ex) {
+//            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//    }
     
     public static void filesUpdate(String newValue, UserFile userFile,String owner){
         String strStatement = """
@@ -169,21 +219,7 @@ public class dbconnection {
     {
         Boolean flag = false;
         
-        String createFileTable = """
-                                 CREATE TABLE IF NOT EXISTS Files(
-                                    FILENAME string NOT NULL,
-                                    FILEPATH string DEFAULT './' NOT NULL,
-                                    ISFOLDER boolean DEFAULT false NOT NULL,
-                                    OWNER integer NOT NULL,
-                                    CHUNK1 string NOT NULL,
-                                    CHUNK2 string NOT NULL,
-                                    CHUNK3 string NOT NULL,
-                                    CHUNK4 string NOT NULL,
-                                    SHAREDWITH integer,
-                                    CONSTRAINT FILEID PRIMARY KEY (FILENAME,FILEPATH,OWNER),
-                                    FOREIGN KEY (OWNER) REFERENCES users(id),
-                                    FOREIGN KEY (SHAREDWITH) REFERENCES users(id))
-                                 """;
+       
         String insertFileTable = """
                                  INSERT INTO Files(
                                     FILENAME,
@@ -202,11 +238,11 @@ public class dbconnection {
         
         try(Connection connection = dbconnection.dbconnection();){
             Logger_Controller.log_info("Function filesInsert Started");
-            Statement statement = connection.createStatement();
-            statement.executeUpdate(createFileTable);
+            
             PreparedStatement selectId = connection.prepareStatement(selectOwnerId);
             selectId.setString(1, owner);
             int ownerId = selectId.executeQuery().getInt("id");
+            
             PreparedStatement insertFile = connection.prepareStatement(insertFileTable);
             insertFile.setString(1, fileName);
             insertFile.setInt(2, ownerId);
