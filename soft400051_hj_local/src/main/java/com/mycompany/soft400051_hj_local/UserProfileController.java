@@ -129,8 +129,10 @@ public class UserProfileController extends FileMethods implements Initializable 
     public void RenameBtnClicked()
     {
         try {
+            UserFile srcFile = tableFiles.getSelectionModel().getSelectedItem();
             Stage renameWindow = new Stage();
             renameWindow.initModality(Modality.APPLICATION_MODAL);
+            renameWindow.setTitle("Rename " + srcFile.getName());
             
             RenameDialog rename = new RenameDialog(this);
             
@@ -143,7 +145,7 @@ public class UserProfileController extends FileMethods implements Initializable 
             renameWindow.showAndWait();
             
             if(!childReceive.isBlank()){
-                UserFile srcFile = tableFiles.getSelectionModel().getSelectedItem();
+                
                 RenameFile(childReceive,srcFile);
                 refreshGrid();
             }
