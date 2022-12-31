@@ -1,9 +1,7 @@
 package com.mycompany.soft400051_hj_local;
 
 import com.mycompany.soft400051_hj_local.model.FileMethods.Operation;
-import com.mycompany.soft400051_hj_local.model.UserFolder;
 import com.mycompany.soft400051_hj_local.model.UserFile;
-import java.io.File;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -18,9 +16,7 @@ import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
 * @brief Creating a class dbconnection to control Database Connection and Query
@@ -174,12 +170,20 @@ public class dbconnection {
 //        }
 //    }
     
-    public static void filesUpdate(String newValue, UserFile userFile,String owner){
-        String strStatement = """
+    public static void filesUpdate(Operation operation,String newValue, UserFile userFile,String owner){
+        
+         String op = "";
+         
+         switch(operation){
+             case MOVE -> op = "FILEPATH";
+             case RENAME -> op = "FILENAME";
+         }
+         
+        String strStatement = String.format( """
                               UPDATE Files
-                              SET FILENAME = ?
+                              SET %s = ?
                               WHERE FILENAME = ? AND FILEPATH = ? AND OWNER = ?
-                              """;
+                              """,op);
         
         String selectOwnerId = """
                                SELECT id
@@ -189,7 +193,7 @@ public class dbconnection {
         
         
          try(Connection connection = dbconnection.dbconnection();){
-//            String op = "";
+           
                     
             PreparedStatement selectId = connection.prepareStatement(selectOwnerId);
             selectId.setString(1, owner);
@@ -503,7 +507,5 @@ public class dbconnection {
         return logout_flag;
     }
     
-    public static void main(String[] args) {
-                        
-    }
+
 }

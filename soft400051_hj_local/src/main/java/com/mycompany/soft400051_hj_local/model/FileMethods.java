@@ -238,7 +238,10 @@ public abstract class FileMethods {
         }
         
         public void  RenameFile(String newName, UserFile userFile){
-            dbconnection.filesUpdate(newName,userFile,owner);
+            dbconnection.filesUpdate(Operation.RENAME,newName,userFile,owner);
+        }
+        public void  MoveFile(String dstPath, UserFile userFile){
+            dbconnection.filesUpdate(Operation.MOVE,dstPath,userFile,owner);
         }
     
 }

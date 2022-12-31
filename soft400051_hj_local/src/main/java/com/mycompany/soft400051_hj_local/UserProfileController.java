@@ -12,6 +12,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -44,6 +45,9 @@ public class UserProfileController extends FileMethods implements Initializable 
     
     private String currentDir;
     private ObservableList<UserFile> filesList = FXCollections.observableArrayList();
+    String childReceive = "";
+    private UserFolder dstFolder;
+    private List<UserFolder> userFolders = new ArrayList<>();
     
     @FXML
     private Button btnCreateFile;
@@ -82,7 +86,7 @@ public class UserProfileController extends FileMethods implements Initializable 
     @FXML
     private TableColumn<?, ?> colCreatedAt;
     
-    String childReceive = "";
+   
     
     UserProfileController(String owner)
     {   
@@ -154,6 +158,36 @@ public class UserProfileController extends FileMethods implements Initializable 
         }
     }
     
+    public void MoveBtnClicked()
+    {
+        try {
+            UserFile srcFile = tableFiles.getSelectionModel().getSelectedItem();
+            Stage moveWindow = new Stage();
+            moveWindow.initModality(Modality.APPLICATION_MODAL);
+            moveWindow.setTitle("Move " + srcFile.getName());
+            
+            MoveDialog move = new MoveDialog(this);
+            
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("moveDialog.fxml"));
+            loader.setController(move);
+            
+            Parent root = loader.load();
+            move.SetCBFolder(userFolders);
+            
+            Scene scene = new Scene(root);
+            moveWindow.setScene(scene);
+            moveWindow.showAndWait();
+            
+            if(Objects.nonNull(dstFolder))
+            {
+                MoveFile(dstFolder.getPath().concat(dstFolder.getName()),srcFile);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
  
     
     public void refreshGrid(){
@@ -162,7 +196,7 @@ public class UserProfileController extends FileMethods implements Initializable 
         filesList.clear();
         
         List<UserFile> userFiles = dbconnection.listDirectory(owner, currentDir);
-        List<UserFolder> userFolders = new ArrayList<>();
+        //List<UserFolder> userFolders = new ArrayList<>();
         List<UserFile> onlyUserFiles = new ArrayList<>();
         
         System.out.println("Initialize");
@@ -212,5 +246,6 @@ public class UserProfileController extends FileMethods implements Initializable 
     }
     
     public void ReceiveRename(String newName){this.childReceive = newName;}
+    public void RecieveMoveFolder(UserFolder dstFolder){this.dstFolder = dstFolder;};
    
 }

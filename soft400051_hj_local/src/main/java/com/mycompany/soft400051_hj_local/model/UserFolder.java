@@ -13,5 +13,9 @@ public class UserFolder extends Directory{
     public UserFolder(String name, String path,Boolean isFolder) {
         super(name, path, isFolder);
     }
- 
+     @Override
+    public String toString()
+    {
+        return getName();
+    }
 }

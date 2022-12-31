@@ -34,7 +34,7 @@ public class RenameDialog implements Initializable{
     @FXML
     private  Label lblRename;
     
-    private UserProfileController parentController;
+    private final UserProfileController parentController;
     
     RenameDialog(UserProfileController controller)
     {
