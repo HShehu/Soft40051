@@ -108,10 +108,11 @@ public class UserProfileController extends FileMethods implements Initializable 
     
     public void CopyBtnClicked()
     {
-        Alert btnAlert = new Alert(AlertType.WARNING);
+        Alert btnAlert = new Alert(AlertType.CONFIRMATION);
         btnAlert.contentTextProperty().setValue("Are you Sure you want to copy this File?");
+        
         Optional<ButtonType> result = btnAlert.showAndWait();
-        if(result.isPresent())
+        if(result.isPresent() && result.get().getText().equals("OK"))
         {
             UserFile srcFile = tableFiles.getSelectionModel().getSelectedItem();  
             CopyFile(srcFile);

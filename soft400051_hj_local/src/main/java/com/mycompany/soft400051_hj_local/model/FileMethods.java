@@ -105,7 +105,11 @@ public abstract class FileMethods {
             });
             
             SendFile(ogFile.getName(),chunks);
-            //ogFile.delete();
+            chunks.forEach((chunk)->{
+            
+              chunk.delete();
+                
+            });
         }
         catch(IOException ioerr){
             

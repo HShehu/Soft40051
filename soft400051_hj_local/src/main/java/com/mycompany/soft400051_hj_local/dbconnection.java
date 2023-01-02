@@ -56,7 +56,7 @@ public class dbconnection {
         String delStatement = """
                             DELETE 
                             FROM Deleted
-                            WHERE JULIANDAY('NOW') - JULIANDAY(DELETED_AT) >= 30  
+                            WHERE (JULIANDAY('NOW') - DELETED_AT) >= 30  
                               """;
         
          try(Connection connection = dbconnection.dbconnection();){
