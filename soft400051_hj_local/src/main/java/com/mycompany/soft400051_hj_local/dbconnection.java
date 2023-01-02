@@ -21,6 +21,9 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ButtonType;
 
 /**
 * @brief Creating a class dbconnection to control Database Connection and Query
@@ -64,7 +67,41 @@ public class dbconnection {
         }
        
     }
-    
+    public static Boolean checkFileExists(String fileName,String filePath,String Owner){
+        Boolean exists = false;
+            String selStatement = """
+                                  SELECT *
+                                  FROM Files
+                                  WHERE FILENAME = ? AND FILEPATH = ? AND OWNER = ?
+                                  """;
+            
+        try(Connection connection = dbconnection.dbconnection();){
+            
+            
+            int ownerId = getOwnerId(Owner);
+            
+            PreparedStatement sqlSelectFiles = connection.prepareStatement(selStatement);
+         
+            sqlSelectFiles.setString(1, fileName);
+            sqlSelectFiles.setString(2, filePath);
+            sqlSelectFiles.setInt(3, ownerId);
+ 
+            ResultSet userFiles = sqlSelectFiles.executeQuery();
+            
+            if(userFiles.next()){
+                exists = true;
+                
+                Alert existsAlert = new Alert(Alert.AlertType.WARNING);
+                existsAlert.contentTextProperty().setValue("File Name: " + fileName +" already exists\n At Path: " + filePath + "\nPlease change file name or location");
+                existsAlert.showAndWait();
+            }
+            
+        }catch (SQLException ex) {
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return exists;
+    }         
     public static Integer getOwnerId(String Owner){
          String selectOwnerId = """
                                SELECT id
@@ -86,9 +123,7 @@ public class dbconnection {
         }
          return ownerId;
     }
-    
-    public static void DeleteFile(String Owner, UserFile userFile)
-    {
+    public static void DeleteFile(String Owner, UserFile userFile){
         
         String delStatement = """
                               DELETE
@@ -269,32 +304,22 @@ public class dbconnection {
         return fileList;
     }
     
-//    public static void createFolders(String Owner)
-//    {
-//        String insertFileTable = """
-//                                 INSERT INTO Files(
-//                                    FILENAME,
-//                                    OWNER,
-//                                    ISFOLDER
-//                                 )VALUES(?,?,TRUE)"""; 
-//        
-//        try(Connection connection = dbconnection.dbconnection();){
-//        PreparedStatement insertFile = connection.prepareStatement(insertFileTable);
-//        insertFile.setString(1, "Folder1");
-//        insertFile.setInt(2, getOwnerId(Owner));
-//        insertFile.executeUpdate();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//    }
-    
-    public static void filesUpdate(Operation operation,String newValue, UserFile userFile,String owner){
+    public static void filesUpdate(Operation operation,String newValue, UserFile userFile,String Owner){
         
          String op = "";
+         boolean check = true;
+         
          
          switch(operation){
-             case MOVE -> op = "FILEPATH";
-             case RENAME -> op = "FILENAME";
+             case MOVE -> { 
+                 op = "FILEPATH";
+                 check = checkFileExists(userFile.getName(),newValue,Owner);
+            }
+                 
+             case RENAME -> {
+                 op = "FILENAME";
+                 check = checkFileExists(newValue,userFile.getPath(),Owner);
+            }
          }
          
         String strStatement = String.format( """
@@ -302,26 +327,14 @@ public class dbconnection {
                               SET %s = ?
                               WHERE FILENAME = ? AND FILEPATH = ? AND OWNER = ?
                               """,op);
+
         
-        String selectOwnerId = """
-                               SELECT id
-                               FROM users
-                               WHERE email = ?
-                               """;
-        
-        
+        if( check == false){
+            
          try(Connection connection = dbconnection.dbconnection();){
            
-                    
-            PreparedStatement selectId = connection.prepareStatement(selectOwnerId);
-            selectId.setString(1, owner);
-            
-            int ownerId = selectId.executeQuery().getInt("id");
-            
-            
-            
-
-            
+            int ownerId = getOwnerId(Owner);
+           
             PreparedStatement updateFiles = connection.prepareStatement(strStatement);
             
             updateFiles.setString(1,newValue);
@@ -332,12 +345,12 @@ public class dbconnection {
             
          } catch (SQLException ex) {
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
-         
-        
+
     }
     
-    public static boolean filesInsert(String fileName,String owner,List<String> chunks)
+    public static Boolean filesInsert(String fileName,String Owner,String filePath,List<String> chunks)
     {
         Boolean flag = false;
         
@@ -352,12 +365,12 @@ public class dbconnection {
                                     CHUNK4
                                  )VALUES(?,?,?,?,?,?)"""; 
 
-                              
-        
-        try(Connection connection = dbconnection.dbconnection();){
+        if(checkFileExists(fileName,filePath,Owner) == false)
+        {
+            try(Connection connection = dbconnection.dbconnection();){
             Logger_Controller.log_info("Function filesInsert Started");
           
-            int ownerId = getOwnerId(owner);
+            int ownerId = getOwnerId(Owner);
             
             PreparedStatement insertFile = connection.prepareStatement(insertFileTable);
             insertFile.setString(1, fileName);
@@ -375,12 +388,8 @@ public class dbconnection {
                 Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
                 Logger_Controller.log_info("SQLException for Registration Query");
             }
-//        try {
-//            connection.close();
-//        } catch (SQLException ex) {
-//            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
-//            Logger_Controller.log_info("Connection Closing Error for Registration");
-//        }
+        }
+  
         return flag;
     }
     // Data insertion for registration

@@ -31,6 +31,8 @@ import javafx.stage.FileChooser;
 public abstract class FileMethods {
     
     protected final String owner;
+    protected String currentDir = "./";
+    
     public static enum Operation{
         MOVE,
         RENAME
@@ -41,7 +43,7 @@ public abstract class FileMethods {
     }
     
     
-        public void CreateFile(String fileName,String fileContent,String filePath){
+        public void CreateFile(String fileName,String fileContent){
         try {
             
             File userFile = new File(fileName);
@@ -141,7 +143,8 @@ public abstract class FileMethods {
             }
             counter++;
         }
-        dbconnection.filesInsert(fileName, owner, newChunks);
+        
+        dbconnection.filesInsert(fileName, owner,this.currentDir, newChunks);
         
         chunks.forEach((chunk)->{
         chunk.delete();
@@ -163,7 +166,7 @@ public abstract class FileMethods {
         
         public void CopyFile(UserFile srcFile)
         {
-            CreateFile("copy"+srcFile.getName(),grabFile(srcFile),srcFile.getPath());
+            CreateFile("copy"+srcFile.getName(),grabFile(srcFile));
         }
         
         public String grabFile(UserFile userFile)

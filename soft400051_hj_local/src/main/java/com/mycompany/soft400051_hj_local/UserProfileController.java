@@ -43,7 +43,6 @@ import javafx.stage.Stage;
  */
 public class UserProfileController extends FileMethods implements Initializable {
     
-    private String currentDir;
     private ObservableList<UserFile> filesList = FXCollections.observableArrayList();
     private List<UserFolder> userFolders = new ArrayList<>();
     private String childReceive = "";
@@ -97,7 +96,6 @@ public class UserProfileController extends FileMethods implements Initializable 
     UserProfileController(String owner)
     {   
         super(owner);
-        this.currentDir = "./";
     }
     
     @Override
@@ -140,7 +138,7 @@ public class UserProfileController extends FileMethods implements Initializable 
             
             if(!(createFileContent.length==0)){
                 
-                CreateFile(createFileContent[0],createFileContent[1],currentDir);
+                CreateFile(createFileContent[0],createFileContent[1]);
                 refreshGrid();
             }
         } catch (IOException ex) {
