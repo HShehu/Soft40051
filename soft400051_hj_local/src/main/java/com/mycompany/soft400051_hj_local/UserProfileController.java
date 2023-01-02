@@ -45,9 +45,10 @@ public class UserProfileController extends FileMethods implements Initializable 
     
     private String currentDir;
     private ObservableList<UserFile> filesList = FXCollections.observableArrayList();
-    String childReceive = "";
-    private UserFolder dstFolder;
     private List<UserFolder> userFolders = new ArrayList<>();
+    private String childReceive = "";
+    private UserFolder dstFolder;
+    private String[] createFileContent;
     
     @FXML
     private Button btnCreateFile;
@@ -122,10 +123,30 @@ public class UserProfileController extends FileMethods implements Initializable 
     
     public void CreateBtnClicked()
     {
-        String[] createdFile = CreateDialog.display();
+       try {
+            Stage createWindow = new Stage();
+            createWindow.initModality(Modality.APPLICATION_MODAL);
+            createWindow.setTitle("Create New File ");
+            
+            CreateDialog create = new CreateDialog(this);
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("createDialog.fxml"));
+            loader.setController(create);
+            Parent root = loader.load();
+            
+            Scene scene = new Scene(root);
+            createWindow.setScene(scene);
+            createWindow.showAndWait();
+            
+            if(!(createFileContent.length==0)){
+                
+                CreateFile(createFileContent[0],createFileContent[1],currentDir);
+                refreshGrid();
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
-        CreateFile(createdFile[0],createdFile[1],currentDir);
-        refreshGrid();
     }
     
     public void UploadBtnClicked()
@@ -222,6 +243,7 @@ public class UserProfileController extends FileMethods implements Initializable 
     
     public void RestoreBtnClicked()
     {
+        //run checks on content
     }
  
     
@@ -253,9 +275,7 @@ public class UserProfileController extends FileMethods implements Initializable 
         filesList = FXCollections.observableArrayList(onlyUserFiles);
         tableFiles.setItems(filesList);
         
-        filesList.forEach(user->{
-            System.out.println(user.toString());
-        });
+       
         colFileName.setCellValueFactory(new PropertyValueFactory("name"));
         
         
@@ -324,6 +344,7 @@ public class UserProfileController extends FileMethods implements Initializable 
         }
     }
     public void ReceiveRename(String newName){this.childReceive = newName;}
+    public void ReceiveCreateFileContent(String[] newFile){this.createFileContent = newFile;}
     public void RecieveMoveFolder(UserFolder dstFolder){this.dstFolder = dstFolder;};
    
 }

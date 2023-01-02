@@ -57,10 +57,6 @@ public class RenameDialog implements Initializable{
             parentController.ReceiveRename(tfRename.getText());
             stage.close();
         });
-    }
-    
-   
-    
-    
+    }  
 
 }
