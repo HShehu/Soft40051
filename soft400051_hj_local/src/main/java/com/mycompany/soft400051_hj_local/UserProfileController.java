@@ -60,6 +60,9 @@ public class UserProfileController extends FileMethods implements Initializable 
 
     @FXML
     private Button btnRenameFile;
+    
+    @FXML
+    private Button btnRecycleBin;
 
     @FXML
     private TableView<UserFile> tableFiles;
@@ -68,7 +71,7 @@ public class UserProfileController extends FileMethods implements Initializable 
     private Button btnCopyFile;
 
     @FXML
-    private Button btnUpload;
+    private Button btnUploadFile;
 
     @FXML
     private Label lbUsername;
@@ -100,11 +103,7 @@ public class UserProfileController extends FileMethods implements Initializable 
     public void initialize(URL location, ResourceBundle resources){
         
         lbUsername.setText("Welcome " + owner);
-        SetLblCurDir(currentDir);
-        List<Button> allButtons = Arrays.asList(btnMoveFile,btnCopyFile,btnDeleteFile,btnRenameFile);
-        allButtons.forEach((button)->{
-            button.disableProperty().bind(Bindings.isNull(tableFiles.getSelectionModel().selectedItemProperty()));
-        });
+        
         refreshGrid();      
     }
     
@@ -206,16 +205,36 @@ public class UserProfileController extends FileMethods implements Initializable 
         }
     }
     
+    public void RecycleBtnClicked()
+    {
+        this.currentDir = "Deleted";
+        
+        refreshGrid();
+        
+    }
+ 
+    public void HomeBtnClicked()
+    {
+        this.currentDir = "./";
+        refreshGrid();
+        
+    }
+    
+    public void RestoreBtnClicked()
+    {
+    }
  
     
     public void refreshGrid(){
+        
+        SetLblCurDir(this.currentDir);
+        SetButtons();
         
         tilePane.getChildren().clear();
         filesList.clear();
         userFolders.clear();
         
         List<UserFile> userFiles = dbconnection.listDirectory(owner, currentDir);
-        //List<UserFolder> userFolders = new ArrayList<>();
         List<UserFile> onlyUserFiles = new ArrayList<>();
         
         System.out.println("Initialize");
@@ -267,10 +286,41 @@ public class UserProfileController extends FileMethods implements Initializable 
     public void SetLblCurDir(String curDir)
     {
         if("./".equals(curDir)){
-            lblCurDir.setText("home");
+            lblCurDir.setText("Home");
         }
         else{
             lblCurDir.setText(curDir);
+        }
+    }
+    public void SetButtons()
+    {
+        btnRecycleBin.visibleProperty().setValue(Boolean.FALSE);
+        List<Button> allButtons = Arrays.asList(btnMoveFile,btnCopyFile,btnDeleteFile,btnRenameFile,btnUploadFile,btnCreateFile);
+        
+        allButtons.forEach((button)->{
+            if(button.disableProperty().isBound())
+                {
+                    button.disableProperty().unbind();
+                }
+            
+            button.disableProperty().setValue(Boolean.FALSE);
+             
+            if(!(button.textProperty().getValue().equals("Upload File") || button.textProperty().getValue().equals("Create File"))){
+                button.disableProperty().bind(Bindings.isNull(tableFiles.getSelectionModel().selectedItemProperty()));
+            }
+        });
+        
+        if(this.currentDir.equals("Deleted"))
+        {
+            btnRecycleBin.visibleProperty().setValue(Boolean.TRUE);
+            btnRecycleBin.disableProperty().bind(Bindings.isNull(tableFiles.getSelectionModel().selectedItemProperty()));
+            allButtons.forEach((button)->{
+                if(button.disableProperty().isBound())
+                {
+                    button.disableProperty().unbind();
+                }
+                button.disableProperty().setValue(Boolean.TRUE);
+            });
         }
     }
     public void ReceiveRename(String newName){this.childReceive = newName;}

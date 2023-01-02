@@ -44,7 +44,7 @@ public abstract class FileMethods {
         public void CreateFile(String fileName,String fileContent,String filePath){
         try {
             
-            File userFile = new File(fileName + ".txt");
+            File userFile = new File(fileName);
             userFile.createNewFile();
             userFile.deleteOnExit();
             

@@ -211,6 +211,11 @@ public class dbconnection {
                               FROM Files
                               WHERE OWNER = ? AND FILEPATH = ?
                               """;
+        String delStatement = """
+                              SELECT *
+                              FROM Deleted
+                              WHERE OWNER = ?
+                              """;
         
         
         
@@ -219,11 +224,20 @@ public class dbconnection {
             
             
             int ownerId = getOwnerId(owner);
-         
             
-            PreparedStatement sqlSelectFiles = connection.prepareStatement(strStatement);
+            PreparedStatement sqlSelectFiles = null;
+         
+            if(filePath.equals("Deleted"))
+            {
+                sqlSelectFiles = connection.prepareStatement(delStatement);
+            }
+            else{
+               sqlSelectFiles = connection.prepareStatement(strStatement);
+               sqlSelectFiles.setString(2, filePath);
+                
+            }
+            
             sqlSelectFiles.setInt(1, ownerId);
-            sqlSelectFiles.setString(2, filePath);
             ResultSet userFiles = sqlSelectFiles.executeQuery();
            
             

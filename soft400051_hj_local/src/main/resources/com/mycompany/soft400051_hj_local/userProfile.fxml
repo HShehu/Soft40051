@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.text.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
@@ -20,7 +21,7 @@
                   </ScrollPane>
                   <ToolBar prefHeight="40.0" prefWidth="200.0">
                      <items>
-                        <Button id="btnUpload" fx:id="btnUpload" alignment="CENTER" mnemonicParsing="false" onAction="#UploadBtnClicked" prefHeight="25.0" prefWidth="122.0" text="Upload File" textAlignment="CENTER" />
+                        <Button id="btnUpload" fx:id="btnUploadFile" alignment="CENTER" mnemonicParsing="false" onAction="#UploadBtnClicked" prefHeight="25.0" prefWidth="122.0" text="Upload File" textAlignment="CENTER" />
                         <Button fx:id="btnCreateFile" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#CreateBtnClicked" text="Create File" />
                         <Button fx:id="btnCopyFile" layoutX="102.0" layoutY="10.0" mnemonicParsing="false" onAction="#CopyBtnClicked" text="Copy FIle" />
                         <Button fx:id="btnRenameFile" layoutX="195.0" layoutY="10.0" mnemonicParsing="false" onAction="#RenameBtnClicked" text="Rename File" />
@@ -44,11 +45,35 @@
                   <HBox alignment="CENTER">
                      <children>
                         <Label fx:id="lbUsername" text="Label" />
-                        <Pane prefHeight="48.0" prefWidth="54.0" />
-                      <Button mnemonicParsing="false" text="Button" />
                      </children>
                   </HBox>
-                  <Pane prefHeight="48.0" prefWidth="135.0" />
+                <Button mnemonicParsing="false" onAction="#HomeBtnClicked">
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image/icons8-home-page-windows-11/icons8-home-page-96.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnRecycleBin" layoutX="50.0" layoutY="10.0" mnemonicParsing="false" onAction="#HomeBtnClicked">
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image/icons8-recycle-bin-64.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnRecycle" mnemonicParsing="false" onAction="#RecycleBtnClicked">
+                     <graphic>
+                        <ImageView fitHeight="21.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@image/icons8-recycle-bin-windows-11/icons8-recycle-bin-32.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
                   <Label fx:id="lbUsername1" text="Current Directory">
                      <font>
                         <Font name="System Bold" size="10.0" />
