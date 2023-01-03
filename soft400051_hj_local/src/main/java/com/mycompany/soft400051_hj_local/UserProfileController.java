@@ -112,7 +112,7 @@ public class UserProfileController extends FileMethods implements Initializable 
         btnAlert.contentTextProperty().setValue("Are you Sure you want to copy this File?");
         
         Optional<ButtonType> result = btnAlert.showAndWait();
-        if(result.isPresent() && result.get().getText().equals("OK"))
+        if(result.get() == ButtonType.OK)
         {
             UserFile srcFile = tableFiles.getSelectionModel().getSelectedItem();  
             CopyFile(srcFile);
@@ -219,7 +219,7 @@ public class UserProfileController extends FileMethods implements Initializable 
         btnAlert.contentTextProperty().setValue("Are you Sure you want to Delete this File?");
         
         Optional<ButtonType> result = btnAlert.showAndWait();
-        if(result.isPresent() && result.get().getText().equals("OK"))
+        if(result.get() == ButtonType.OK)
         {
             DeleteFile(tableFiles.getSelectionModel().getSelectedItem());
             refreshGrid();

@@ -24,7 +24,7 @@
                <children>
                   <ImageView fitHeight="366.0" fitWidth="600.0" layoutX="4.0" layoutY="1.0" pickOnBounds="true">
                      <image>
-                        <Image url="@../../../../../../bg_main_login.jpg" />
+                        <Image url="@image/bg_main_login.jpg" />
                      </image>
                   </ImageView>
                   <Label focusTraversable="false" layoutX="230.0" layoutY="32.0" text="Welcome to HJ!!">
@@ -46,7 +46,7 @@
                <children>
                   <ImageView fitHeight="366.0" fitWidth="600.0" layoutX="4.0" pickOnBounds="true">
                      <image>
-                        <Image url="file:C:\\Users\\harsh\\Documents\\NetBeansProjects\\resource\\bg_main_login.jpg" />
+                        <Image url="@image/bg_main_login.jpg" />
                      </image>
                   </ImageView>
                   <Label layoutX="238.0" layoutY="35.0" text="Welcome to HJ!!">
@@ -70,7 +70,7 @@
                <children>
                   <ImageView fitHeight="366.0" fitWidth="600.0" layoutX="4.0" layoutY="1.0" pickOnBounds="true">
                      <image>
-                        <Image url="file:C:\\Users\\harsh\\Documents\\NetBeansProjects\\resource\\bg_main_login.jpg" />
+                        <Image url="@image/bg_main_login.jpg" />
                      </image>
                   </ImageView>
                   <Label focusTraversable="false" layoutX="230.0" layoutY="32.0" text="Welcome to HJ!!">
