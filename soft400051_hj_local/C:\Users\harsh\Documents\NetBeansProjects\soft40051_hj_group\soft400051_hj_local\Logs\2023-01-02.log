@@ -11496,3 +11496,1299 @@
   <message>Function getOwnerId Started</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-02T22:10:01.656993002Z</date>
+  <millis>1672697401656</millis>
+  <nanos>993002</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2023-01-02T22:10:02.925032803Z</date>
+  <millis>1672697402925</millis>
+  <nanos>32803</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2023-01-02T22:10:15.776718080Z</date>
+  <millis>1672697415776</millis>
+  <nanos>718080</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2023-01-02T22:10:15.778152552Z</date>
+  <millis>1672697415778</millis>
+  <nanos>152552</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2023-01-02T22:10:15.780337729Z</date>
+  <millis>1672697415780</millis>
+  <nanos>337729</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:10:15.781987613Z</date>
+  <millis>1672697415781</millis>
+  <nanos>987613</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2023-01-02T22:10:15.976516460Z</date>
+  <millis>1672697415976</millis>
+  <nanos>516460</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:10:16.036690484Z</date>
+  <millis>1672697416036</millis>
+  <nanos>690484</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2023-01-02T22:10:16.038744561Z</date>
+  <millis>1672697416038</millis>
+  <nanos>744561</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2023-01-02T22:10:18.030177316Z</date>
+  <millis>1672697418030</millis>
+  <nanos>177316</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:10:18.337655478Z</date>
+  <millis>1672697418337</millis>
+  <nanos>655478</nanos>
+  <sequence>10</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Screen Loaded to User </message>
+</record>
+<record>
+  <date>2023-01-02T22:10:18.339270665Z</date>
+  <millis>1672697418339</millis>
+  <nanos>270665</nanos>
+  <sequence>11</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution Success</message>
+</record>
+<record>
+  <date>2023-01-02T22:10:26.614827287Z</date>
+  <millis>1672697426614</millis>
+  <nanos>827287</nanos>
+  <sequence>12</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function filesDeleted Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:10:26.616815357Z</date>
+  <millis>1672697426616</millis>
+  <nanos>815357</nanos>
+  <sequence>13</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:10:26.637935489Z</date>
+  <millis>1672697426637</millis>
+  <nanos>935489</nanos>
+  <sequence>14</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Insert Query Execution Success for Deleted</message>
+</record>
+<record>
+  <date>2023-01-02T22:10:26.640556990Z</date>
+  <millis>1672697426640</millis>
+  <nanos>556990</nanos>
+  <sequence>15</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:10:26.660316160Z</date>
+  <millis>1672697426660</millis>
+  <nanos>316160</nanos>
+  <sequence>16</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-02T22:39:25.846345065Z</date>
+  <millis>1672699165846</millis>
+  <nanos>345065</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2023-01-02T22:39:27.004274251Z</date>
+  <millis>1672699167004</millis>
+  <nanos>274251</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2023-01-02T22:39:50.095203776Z</date>
+  <millis>1672699190095</millis>
+  <nanos>203776</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2023-01-02T22:39:50.096987826Z</date>
+  <millis>1672699190096</millis>
+  <nanos>987826</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2023-01-02T22:39:50.099592796Z</date>
+  <millis>1672699190099</millis>
+  <nanos>592796</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:39:50.101540970Z</date>
+  <millis>1672699190101</millis>
+  <nanos>540970</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2023-01-02T22:39:50.292579405Z</date>
+  <millis>1672699190292</millis>
+  <nanos>579405</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:39:50.311013503Z</date>
+  <millis>1672699190311</millis>
+  <nanos>13503</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2023-01-02T22:39:50.312789698Z</date>
+  <millis>1672699190312</millis>
+  <nanos>789698</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2023-01-02T22:39:52.738554079Z</date>
+  <millis>1672699192738</millis>
+  <nanos>554079</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:39:53.017543745Z</date>
+  <millis>1672699193017</millis>
+  <nanos>543745</nanos>
+  <sequence>10</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Screen Loaded to User </message>
+</record>
+<record>
+  <date>2023-01-02T22:39:53.018584664Z</date>
+  <millis>1672699193018</millis>
+  <nanos>584664</nanos>
+  <sequence>11</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution Success</message>
+</record>
+<record>
+  <date>2023-01-02T22:40:03.650513649Z</date>
+  <millis>1672699203650</millis>
+  <nanos>513649</nanos>
+  <sequence>12</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:40:03.654550175Z</date>
+  <millis>1672699203654</millis>
+  <nanos>550175</nanos>
+  <sequence>13</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function filesInsert Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:40:03.656352119Z</date>
+  <millis>1672699203656</millis>
+  <nanos>352119</nanos>
+  <sequence>14</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:40:03.670795508Z</date>
+  <millis>1672699203670</millis>
+  <nanos>795508</nanos>
+  <sequence>15</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Insert Query Execution Success for File</message>
+</record>
+<record>
+  <date>2023-01-02T22:40:03.678715357Z</date>
+  <millis>1672699203678</millis>
+  <nanos>715357</nanos>
+  <sequence>16</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:40:34.762820969Z</date>
+  <millis>1672699234762</millis>
+  <nanos>820969</nanos>
+  <sequence>17</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:40:34.765735050Z</date>
+  <millis>1672699234765</millis>
+  <nanos>735050</nanos>
+  <sequence>18</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function filesInsert Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:40:34.769746759Z</date>
+  <millis>1672699234769</millis>
+  <nanos>746759</nanos>
+  <sequence>19</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:40:34.788203309Z</date>
+  <millis>1672699234788</millis>
+  <nanos>203309</nanos>
+  <sequence>20</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Insert Query Execution Success for File</message>
+</record>
+<record>
+  <date>2023-01-02T22:40:34.791771910Z</date>
+  <millis>1672699234791</millis>
+  <nanos>771910</nanos>
+  <sequence>21</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:40:49.430174924Z</date>
+  <millis>1672699249430</millis>
+  <nanos>174924</nanos>
+  <sequence>22</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:40:49.433327881Z</date>
+  <millis>1672699249433</millis>
+  <nanos>327881</nanos>
+  <sequence>23</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function filesInsert Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:40:49.439081740Z</date>
+  <millis>1672699249439</millis>
+  <nanos>81740</nanos>
+  <sequence>24</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:40:49.458726892Z</date>
+  <millis>1672699249458</millis>
+  <nanos>726892</nanos>
+  <sequence>25</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Insert Query Execution Success for File</message>
+</record>
+<record>
+  <date>2023-01-02T22:40:49.469632839Z</date>
+  <millis>1672699249469</millis>
+  <nanos>632839</nanos>
+  <sequence>26</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2023-01-02T22:51:32.259943568Z</date>
+  <millis>1672699892259</millis>
+  <nanos>943568</nanos>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2023-01-02T22:51:33.497580303Z</date>
+  <millis>1672699893497</millis>
+  <nanos>580303</nanos>
+  <sequence>1</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:00.176100049Z</date>
+  <millis>1672699920176</millis>
+  <nanos>100049</nanos>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:00.177632338Z</date>
+  <millis>1672699920177</millis>
+  <nanos>632338</nanos>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:00.179855457Z</date>
+  <millis>1672699920179</millis>
+  <nanos>855457</nanos>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:00.181605182Z</date>
+  <millis>1672699920181</millis>
+  <nanos>605182</nanos>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:00.393018715Z</date>
+  <millis>1672699920393</millis>
+  <nanos>18715</nanos>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:00.452437565Z</date>
+  <millis>1672699920452</millis>
+  <nanos>437565</nanos>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Details Found - Flag set Timestamp Set joshua@gmail.com</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:00.454085485Z</date>
+  <millis>1672699920454</millis>
+  <nanos>85485</nanos>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>User Logged in Successfully joshua@gmail.com</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:01.434552934Z</date>
+  <millis>1672699921434</millis>
+  <nanos>552934</nanos>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:01.692345140Z</date>
+  <millis>1672699921692</millis>
+  <nanos>345140</nanos>
+  <sequence>10</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Screen Loaded to User </message>
+</record>
+<record>
+  <date>2023-01-02T22:52:01.693395027Z</date>
+  <millis>1672699921693</millis>
+  <nanos>395027</nanos>
+  <sequence>11</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Login Function Execution Success</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:09.292442402Z</date>
+  <millis>1672699929292</millis>
+  <nanos>442402</nanos>
+  <sequence>12</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function filesDeleted Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:09.295938244Z</date>
+  <millis>1672699929295</millis>
+  <nanos>938244</nanos>
+  <sequence>13</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:09.317818890Z</date>
+  <millis>1672699929317</millis>
+  <nanos>818890</nanos>
+  <sequence>14</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Insert Query Execution Success for Deleted</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:09.322395548Z</date>
+  <millis>1672699929322</millis>
+  <nanos>395548</nanos>
+  <sequence>15</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:09.340998458Z</date>
+  <millis>1672699929340</millis>
+  <nanos>998458</nanos>
+  <sequence>16</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:15.875800770Z</date>
+  <millis>1672699935875</millis>
+  <nanos>800770</nanos>
+  <sequence>17</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function filesDeleted Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:15.877557208Z</date>
+  <millis>1672699935877</millis>
+  <nanos>557208</nanos>
+  <sequence>18</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:15.902095183Z</date>
+  <millis>1672699935902</millis>
+  <nanos>95183</nanos>
+  <sequence>19</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Insert Query Execution Success for Deleted</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:15.904823919Z</date>
+  <millis>1672699935904</millis>
+  <nanos>823919</nanos>
+  <sequence>20</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:15.915169024Z</date>
+  <millis>1672699935915</millis>
+  <nanos>169024</nanos>
+  <sequence>21</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:23.746878208Z</date>
+  <millis>1672699943746</millis>
+  <nanos>878208</nanos>
+  <sequence>22</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:25.260396727Z</date>
+  <millis>1672699945260</millis>
+  <nanos>396727</nanos>
+  <sequence>23</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:31.453951470Z</date>
+  <millis>1672699951453</millis>
+  <nanos>951470</nanos>
+  <sequence>24</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function filesDeleted Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:31.455547531Z</date>
+  <millis>1672699951455</millis>
+  <nanos>547531</nanos>
+  <sequence>25</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:31.466620898Z</date>
+  <millis>1672699951466</millis>
+  <nanos>620898</nanos>
+  <sequence>26</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Insert Query Execution Success for Deleted</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:31.469616684Z</date>
+  <millis>1672699951469</millis>
+  <nanos>616684</nanos>
+  <sequence>27</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:31.483971724Z</date>
+  <millis>1672699951483</millis>
+  <nanos>971724</nanos>
+  <sequence>28</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:39.329365246Z</date>
+  <millis>1672699959329</millis>
+  <nanos>365246</nanos>
+  <sequence>29</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:40.177616410Z</date>
+  <millis>1672699960177</millis>
+  <nanos>616410</nanos>
+  <sequence>30</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:40.907182354Z</date>
+  <millis>1672699960907</millis>
+  <nanos>182354</nanos>
+  <sequence>31</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:41.473710166Z</date>
+  <millis>1672699961473</millis>
+  <nanos>710166</nanos>
+  <sequence>32</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:41.925331743Z</date>
+  <millis>1672699961925</millis>
+  <nanos>331743</nanos>
+  <sequence>33</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:42.398735827Z</date>
+  <millis>1672699962398</millis>
+  <nanos>735827</nanos>
+  <sequence>34</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:43.681004305Z</date>
+  <millis>1672699963681</millis>
+  <nanos>4305</nanos>
+  <sequence>35</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:52:46.884081660Z</date>
+  <millis>1672699966884</millis>
+  <nanos>81660</nanos>
+  <sequence>36</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:53:55.910294452Z</date>
+  <millis>1672700035910</millis>
+  <nanos>294452</nanos>
+  <sequence>37</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:53:55.912712665Z</date>
+  <millis>1672700035912</millis>
+  <nanos>712665</nanos>
+  <sequence>38</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function filesInsert Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:53:55.914016657Z</date>
+  <millis>1672700035914</millis>
+  <nanos>16657</nanos>
+  <sequence>39</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:53:55.933491614Z</date>
+  <millis>1672700035933</millis>
+  <nanos>491614</nanos>
+  <sequence>40</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Insert Query Execution Success for File</message>
+</record>
+<record>
+  <date>2023-01-02T22:53:55.944832823Z</date>
+  <millis>1672700035944</millis>
+  <nanos>832823</nanos>
+  <sequence>41</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:54:18.921213835Z</date>
+  <millis>1672700058921</millis>
+  <nanos>213835</nanos>
+  <sequence>42</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:54:18.923730406Z</date>
+  <millis>1672700058923</millis>
+  <nanos>730406</nanos>
+  <sequence>43</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function filesInsert Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:54:18.925232177Z</date>
+  <millis>1672700058925</millis>
+  <nanos>232177</nanos>
+  <sequence>44</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:54:18.935206793Z</date>
+  <millis>1672700058935</millis>
+  <nanos>206793</nanos>
+  <sequence>45</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Insert Query Execution Success for File</message>
+</record>
+<record>
+  <date>2023-01-02T22:54:18.940684675Z</date>
+  <millis>1672700058940</millis>
+  <nanos>684675</nanos>
+  <sequence>46</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:59:14.085518205Z</date>
+  <millis>1672700354085</millis>
+  <nanos>518205</nanos>
+  <sequence>47</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:59:19.046720471Z</date>
+  <millis>1672700359046</millis>
+  <nanos>720471</nanos>
+  <sequence>48</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:59:24.269743794Z</date>
+  <millis>1672700364269</millis>
+  <nanos>743794</nanos>
+  <sequence>49</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function filesDeleted Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:59:24.272403408Z</date>
+  <millis>1672700364272</millis>
+  <nanos>403408</nanos>
+  <sequence>50</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:59:24.324336159Z</date>
+  <millis>1672700364324</millis>
+  <nanos>336159</nanos>
+  <sequence>51</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Insert Query Execution Success for Deleted</message>
+</record>
+<record>
+  <date>2023-01-02T22:59:24.326811390Z</date>
+  <millis>1672700364326</millis>
+  <nanos>811390</nanos>
+  <sequence>52</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:59:24.336439515Z</date>
+  <millis>1672700364336</millis>
+  <nanos>439515</nanos>
+  <sequence>53</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:59:25.460423569Z</date>
+  <millis>1672700365460</millis>
+  <nanos>423569</nanos>
+  <sequence>54</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:59:28.414076779Z</date>
+  <millis>1672700368414</millis>
+  <nanos>76779</nanos>
+  <sequence>55</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:59:36.628045741Z</date>
+  <millis>1672700376628</millis>
+  <nanos>45741</nanos>
+  <sequence>56</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function filesDeleted Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:59:36.630519130Z</date>
+  <millis>1672700376630</millis>
+  <nanos>519130</nanos>
+  <sequence>57</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:59:36.646131853Z</date>
+  <millis>1672700376646</millis>
+  <nanos>131853</nanos>
+  <sequence>58</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Insert Query Execution Success for Deleted</message>
+</record>
+<record>
+  <date>2023-01-02T22:59:36.650275414Z</date>
+  <millis>1672700376650</millis>
+  <nanos>275414</nanos>
+  <sequence>59</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:59:36.664559568Z</date>
+  <millis>1672700376664</millis>
+  <nanos>559568</nanos>
+  <sequence>60</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:59:39.125986059Z</date>
+  <millis>1672700379125</millis>
+  <nanos>986059</nanos>
+  <sequence>61</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+<record>
+  <date>2023-01-02T22:59:52.395955987Z</date>
+  <millis>1672700392395</millis>
+  <nanos>955987</nanos>
+  <sequence>62</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>23</thread>
+  <message>Function getOwnerId Started</message>
+</record>
+</log>

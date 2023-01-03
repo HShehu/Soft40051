@@ -215,14 +215,16 @@ public class UserProfileController extends FileMethods implements Initializable 
     
     public void DeleteBtnClicked()
     {
-        Alert btnAlert = new Alert(AlertType.WARNING);
+        Alert btnAlert = new Alert(AlertType.CONFIRMATION);
         btnAlert.contentTextProperty().setValue("Are you Sure you want to Delete this File?");
+        
         Optional<ButtonType> result = btnAlert.showAndWait();
-        if(result.isPresent())
+        if(result.isPresent() && result.get().getText().equals("OK"))
         {
             DeleteFile(tableFiles.getSelectionModel().getSelectedItem());
             refreshGrid();
-        }
+        }  
+        
     }
     
     public void RecycleBtnClicked()

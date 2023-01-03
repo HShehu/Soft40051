@@ -11,8 +11,10 @@ import com.jcraft.jsch.Session;
 import com.jcraft.jsch.SftpException;
 import com.mycompany.soft400051_hj_local.dbconnection;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -69,6 +71,7 @@ public abstract class FileMethods {
             int start = 0;
             int counter = 0;
            
+            
             List<File> chunks = Arrays.asList(
                new File("./",UUID.randomUUID().toString()+".txt"),
                new File("./",UUID.randomUUID().toString()+".txt"),
@@ -170,10 +173,13 @@ public abstract class FileMethods {
         
         public void CopyFile(UserFile srcFile)
         {
-            CreateFile("copy"+srcFile.getName(),grabFile(srcFile));
+            File copyFile = new File("copy"+srcFile.getName());
+            grabFile(srcFile).renameTo(copyFile);
+            ChunkFile(copyFile);
+            copyFile.delete();
         }
         
-        public String grabFile(UserFile userFile)
+        public File grabFile(UserFile userFile)
         {
             List<String> chunks = Arrays.asList(
                     userFile.getChunk1(),
@@ -210,10 +216,18 @@ public abstract class FileMethods {
                 reFiles.add(nFile);
             }
             
-            return assembleFile(reFiles);
+            byte[] byteArray = assembleFile(reFiles);
+            
+            File grabFile = new File(userFile.getName());
+            
+            try (OutputStream os = new FileOutputStream(grabFile);){
+                os.write(byteArray);
+            }catch (Exception e) {
+            }
+            return grabFile;
         }
         
-        public String assembleFile(List<File> chunks){
+        public byte[] assembleFile(List<File> chunks){
             
             String str = new String();
             
@@ -221,6 +235,7 @@ public abstract class FileMethods {
             {
                 try {
                     str += Files.readString(chunk.toPath());
+                    chunk.delete();
 
                 } catch (IOException ex) {
                     Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, null, ex);
@@ -237,10 +252,10 @@ public abstract class FileMethods {
             {
                 byteArray[i] =  Byte.parseByte(StrArray[i].trim()); 
             }
-
-            String contents = new String(byteArray);
-
-            return contents; 
+           
+//            String contents = new String(byteArray);
+//
+            return byteArray; 
         }
         
         public void  RenameFile(String newName, UserFile userFile){
@@ -301,5 +316,7 @@ public abstract class FileMethods {
                
            }
         }
+        
+       
     
 }
