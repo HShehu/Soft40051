@@ -1,6 +1,8 @@
 package com.mycompany.soft400051_hj_local;
 
 import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -79,6 +81,13 @@ public class LoginController {
                         stage2 = new Stage();
                         stage2.setScene(new Scene(root));
                         stage2.show();
+                        stage2.setOnCloseRequest(event->{
+                            try {
+                                user_logout(Name);
+                            } catch (IOException ex) {
+                                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        });
                         Logger_Controller.log_info("Login Screen Loaded to User ");
                     }
                     else if(user_log_status.contains("already logged in")){
