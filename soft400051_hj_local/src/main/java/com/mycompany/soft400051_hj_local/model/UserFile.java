@@ -9,6 +9,7 @@ package com.mycompany.soft400051_hj_local.model;
  * @author ntu-user
  */
 public class UserFile extends Directory {
+    private Integer id;
     private String chunk1;
     private String chunk2;
     private String chunk3;
@@ -26,6 +27,9 @@ public class UserFile extends Directory {
     }
     public UserFile(){}
 
+    public void setId(Integer id){
+        this.id = id;
+    }
     public void setChunk1(String chunk1){
         this.chunk1 = chunk1;
     }
@@ -40,6 +44,9 @@ public class UserFile extends Directory {
         this.chunk4 = chunk4;
     }
     
+    public Integer getId(){
+        return this.id;
+    }
     public String getChunk1(){
         return this.chunk1;
     }
@@ -56,6 +63,6 @@ public class UserFile extends Directory {
     @Override
     public String toString()
     {
-        return getName() + getChunk1()+ getChunk2()+ getChunk3()+ getChunk4();
+        return getName() +" || "+ getChunk1()+" || "+ getChunk2()+" || "+ getChunk3()+" || "+ getChunk4();
     }
 }

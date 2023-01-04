@@ -80,6 +80,7 @@ public class LoginController {
                         
                         stage2 = new Stage();
                         stage2.setScene(new Scene(root));
+                        stage2.setTitle("HJ File Management");
                         stage2.show();
                         stage2.setOnCloseRequest(event->{
                             try {

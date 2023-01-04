@@ -15,15 +15,10 @@ import java.security.SecureRandom;
 import java.math.BigInteger;
 import java.nio.charset.StandardCharsets;
 import java.sql.PreparedStatement;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
+import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 
 /**
 * @brief Creating a class dbconnection to control Database Connection and Query
@@ -123,7 +118,7 @@ public class dbconnection {
         }
          return ownerId;
     }
-    public static void DeleteFile(String Owner, UserFile userFile){
+    public static void deleteFile(String Owner, UserFile userFile){
         
         String delStatement = """
                               DELETE
@@ -144,6 +139,36 @@ public class dbconnection {
                 Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    public static Boolean restoreFile(String Owner,UserFile userFile)
+    {
+        Boolean restored = false;
+        
+        String delStatement = """
+                      DELETE
+                      FROM Deleted
+                      WHERE FILEID = ?
+                      """;
+        
+        List<String> chunks = Arrays.asList(
+        userFile.getChunk1(),
+        userFile.getChunk2(),
+        userFile.getChunk3(),
+        userFile.getChunk4()
+        );
+        
+        if(filesInsert(userFile.getName(),Owner,userFile.getPath(),chunks) == true){
+            restored = true;
+            try(Connection connection = dbconnection.dbconnection();){
+                PreparedStatement sqlDeleteFile = connection.prepareStatement(delStatement);
+                sqlDeleteFile.setInt(1, userFile.getId());
+                sqlDeleteFile.executeUpdate();
+            }catch (SQLException ex) {
+                Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return restored;
     }
     public static Boolean insertDeletedTable(String Owner, UserFile userFile){
         Boolean flag = false;
@@ -287,6 +312,9 @@ public class dbconnection {
                 }
                 
                 else{
+                    if(filePath.equals("Deleted")){
+                        userFile.setId(userFiles.getInt("FILEID"));
+                    }
                     userFile.setName(userFiles.getString("FILENAME"));
                     userFile.setPath(userFiles.getString("FILEPATH"));
                     userFile.setChunk1(userFiles.getString("CHUNK1"));

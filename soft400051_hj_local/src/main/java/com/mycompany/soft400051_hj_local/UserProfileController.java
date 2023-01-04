@@ -243,7 +243,15 @@ public class UserProfileController extends FileMethods implements Initializable 
     
     public void RestoreBtnClicked()
     {
-        //run checks on content
+        Alert btnAlert = new Alert(AlertType.CONFIRMATION);
+        btnAlert.contentTextProperty().setValue("Are you Sure you want to Restore this File?");
+        
+        Optional<ButtonType> result = btnAlert.showAndWait();
+        if(result.get() == ButtonType.OK)
+        {
+            RestoreFile(tableFiles.getSelectionModel().getSelectedItem());
+            refreshGrid();
+        }  
     }
  
     
