@@ -205,7 +205,7 @@ public class UserProfileController extends FileMethods implements Initializable 
             
             if(Objects.nonNull(dstFolder))
             {
-                MoveFile(dstFolder.getPath().concat(dstFolder.getName()),srcFile);
+                MoveFile(dstFolder.getName(),srcFile);
                 refreshGrid();
             }
         } catch (IOException ex) {
@@ -230,17 +230,20 @@ public class UserProfileController extends FileMethods implements Initializable 
     public void RecycleBtnClicked()
     {
         setCurDir("Deleted");
-        refreshGrid();
         
     }
  
     public void HomeBtnClicked()
     {
-        setCurDir("./");
-        refreshGrid();
-        
+        setCurDir("./");   
     }
     
+    @Override
+    public void setCurDir(String currentDir)
+    {
+        this.currentDir = currentDir;
+        refreshGrid();
+    }
     public void RestoreBtnClicked()
     {
         Alert btnAlert = new Alert(AlertType.CONFIRMATION);
@@ -296,7 +299,7 @@ public class UserProfileController extends FileMethods implements Initializable 
                 fxLoader.setLocation(getClass().getResource("folder.fxml"));
                 System.out.println("Location Set");
 
-                FolderController folderController = new FolderController(folder);
+                FolderController folderController = new FolderController(folder,this);
                 System.out.println("Controller Created");
                 fxLoader.setController(folderController);
                 System.out.println("controller Set");

@@ -386,12 +386,13 @@ public class dbconnection {
         String insertFileTable = """
                                  INSERT INTO Files(
                                     FILENAME,
+                                    FILEPATH,
                                     OWNER,
                                     CHUNK1,
                                     CHUNK2,
                                     CHUNK3,
                                     CHUNK4
-                                 )VALUES(?,?,?,?,?,?)"""; 
+                                 )VALUES(?,?,?,?,?,?,?)"""; 
 
         if(checkFileExists(fileName,filePath,Owner) == false)
         {
@@ -402,11 +403,12 @@ public class dbconnection {
             
             PreparedStatement insertFile = connection.prepareStatement(insertFileTable);
             insertFile.setString(1, fileName);
-            insertFile.setInt(2, ownerId);
-            insertFile.setString(3, chunks.get(0));
-            insertFile.setString(4, chunks.get(1));
-            insertFile.setString(5, chunks.get(2));
-            insertFile.setString(6, chunks.get(3));
+            insertFile.setString(2, filePath);
+            insertFile.setInt(3, ownerId);
+            insertFile.setString(4, chunks.get(0));
+            insertFile.setString(5, chunks.get(1));
+            insertFile.setString(6, chunks.get(2));
+            insertFile.setString(7, chunks.get(3));
             insertFile.executeUpdate();
 //            statement.executeUpdate(insertFileTable);
             //System.out.println("User Registered Successfully "+Name+" : "+Email);

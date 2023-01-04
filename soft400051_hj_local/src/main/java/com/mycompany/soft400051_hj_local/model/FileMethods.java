@@ -36,7 +36,7 @@ import javafx.stage.FileChooser;
 public abstract class FileMethods {
     
     private final String owner;
-    private String currentDir = "./";
+    protected String currentDir = "./";
     
     public static enum Operation{
         MOVE,
@@ -305,6 +305,10 @@ public abstract class FileMethods {
                 sftp.connect();
 
                 try{
+                    if(sftp.stat(sftp.pwd()+"/deleted") == null)
+                    {
+                        sftp.mkdir("deleted");
+                    }
                     sftp.get(fileName, "./");
                     sftp.rm(fileName);
                     sftp.put("./"+fileName,"deleted");
@@ -312,8 +316,6 @@ public abstract class FileMethods {
                     tmp.delete();
                 }catch(SftpException ex){
                     Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, "Deleted Folder Does not Exist\n Creating it.....", ex);
-                    sftp.mkdir("deleted");
-                    sftp.rename("./"+fileName, "deleted");
                 }
 
 
@@ -322,7 +324,7 @@ public abstract class FileMethods {
 
                 sftp.disconnect();
                 jschSession.disconnect();
-            } catch (JSchException | SftpException ex) {
+            } catch (JSchException ex) {
                 Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, null, ex);
             }
         }

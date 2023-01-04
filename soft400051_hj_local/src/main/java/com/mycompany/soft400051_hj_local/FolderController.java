@@ -19,20 +19,22 @@ import javafx.scene.control.Label;
 public class FolderController implements Initializable{
     
     private UserFolder folder;
+    private final UserProfileController parent;
 
     @FXML
     private Label lbFolderName;
     
 
-    FolderController(UserFolder folder){
+    FolderController(UserFolder folder,UserProfileController parentController){
         this.folder = folder;
+        this.parent = parentController;
        
     }
 
-//    public void setData(UserFolder folder)
-//    {
-//        
-//    }
+    public void Clicked()
+    {
+        parent.setCurDir(folder.getName());
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

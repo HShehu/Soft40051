@@ -65,15 +65,7 @@
                         </ImageView>
                      </graphic>
                   </Button>
-                  <Button fx:id="btnRecycleBin" layoutX="50.0" layoutY="10.0" mnemonicParsing="false" onAction="#RestoreBtnClicked">
-                     <graphic>
-                        <ImageView fitHeight="21.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
-                           <image>
-                              <Image url="@image/icons8-recycle-bin-64.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
+                  <Button fx:id="btnRecycleBin" layoutX="50.0" layoutY="10.0" mnemonicParsing="false" onAction="#RestoreBtnClicked" text="Restore File" />
                   <Label fx:id="lbUsername1" text="Current Directory">
                      <font>
                         <Font name="System Bold" size="10.0" />
