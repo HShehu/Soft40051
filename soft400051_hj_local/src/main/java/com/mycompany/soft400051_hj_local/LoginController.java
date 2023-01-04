@@ -83,6 +83,7 @@ public class LoginController {
                         stage2.show();
                         stage2.setOnCloseRequest(event->{
                             try {
+                                event.consume();
                                 user_logout(Name);
                             } catch (IOException ex) {
                                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);

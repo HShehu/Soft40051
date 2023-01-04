@@ -101,7 +101,7 @@ public class UserProfileController extends FileMethods implements Initializable 
     @Override
     public void initialize(URL location, ResourceBundle resources){
         
-        lbUsername.setText("Welcome " + owner);
+        lbUsername.setText("Welcome " + getOwner());
         
         refreshGrid();      
     }
@@ -229,15 +229,14 @@ public class UserProfileController extends FileMethods implements Initializable 
     
     public void RecycleBtnClicked()
     {
-        this.currentDir = "Deleted";
-        
+        setCurDir("Deleted");
         refreshGrid();
         
     }
  
     public void HomeBtnClicked()
     {
-        this.currentDir = "./";
+        setCurDir("./");
         refreshGrid();
         
     }
@@ -250,14 +249,14 @@ public class UserProfileController extends FileMethods implements Initializable 
     
     public void refreshGrid(){
         
-        SetLblCurDir(this.currentDir);
+        SetLblCurDir(getCurDir());
         SetButtons();
         
         tilePane.getChildren().clear();
         filesList.clear();
         userFolders.clear();
         
-        List<UserFile> userFiles = dbconnection.listDirectory(owner, currentDir);
+        List<UserFile> userFiles = dbconnection.listDirectory(getOwner(), getCurDir());
         List<UserFile> onlyUserFiles = new ArrayList<>();
         
         System.out.println("Initialize");
@@ -331,7 +330,7 @@ public class UserProfileController extends FileMethods implements Initializable 
             }
         });
         
-        if(this.currentDir.equals("Deleted"))
+        if(getCurDir().equals("Deleted"))
         {
             btnRecycleBin.visibleProperty().setValue(Boolean.TRUE);
             btnRecycleBin.disableProperty().bind(Bindings.isNull(tableFiles.getSelectionModel().selectedItemProperty()));

@@ -32,8 +32,8 @@ import javafx.stage.FileChooser;
  */
 public abstract class FileMethods {
     
-    protected final String owner;
-    protected String currentDir = "./";
+    private final String owner;
+    private String currentDir = "./";
     
     public static enum Operation{
         MOVE,
@@ -42,6 +42,20 @@ public abstract class FileMethods {
     
     protected FileMethods(String email){
         this.owner = email;
+    }
+    
+    public void setCurDir(String currentDir)
+    {
+        this.currentDir = currentDir;
+    }
+    
+    public String getCurDir()
+    {
+        return this.currentDir;
+    }
+    public String getOwner()
+    {
+        return this.owner;
     }
     
     
