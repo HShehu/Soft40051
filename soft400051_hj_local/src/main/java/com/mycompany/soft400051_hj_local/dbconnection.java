@@ -45,16 +45,60 @@ public class dbconnection {
         return connection;
     }
     
-    public static void permaDeleteFile(){ 
+    public static List<UserFile> permaDeleteFile(){ 
         
         initDeletedTable();
-        String delStatement = """
-                            DELETE 
+        
+        String selStatement = """
+                            SELECT * 
                             FROM Deleted
                             WHERE (JULIANDAY('NOW') - DELETED_AT) >= 30  
                               """;
         
-         try(Connection connection = dbconnection.dbconnection();){
+        List<UserFile> fileList = new ArrayList<>();
+        try(Connection connection = dbconnection.dbconnection();){
+            
+            PreparedStatement sqlSelectFiles = connection.prepareStatement(selStatement);
+            ResultSet userFiles = sqlSelectFiles.executeQuery();
+           
+            
+            
+            while(userFiles.next())
+            {   
+                UserFile userFile = new UserFile();
+                if(userFiles.getBoolean("ISFOLDER"))
+                {
+                    userFile = new UserFile(userFiles.getString("FILENAME"),userFiles.getString("FILEPATH"),userFiles.getBoolean("ISFOLDER"));
+                    
+                }
+                
+                else{
+                    userFile.setName(userFiles.getString("FILENAME"));
+                    userFile.setPath(userFiles.getString("FILEPATH"));
+                    userFile.setChunk1(userFiles.getString("CHUNK1"));
+                    userFile.setChunk2(userFiles.getString("CHUNK2"));
+                    userFile.setChunk3(userFiles.getString("CHUNK3"));
+                    userFile.setChunk4(userFiles.getString("CHUNK4"));
+                }
+                fileList.add(userFile);
+            }
+        }catch(SQLException err){
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, err);
+        }
+        
+        System.out.println("Gotten Deleted Items Done");
+        return fileList;
+        
+
+    }
+    public static void finalDeleteFile(){
+        String delStatement = """
+                            DELETE 
+                            FROM Deleted
+                            WHERE (JULIANDAY('NOW') - DELETED_AT) >= 30
+                              """;
+        
+        try(Connection connection = dbconnection.dbconnection();){
             Statement statement = connection.createStatement();
             statement.executeUpdate(delStatement);
         } catch (SQLException ex) {

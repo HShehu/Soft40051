@@ -4,6 +4,7 @@
  */
 package com.mycompany.soft400051_hj_local;
 
+import static com.mycompany.soft400051_hj_local.dbconnection.user_logout;
 import com.mycompany.soft400051_hj_local.model.FileMethods;
 import com.mycompany.soft400051_hj_local.model.UserFile;
 import com.mycompany.soft400051_hj_local.model.UserFolder;
@@ -48,6 +49,7 @@ public class UserProfileController extends FileMethods implements Initializable 
     private String childReceive = "";
     private UserFolder dstFolder;
     private String[] createFileContent;
+    private final LoginController parent;
     
     @FXML
     private Button btnCreateFile;
@@ -93,19 +95,33 @@ public class UserProfileController extends FileMethods implements Initializable 
     
    
     
-    UserProfileController(String owner)
+    UserProfileController(String owner,LoginController parent)
     {   
         super(owner);
+        this.parent = parent;
+
     }
     
     @Override
     public void initialize(URL location, ResourceBundle resources){
         
         lbUsername.setText("Welcome " + getOwner());
-        
-        refreshGrid();      
+        refreshGrid();
     }
     
+    public void Logout() throws IOException
+    {
+        Alert btnAlert = new Alert(Alert.AlertType.CONFIRMATION);
+        btnAlert.contentTextProperty().setValue("Are you Sure you want to Logout?");
+        
+        Optional<ButtonType> result = btnAlert.showAndWait();
+        if(result.get() == ButtonType.OK){
+            
+            parent.user_logout(getOwner());
+    
+        }
+
+    }
     public void CopyBtnClicked()
     {
         Alert btnAlert = new Alert(AlertType.CONFIRMATION);

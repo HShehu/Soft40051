@@ -20,12 +20,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.Alert;
-import javafx.scene.control.ButtonType;
 import javafx.stage.FileChooser;
 
 
@@ -44,7 +42,55 @@ public abstract class FileMethods {
     }
     
     protected FileMethods(String email){
+        
         this.owner = email;
+        List<UserFile> userFiles = dbconnection.permaDeleteFile();
+        
+        for(UserFile userFile : userFiles)
+        {
+            List<String> chunks = Arrays.asList(
+                     userFile.getChunk1(),
+                     userFile.getChunk2(),
+                     userFile.getChunk3(),
+                     userFile.getChunk4()
+             );
+
+            for(String chunk : chunks){
+                String container = chunk.split(":")[0];
+                String fileName = chunk.split(":")[1];
+
+                System.out.println(container + "########" + fileName);
+
+               try {
+                    JSch jsch = new JSch();
+                    jsch.setKnownHosts("~/.ssh/known_hosts");
+                    jsch.addIdentity("~/.ssh/id_rsa");
+                    Session jschSession = jsch.getSession("root",container);
+                    jschSession.connect();
+                    ChannelSftp sftp = (ChannelSftp)jschSession.openChannel("sftp");
+                    sftp.connect();
+
+                   if(sftp.stat(sftp.pwd()+"/deleted") == null)
+                   {
+                       sftp.mkdir("deleted");
+                   }
+
+                   sftp.rm("deleted/"+fileName);
+
+                   sftp.exit();
+                   sftp.disconnect();
+                   jschSession.disconnect();
+
+                   System.out.println("Deleted");
+                } catch (JSchException | SftpException ex) {
+                    Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, null, ex);
+                    break;
+                }
+            }
+        }
+        
+        dbconnection.finalDeleteFile();
+        
     }
     
     public void setCurDir(String currentDir)
@@ -295,6 +341,7 @@ public abstract class FileMethods {
             String fileName = chunk.split(":")[1];
 
             System.out.println(container + "########" + fileName);
+            
                 try {
                 JSch jsch = new JSch();
                 jsch.setKnownHosts("~/.ssh/known_hosts");
@@ -383,6 +430,10 @@ public abstract class FileMethods {
                     Logger.getLogger(FileMethods.class.getName()).log(Level.SEVERE, null, ex);
                 }
             }
+            
+            Alert btnAlert = new Alert(Alert.AlertType.INFORMATION);
+            btnAlert.contentTextProperty().setValue("File "+ userFile.getName()+"\n Restored to Path "+userFile.getPath()+" successfully");
+            btnAlert.showAndWait();
     }
         
        

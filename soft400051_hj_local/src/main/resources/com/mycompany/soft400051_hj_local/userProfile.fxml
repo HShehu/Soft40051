@@ -72,6 +72,7 @@
                      </font>
                   </Label>
                   <Label fx:id="lblCurDir" text="Current Directory" textFill="#ee2b2b" />
+                  <Button fx:id="btnRecycleBin1" layoutX="136.0" layoutY="13.0" mnemonicParsing="false" onAction="#Logout" text="Logout" />
               </items>
             </ToolBar>
          </top>

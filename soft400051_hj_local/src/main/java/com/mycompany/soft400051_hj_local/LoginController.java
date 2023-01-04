@@ -1,8 +1,10 @@
 package com.mycompany.soft400051_hj_local;
 
 import java.io.IOException;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.animation.PauseTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -13,6 +15,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.InputEvent;
+import javafx.util.Duration;
 
 /**
 * @brief Creating a class LoginController to control Function of button
@@ -35,6 +39,9 @@ public class LoginController {
     String regexemail2 = "^[\\w!#$%&'*+/=?`{|}~^-]+(?:\\.[\\w!#$%&'*+/=?`{|}~^-]+)*" + "@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,6}$";
     String regexpassword = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&+=])(?=\\S+$).{8,20}$";
     
+    public Stage getStage(){
+        return LoginController.stage2;
+    }
     public void login_details_check(String Name, String Password, Node node) throws Exception
     {   
         Logger_Controller.log_info("Function login_details_check Started");
@@ -65,22 +72,32 @@ public class LoginController {
                     if(user_log_status.contains("true")){
                         Logger_Controller.log_info("User Logged in Successfully "+Name);
                         System.out.println("User Logged In Successfully " +Name);
-                        //System.out.println("User Input " +Name+ " "+Password);    
+                        
                         Alert a = new Alert(Alert.AlertType.INFORMATION);
                         a.setContentText(Name+ " Logged In");
                         a.showAndWait();
-                        //System.out.println("Node ..... " +node);
-                        //FXMLLoader loader = new FXMLLoader(getClass().getResource("logged_user.fxml"));
                         
-                        UserProfileController controller = new UserProfileController(Name);
+                        UserProfileController controller = new UserProfileController(Name,this);
                         FXMLLoader loader = new FXMLLoader(getClass().getResource("userProfile.fxml"));
                         loader.setController(controller);
                         Parent root = loader.load();
-//                       UserdataController controller = loader.getController();
                         
                         stage2 = new Stage();
                         stage2.setScene(new Scene(root));
                         stage2.setTitle("HJ File Management");
+                        
+//                        Duration delay = Duration.seconds(10);
+//                        PauseTransition transition = new PauseTransition(delay);
+//                        transition.setOnFinished(event->{
+//                            try {
+//                                event.consume();
+//                                user_logout(Name);
+//                            } catch (IOException ex) {
+//                                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
+//                            }
+//                        });
+//                        
+//                        stage2.addEventFilter(InputEvent.ANY, evt-> transition.playFromStart());
                         stage2.show();
                         stage2.setOnCloseRequest(event->{
                             try {
@@ -287,6 +304,7 @@ public class LoginController {
     }
     
     public void user_logout(String Name) throws IOException{
+        
         Logger_Controller.log_info("Function user_logout Started");
         String logout_status = dbconnection.user_logout(Name);
         if(logout_status.contains("true")){
@@ -294,7 +312,7 @@ public class LoginController {
             Logger_Controller.log_info("User Logged Out Success "+Name);
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText(Name+ " Logged Out");
-            a.showAndWait();
+            a.show();
             stage2.close();
         }
         else if(logout_status.contains("already logged in")){
@@ -313,5 +331,6 @@ public class LoginController {
             a.setContentText(Name+ " is already Logged In(Error)");
             a.show();
         }
+        
     }    
 }
