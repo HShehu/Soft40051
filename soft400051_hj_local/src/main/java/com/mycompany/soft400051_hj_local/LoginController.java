@@ -85,19 +85,7 @@ public class LoginController {
                         stage2 = new Stage();
                         stage2.setScene(new Scene(root));
                         stage2.setTitle("HJ File Management");
-                        
-//                        Duration delay = Duration.seconds(10);
-//                        PauseTransition transition = new PauseTransition(delay);
-//                        transition.setOnFinished(event->{
-//                            try {
-//                                event.consume();
-//                                user_logout(Name);
-//                            } catch (IOException ex) {
-//                                Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
-//                            }
-//                        });
-//                        
-//                        stage2.addEventFilter(InputEvent.ANY, evt-> transition.playFromStart());
+
                         stage2.show();
                         stage2.setOnCloseRequest(event->{
                             try {

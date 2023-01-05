@@ -48,7 +48,7 @@ public class UserProfileController extends FileMethods implements Initializable 
     private List<UserFolder> userFolders = new ArrayList<>();
     private String childReceive = "";
     private UserFolder dstFolder;
-    private String[] createFileContent;
+    private String[] createFileContent = null;
     private final LoginController parent;
     
     @FXML
@@ -153,7 +153,8 @@ public class UserProfileController extends FileMethods implements Initializable 
             createWindow.setScene(scene);
             createWindow.showAndWait();
             
-            if(!(createFileContent.length==0)){
+           
+            if(createFileContent != null){
                 
                 CreateFile(createFileContent[0],createFileContent[1]);
                 refreshGrid();
