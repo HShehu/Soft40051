@@ -22,13 +22,13 @@ import javafx.stage.Stage;
 public class CreateDialog implements Initializable{
     
     @FXML
-    private Button btnCancel;
+    private Button btnCancel; //!< Cancel Button in createDialogfxml
 
     @FXML
-    private TextArea tafileContent;
+    private TextArea tafileContent; //!< Text Area for File Content in createDialogfxml
 
     @FXML
-    private TextField tfFileName;
+    private TextField tfFileName; //!< Text Field for File Name in createDialogfxml
 
     @FXML
     private Label lbFileContent;
@@ -37,15 +37,14 @@ public class CreateDialog implements Initializable{
     private Label lbFileName;
 
     @FXML
-    private Button btnSave;
+    private Button btnSave; //!< Save Button in createDialogfxml
     
-    private final UserProfileController parentController;
+    private final UserProfileController parentController; //!< Parent Controller opening the createDialogfxml
     
 /*! \brief The Create Dialog Controller recieves the instance of the UserProfileController as parent.
- *        
- *   It does this to to send the information back to the exact instance of the controller.
+                             It does this to to send the information back to the exact instance of the controller.
+ *  @param controller UserProfileController argument   
  */
-    
     CreateDialog(UserProfileController controller)
     {
         this.parentController = controller;

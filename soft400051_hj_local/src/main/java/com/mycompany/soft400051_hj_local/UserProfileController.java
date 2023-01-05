@@ -157,6 +157,7 @@ public class UserProfileController extends FileMethods implements Initializable 
             if(createFileContent != null){
                 
                 CreateFile(createFileContent[0],createFileContent[1]);
+                createFileContent = null;
                 refreshGrid();
             }
         } catch (IOException ex) {
@@ -222,7 +223,13 @@ public class UserProfileController extends FileMethods implements Initializable 
             
             if(Objects.nonNull(dstFolder))
             {
-                MoveFile(dstFolder.getName(),srcFile);
+                String folderName = dstFolder.getName();
+                if(folderName.equals("home"))
+                {
+                    folderName = "./";
+                }
+                MoveFile(folderName,srcFile);
+                dstFolder = null;
                 refreshGrid();
             }
         } catch (IOException ex) {
@@ -258,6 +265,10 @@ public class UserProfileController extends FileMethods implements Initializable 
     @Override
     public void setCurDir(String currentDir)
     {
+        if(currentDir.equals("home"))
+        {
+            currentDir = "./";
+        }
         this.currentDir = currentDir;
         refreshGrid();
     }
@@ -291,7 +302,7 @@ public class UserProfileController extends FileMethods implements Initializable 
         
         userFiles.forEach((UserFile item) ->{     
             if(item.isFolderPath()){
-                UserFolder folder = new UserFolder(item.getName(),item.getPath(),item.isFolderPath());
+                UserFolder folder = new UserFolder(item.getName(),item.getPath());
                 userFolders.add(folder);
             }else{
                 onlyUserFiles.add(item);
@@ -307,7 +318,10 @@ public class UserProfileController extends FileMethods implements Initializable 
         colFileName.setCellValueFactory(new PropertyValueFactory("name"));
         
         
-            
+        if(!currentDir.equals("./")){
+            UserFolder homeFolder = new UserFolder("home");
+            userFolders.add(homeFolder);
+        }    
         
         for(UserFolder folder : userFolders){
             try {

@@ -9,9 +9,14 @@ package com.mycompany.soft400051_hj_local.model;
  * @author ntu-user
  */
 public class UserFolder extends Directory{
- 
-    public UserFolder(String name, String path,Boolean isFolder) {
-        super(name, path, isFolder);
+   
+    
+    public UserFolder(String name, String path) {
+        super(name, path, true);
+    }
+    
+    public UserFolder(String name) {
+        super(name, true);
     }
      @Override
     public String toString()

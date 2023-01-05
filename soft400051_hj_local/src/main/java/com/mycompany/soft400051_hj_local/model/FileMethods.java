@@ -135,10 +135,10 @@ public abstract class FileMethods {
 
 
         List<File> chunks = Arrays.asList(
-           new File("./",UUID.randomUUID().toString()+".txt"),
-           new File("./",UUID.randomUUID().toString()+".txt"),
-           new File("./",UUID.randomUUID().toString()+".txt"),
-           new File("./",UUID.randomUUID().toString()+".txt")
+           new File("./",UUID.randomUUID().toString()),
+           new File("./",UUID.randomUUID().toString()),
+           new File("./",UUID.randomUUID().toString()),
+           new File("./",UUID.randomUUID().toString())
         );
 
 

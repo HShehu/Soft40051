@@ -11,31 +11,38 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
-/**
- * FXML Controller class
- *
- * @author ntu-user
+/*! \brief This Class controls the Folderfxml.
+ *        
  */
 public class FolderController implements Initializable{
     
-    private UserFolder folder;
-    private final UserProfileController parent;
+    private UserFolder folder;   //!< UserFolder Object
+    private final UserProfileController parent; //!< UserProfileController Object
 
     @FXML
     private Label lbFolderName;
     
-
+/*
+ * @param folder a UserFolder argument
+ * @param parent a UserProfileController argument It does this to to send the information back to the exact instance of the controller.
+ */
     FolderController(UserFolder folder,UserProfileController parentController){
         this.folder = folder;
         this.parent = parentController;
        
     }
-
+    
+/*! \brief On Click of VBox change the User Current Directory
+ *  Takes the folder name and set Current Directory ot it      
+ */
     public void Clicked()
     {
         parent.setCurDir(folder.getName());
     }
 
+/*! \brief On Click of VBox change the User Current Directory
+ *  Takes the folder name and set Current Directory ot it      
+ */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
          lbFolderName.setText(folder.getName());
