@@ -193,6 +193,7 @@ public class UserProfileController extends FileMethods implements Initializable 
             if(!childReceive.isBlank()){
                 
                 RenameFile(childReceive,srcFile);
+                childReceive = "";
                 refreshGrid();
             }
         } catch (IOException ex) {
