@@ -16,14 +16,14 @@ public class UserFile extends Directory {
     private String chunk4;
     
     public UserFile(String name,String path,Boolean isFolder,String chunk1,String chunk2,String chunk3,String chunk4){
-        super(name,path,isFolder);
+        super(name,path);
         this.chunk1 = chunk1;
         this.chunk2 = chunk2;
         this.chunk3 = chunk3;
         this.chunk4 = chunk4;
     }
     public UserFile(String name,String path,Boolean isFolder){
-        super(name,path,isFolder);
+        super(name,path);
     }
     public UserFile(){}
 

@@ -67,7 +67,7 @@ public class CreateDialog implements Initializable{
         btnSave.setOnAction(e->{
             Node  source = (Node)  e.getSource(); 
             Stage stage  = (Stage) source.getScene().getWindow();
-            String[] newFile = {tfFileName.getText(),tafileContent.getText()};
+            String[] newFile = {tfFileName.getText().trim(),tafileContent.getText()};
             String message = null;
             
             if(newFile[0].isBlank() && newFile[1].isBlank())
@@ -83,6 +83,11 @@ public class CreateDialog implements Initializable{
             if(!newFile[0].isBlank() && newFile[1].isBlank())
             {
                 message = "File Content cannot be empty\n Please Write Something";
+                
+            }
+            if(newFile[0].contains(" "))
+            {
+                message = "File Name cannot have spaces";
                 
             }
             

@@ -2,6 +2,7 @@ package com.mycompany.soft400051_hj_local;
 
 import com.mycompany.soft400051_hj_local.model.FileMethods.Operation;
 import com.mycompany.soft400051_hj_local.model.UserFile;
+import com.mycompany.soft400051_hj_local.model.UserFolder;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -305,8 +306,7 @@ public class dbconnection {
         String createFileTable = """
                                  CREATE TABLE IF NOT EXISTS Files(
                                     FILENAME string NOT NULL,
-                                    FILEPATH string DEFAULT './' NOT NULL,
-                                    ISFOLDER boolean DEFAULT false NOT NULL,
+                                    FILEPATH string DEFAULT 'Home' NOT NULL,
                                     OWNER integer NOT NULL,
                                     CHUNK1 string ,
                                     CHUNK2 string ,
@@ -319,10 +319,22 @@ public class dbconnection {
                                  )
                                  """;
         
+        String createFolderTable = """
+                                 CREATE TABLE IF NOT EXISTS Folders(
+                                    FOLDERNAME string NOT NULL,
+                                    FOLDERPATH string DEFAULT 'Home' NOT NULL,
+                                    OWNER integer NOT NULL,
+                                    CONSTRAINT FOLDERID PRIMARY KEY (FOLDERNAME,FOLDERPATH,OWNER),
+                                    FOREIGN KEY (OWNER) REFERENCES users(id)
+                                 )
+                                 """;
+        
         
         try(Connection connection = dbconnection.dbconnection();){
             Statement statement = connection.createStatement();
             statement.executeUpdate(createFileTable);
+            
+            statement.executeUpdate(createFolderTable);
         } catch (SQLException ex) {
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -362,6 +374,7 @@ public class dbconnection {
                               FROM Files
                               WHERE OWNER = ? AND FILEPATH = ?
                               """;
+        
         String delStatement = """
                               SELECT *
                               FROM Deleted
@@ -396,23 +409,17 @@ public class dbconnection {
             while(userFiles.next())
             {   
                 UserFile userFile = new UserFile();
-                if(userFiles.getBoolean("ISFOLDER"))
-                {
-                    userFile = new UserFile(userFiles.getString("FILENAME"),userFiles.getString("FILEPATH"),userFiles.getBoolean("ISFOLDER"));
-                    
+               
+                if(filePath.equals("Deleted")){
+                    userFile.setId(userFiles.getInt("FILEID"));
                 }
+                userFile.setName(userFiles.getString("FILENAME"));
+                userFile.setPath(userFiles.getString("FILEPATH"));
+                userFile.setChunk1(userFiles.getString("CHUNK1"));                
+                userFile.setChunk2(userFiles.getString("CHUNK2"));
+                userFile.setChunk3(userFiles.getString("CHUNK3"));
+                userFile.setChunk4(userFiles.getString("CHUNK4"));
                 
-                else{
-                    if(filePath.equals("Deleted")){
-                        userFile.setId(userFiles.getInt("FILEID"));
-                    }
-                    userFile.setName(userFiles.getString("FILENAME"));
-                    userFile.setPath(userFiles.getString("FILEPATH"));
-                    userFile.setChunk1(userFiles.getString("CHUNK1"));
-                    userFile.setChunk2(userFiles.getString("CHUNK2"));
-                    userFile.setChunk3(userFiles.getString("CHUNK3"));
-                    userFile.setChunk4(userFiles.getString("CHUNK4"));
-                }
                 fileList.add(userFile);
             }
         }catch(SQLException err){
@@ -421,6 +428,39 @@ public class dbconnection {
         
         System.out.println("Gotten User Items Done");
         return fileList;
+    }
+    public static List<UserFolder> listFolders(String Owner,String folderPath){
+       String strStatement = """
+                              SELECT *
+                              FROM Folders
+                              WHERE OWNER = ? AND FOLDERPATH = ?
+                              """;
+        
+        List<UserFolder> folderList = new ArrayList<>();
+        try(Connection connection = dbconnection.dbconnection();){
+            
+            
+            int ownerId = getOwnerId(Owner);
+            
+            PreparedStatement sqlSelectFiles = connection.prepareStatement(strStatement);
+            
+            sqlSelectFiles.setString(2, folderPath);
+            sqlSelectFiles.setInt(1, ownerId);
+            
+            ResultSet userFolders = sqlSelectFiles.executeQuery();
+           
+            while(userFolders.next())
+            {   
+                UserFolder userFolder = new UserFolder(userFolders.getString("FOLDERNAME"),userFolders.getString("FOLDERPATH"));
+                folderList.add(userFolder);
+            }
+        }catch(SQLException err){
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, err);
+        }
+        
+        System.out.println("Gotten User Folders Done");
+        
+        return folderList; 
     }
     
     public static void shareFile(UserFile userFile, Map<String,Boolean> newValue , String Owner)

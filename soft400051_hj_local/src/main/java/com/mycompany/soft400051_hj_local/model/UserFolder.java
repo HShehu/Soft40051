@@ -12,11 +12,11 @@ public class UserFolder extends Directory{
    
     
     public UserFolder(String name, String path) {
-        super(name, path, true);
+        super(name, path);
     }
     
     public UserFolder(String name) {
-        super(name, true);
+        super(name);
     }
      @Override
     public String toString()

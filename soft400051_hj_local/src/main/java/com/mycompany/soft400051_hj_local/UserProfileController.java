@@ -59,8 +59,8 @@ public class UserProfileController extends FileMethods implements Initializable 
     private String[] createFileContent = null; //!< File Name and Content received from createDialog fxml
     private Map<String,Boolean> readWritePerm = new HashMap<>();
     private final LoginController parent; //!< Parent loginController
-    
-
+    private static final UserFolder sharedFolder = new UserFolder("Shared");
+    private static final UserFolder homeFolder = new UserFolder("Home");
     
  
     
@@ -114,18 +114,18 @@ public class UserProfileController extends FileMethods implements Initializable 
                              It does this to to send the information back to the exact instance of the controller.
  *  @param controller UserProfileController argument   
  */
-    UserProfileController(String owner,LoginController controller)
-    {   
+    UserProfileController(String owner,LoginController controller){   
         super(owner);
         this.parent = controller;
-
     }
     
     @Override
     public void initialize(URL location, ResourceBundle resources){
         
         lbUsername.setText("Welcome " + getOwner());
-        refreshGrid();
+        dbconnection.initFilesTable();
+        dbconnection.initDeletedTable();
+        setCurDir(currentDir);
     }
     
     public void Logout() throws IOException
@@ -144,7 +144,7 @@ public class UserProfileController extends FileMethods implements Initializable 
     public void CopyBtnClicked()
     {
         Alert btnAlert = new Alert(AlertType.CONFIRMATION);
-        btnAlert.contentTextProperty().setValue("Are you Sure you want to copy this File?");
+        btnAlert.contentTextProperty().setValue("Are you Sure you want to Copy this File?");
         
         Optional<ButtonType> result = btnAlert.showAndWait();
         if(result.get() == ButtonType.OK)
@@ -230,11 +230,11 @@ public class UserProfileController extends FileMethods implements Initializable 
             
             MoveDialog move = new MoveDialog(this);
             
-            
             FXMLLoader loader = new FXMLLoader(getClass().getResource("moveDialog.fxml"));
             loader.setController(move);
             
             Parent root = loader.load();
+            userFolders.remove(sharedFolder);
             move.SetCBFolder(userFolders);
             
             Scene scene = new Scene(root);
@@ -244,10 +244,6 @@ public class UserProfileController extends FileMethods implements Initializable 
             if(Objects.nonNull(dstFolder))
             {
                 String folderName = dstFolder.getName();
-                if(folderName.equals("home"))
-                {
-                    folderName = "./";
-                }
                 MoveFile(folderName,srcFile);
                 dstFolder = null;
                 refreshGrid();
@@ -279,7 +275,7 @@ public class UserProfileController extends FileMethods implements Initializable 
  
     public void HomeBtnClicked()
     {
-        setCurDir("./");   
+        setCurDir("Home");   
     }
     
     public void ShareBtnClicked(){
@@ -318,28 +314,13 @@ public class UserProfileController extends FileMethods implements Initializable 
                 btnAlert.show();
                 readWritePerm.clear();
                 refreshGrid();
-                
             }
-//                MoveFile(folderName,srcFile);
-//                dstFolder = null;
-//                refreshGrid();
         } catch (IOException ex) {
             Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    @Override
-    public void setCurDir(String currentDir)
-    {
-        if(currentDir.equals("home"))
-        {
-            currentDir = "./";
-        }
-        this.currentDir = currentDir;
-        refreshGrid();
-    }
-    public void RestoreBtnClicked()
-    {
+   
+    public void RestoreBtnClicked(){
         Alert btnAlert = new Alert(AlertType.CONFIRMATION);
         btnAlert.contentTextProperty().setValue("Are you Sure you want to Restore this File?");
         
@@ -353,7 +334,7 @@ public class UserProfileController extends FileMethods implements Initializable 
  
     public void refreshGrid(){
         
-        SetLblCurDir(getCurDir());
+        //SetLblCurDir(getCurDir());
         SetButtons();
         
         tilePane.getChildren().clear();
@@ -361,32 +342,25 @@ public class UserProfileController extends FileMethods implements Initializable 
         userFolders.clear();
         
         List<UserFile> userFiles = dbconnection.listDirectory(getOwner(), getCurDir());
-        List<UserFile> onlyUserFiles = new ArrayList<>();
+        userFolders = dbconnection.listFolders(getOwner(), getCurDir());
+
         
-        userFiles.forEach((UserFile item) ->{     
-            if(item.isFolderPath()){
-                UserFolder folder = new UserFolder(item.getName(),item.getPath());
-                userFolders.add(folder);
-            }else{
-                onlyUserFiles.add(item);
-            }
-        });
-        
-        
-        filesList = FXCollections.observableArrayList(onlyUserFiles);
+        filesList = FXCollections.observableArrayList(userFiles);
         tableFiles.setItems(filesList);
        
         colFileName.setCellValueFactory(new PropertyValueFactory("name"));
         
-        loadFolders();
-        
-        
+        loadFolders(); 
     }
     public void loadFolders(){
-        if(!currentDir.equals("./")){
-            UserFolder homeFolder = new UserFolder("home");
+        if(!currentDir.equals("Home")){
+            
             userFolders.add(homeFolder);
-        }    
+        }
+        if(currentDir.equals("Home")){
+            
+            userFolders.add(sharedFolder);
+        }
         
         for(UserFolder folder : userFolders){
             try {
@@ -409,17 +383,15 @@ public class UserProfileController extends FileMethods implements Initializable 
             }
         }
     }
-    public void SetLblCurDir(String curDir)
+    //public void SetLblCurDir(String curDir){lblCurDir.setText(curDir);}
+        @Override
+    public void setCurDir(String currentDir)
     {
-        if("./".equals(curDir)){
-            lblCurDir.setText("Home");
-        }
-        else{
-            lblCurDir.setText(curDir);
-        }
+        this.currentDir = currentDir;
+        lblCurDir.setText(getCurDir());
+        refreshGrid();
     }
-    public void SetButtons()
-    {
+    public void SetButtons(){
         btnRecycleBin.visibleProperty().setValue(Boolean.FALSE);
         List<Button> allButtons = Arrays.asList(btnMoveFile,btnCopyFile,btnDeleteFile,btnRenameFile,btnUploadFile,btnCreateFile,btnShareFile,btnDownloadFile);
         
@@ -449,6 +421,7 @@ public class UserProfileController extends FileMethods implements Initializable 
             });
         }
     }
+    
     public void ReceiveRename(String newName){this.childReceive = newName;}
     public void ReceiveCreateFileContent(String[] newFile){this.createFileContent = newFile;}
     public void RecieveMoveFolder(UserFolder dstFolder){this.dstFolder = dstFolder;}

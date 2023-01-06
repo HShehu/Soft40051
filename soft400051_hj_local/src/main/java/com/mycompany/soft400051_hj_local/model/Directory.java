@@ -11,17 +11,14 @@ package com.mycompany.soft400051_hj_local.model;
 public abstract class Directory {
     private String name;
     private String path;
-    protected  Boolean isFolder = false;
     
-    Directory(String name,String path , Boolean isFolder){
+    Directory(String name,String path){
         this.name = name;
         this.path = path;
-        this.isFolder = isFolder;
     }
     
-    Directory(String name, Boolean isFolder){
+    Directory(String name){
         this.name = name;
-        this.isFolder = isFolder;
     }
     
     Directory(){}
@@ -39,9 +36,6 @@ public abstract class Directory {
     }
     public String getPath(){
         return this.path;
-    }
-    public Boolean isFolderPath(){
-        return this.isFolder;
     }
 
     

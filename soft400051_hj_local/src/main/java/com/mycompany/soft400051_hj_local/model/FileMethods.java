@@ -35,7 +35,7 @@ import javafx.stage.FileChooser;
 public abstract class FileMethods {
     
     private final String owner;
-    protected String currentDir = "./";
+    protected String currentDir = "Home";
     
     public static enum Operation{
         MOVE,
