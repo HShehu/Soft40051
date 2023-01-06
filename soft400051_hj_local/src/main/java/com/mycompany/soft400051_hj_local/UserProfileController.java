@@ -4,7 +4,6 @@
  */
 package com.mycompany.soft400051_hj_local;
 
-import static com.mycompany.soft400051_hj_local.dbconnection.user_logout;
 import com.mycompany.soft400051_hj_local.model.FileMethods;
 import com.mycompany.soft400051_hj_local.model.UserFile;
 import com.mycompany.soft400051_hj_local.model.UserFolder;
@@ -33,6 +32,7 @@ import javafx.scene.control.ButtonType;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.TilePane;
 import javafx.scene.layout.VBox;
@@ -42,38 +42,51 @@ import javafx.stage.Stage;
  *
  * @author ntu-user
  */
+
+
+/*! \brief This Class controls the fxml Page for the Users Profile.
+ *        
+ */
+
 public class UserProfileController extends FileMethods implements Initializable {
     
-    private ObservableList<UserFile> filesList = FXCollections.observableArrayList();
-    private List<UserFolder> userFolders = new ArrayList<>();
-    private String childReceive = "";
-    private UserFolder dstFolder;
-    private String[] createFileContent = null;
-    private final LoginController parent;
+    private ObservableList<UserFile> filesList = FXCollections.observableArrayList(); //!< List of files to display
+    private List<UserFolder> userFolders = new ArrayList<>(); //!< List of folders to display
+    private String childReceive = ""; //!< New Name received from renameDialog fxml
+    private UserFolder dstFolder; //!< selectedFolder received from moveDialog fxml
+    private String[] createFileContent = null; //!< File Name and Content received from createDialog fxml
+    private final LoginController parent; //!< Parent loginController
+    
+
+    
+ 
     
     @FXML
-    private Button btnCreateFile;
+    private Button btnCreateFile; //!< Create File Button
 
     @FXML
-    private TilePane tilePane;
+    private TilePane tilePane; //!< Tile Pane showing list of folders
 
     @FXML
-    private Button btnDeleteFile;
+    private Button btnDeleteFile; //!< Delete File Button
 
     @FXML
-    private Button btnRenameFile;
+    private Button btnRenameFile; //!< Rename File Button
     
     @FXML
-    private Button btnRecycleBin;
+    private Button btnRecycleBin; //!< Recycle Bin Button
+    @FXML
+    private Button btnShareFile;
+    @FXML
+    private Button btnDownloadFile;
+    @FXML
+    private TableView<UserFile> tableFiles; //!< Table of Files in Current Directory
 
     @FXML
-    private TableView<UserFile> tableFiles;
+    private Button btnCopyFile; //!< Copy File Button
 
     @FXML
-    private Button btnCopyFile;
-
-    @FXML
-    private Button btnUploadFile;
+    private Button btnUploadFile; //!< Upload File Button
 
     @FXML
     private Label lbUsername;
@@ -81,7 +94,7 @@ public class UserProfileController extends FileMethods implements Initializable 
     private Label lblCurDir;
 
     @FXML
-    private Button btnMoveFile;
+    private Button btnMoveFile; //!< Move File Button
     
     @FXML
     private TableColumn<?, ?> colSharedWith;
@@ -94,11 +107,14 @@ public class UserProfileController extends FileMethods implements Initializable 
     private TableColumn<?, ?> colCreatedAt;
     
    
-    
-    UserProfileController(String owner,LoginController parent)
+    /*! \brief The Rename Dialog Controller recieves the instance of the UserProfileController as parent.
+                             It does this to to send the information back to the exact instance of the controller.
+ *  @param controller UserProfileController argument   
+ */
+    UserProfileController(String owner,LoginController controller)
     {   
         super(owner);
-        this.parent = parent;
+        this.parent = controller;
 
     }
     
@@ -263,6 +279,43 @@ public class UserProfileController extends FileMethods implements Initializable 
         setCurDir("./");   
     }
     
+    public void ShareBtnClicked(){
+        try {
+            UserFile srcFile = tableFiles.getSelectionModel().getSelectedItem();
+            Stage shareWindow = new Stage();
+            shareWindow.initModality(Modality.APPLICATION_MODAL);
+            shareWindow.setTitle("Share " + srcFile.getName());
+            
+            ShareDialog share = new ShareDialog(this);
+            
+            
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("shareDialog.fxml"));
+            loader.setController(share);
+            
+            Parent root = loader.load();
+            List<String> users = Arrays.asList("You ","Me","DunDundun");
+            share.SetCBShareWith(users);
+            
+            Scene scene = new Scene(root);
+            shareWindow.setScene(scene);
+            shareWindow.showAndWait();
+            
+//            if(Objects.nonNull(dstFolder))
+//            {
+//                String folderName = dstFolder.getName();
+//                if(folderName.equals("home"))
+//                {
+//                    folderName = "./";
+//                }
+//                MoveFile(folderName,srcFile);
+//                dstFolder = null;
+//                refreshGrid();
+//            }
+        } catch (IOException ex) {
+            Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
     @Override
     public void setCurDir(String currentDir)
     {
@@ -286,7 +339,6 @@ public class UserProfileController extends FileMethods implements Initializable 
         }  
     }
  
-    
     public void refreshGrid(){
         
         SetLblCurDir(getCurDir());
@@ -299,8 +351,6 @@ public class UserProfileController extends FileMethods implements Initializable 
         List<UserFile> userFiles = dbconnection.listDirectory(getOwner(), getCurDir());
         List<UserFile> onlyUserFiles = new ArrayList<>();
         
-        System.out.println("Initialize");
-        
         userFiles.forEach((UserFile item) ->{     
             if(item.isFolderPath()){
                 UserFolder folder = new UserFolder(item.getName(),item.getPath());
@@ -311,14 +361,16 @@ public class UserProfileController extends FileMethods implements Initializable 
         });
         
         
-        
         filesList = FXCollections.observableArrayList(onlyUserFiles);
         tableFiles.setItems(filesList);
-        
        
         colFileName.setCellValueFactory(new PropertyValueFactory("name"));
         
+        loadFolders();
         
+        
+    }
+    public void loadFolders(){
         if(!currentDir.equals("./")){
             UserFolder homeFolder = new UserFolder("home");
             userFolders.add(homeFolder);
@@ -345,7 +397,6 @@ public class UserProfileController extends FileMethods implements Initializable 
             }
         }
     }
-    
     public void SetLblCurDir(String curDir)
     {
         if("./".equals(curDir)){
@@ -389,5 +440,6 @@ public class UserProfileController extends FileMethods implements Initializable 
     public void ReceiveRename(String newName){this.childReceive = newName;}
     public void ReceiveCreateFileContent(String[] newFile){this.createFileContent = newFile;}
     public void RecieveMoveFolder(UserFolder dstFolder){this.dstFolder = dstFolder;};
+    public void ReceiveReadOrWrite(){}
    
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="147.0" prefWidth="373.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button fx:id="btnShare" layoutX="235.0" layoutY="111.0" mnemonicParsing="false" text="Share" />
+      <Button fx:id="btnCancel" layoutX="76.0" layoutY="111.0" mnemonicParsing="false" text="Cancel" />
+      <Label layoutX="34.0" layoutY="31.0" text="Share With:" />
+      <ChoiceBox fx:id="cbShareWith" layoutX="132.0" layoutY="26.0" prefWidth="150.0" />
+      <RadioButton fx:id="rbReadOnly" layoutX="86.0" layoutY="75.0" mnemonicParsing="false" text="Read Only" />
+      <RadioButton fx:id="rbReadWrite" layoutX="204.0" layoutY="75.0" mnemonicParsing="false" text="Read &amp; Write" />
+   </children>
+</AnchorPane>

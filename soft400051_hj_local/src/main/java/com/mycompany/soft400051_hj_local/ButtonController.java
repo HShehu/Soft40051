@@ -63,6 +63,8 @@ public class ButtonController implements Initializable {
     {
         Logger_Controller.log_info("Login Button Clicked");
         Node node = (Node)event.getSource();
+        Stage thisStage = (Stage) node.getScene().getWindow();
+        thisStage.hide();
         //System.out.println("Node ..... " +node);
         String Name = log_username.getText();
         String Password = log_password.getText();

@@ -432,7 +432,7 @@ public abstract class FileMethods {
             }
             
             Alert btnAlert = new Alert(Alert.AlertType.INFORMATION);
-            btnAlert.contentTextProperty().setValue("File "+ userFile.getName()+"\n Restored to Path "+userFile.getPath()+" successfully");
+            btnAlert.contentTextProperty().setValue("File "+ userFile.getName()+"\nRestored to Path "+userFile.getPath()+" successfully");
             btnAlert.showAndWait();
     }
         

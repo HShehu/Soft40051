@@ -5,6 +5,7 @@ import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.animation.PauseTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
@@ -91,6 +92,7 @@ public class LoginController {
                             try {
                                 event.consume();
                                 user_logout(Name);
+                                //Platform.exit();
                             } catch (IOException ex) {
                                 Logger.getLogger(LoginController.class.getName()).log(Level.SEVERE, null, ex);
                             }
@@ -300,7 +302,7 @@ public class LoginController {
             Logger_Controller.log_info("User Logged Out Success "+Name);
             Alert a = new Alert(Alert.AlertType.INFORMATION);
             a.setContentText(Name+ " Logged Out");
-            a.show();
+            a.showAndWait();
             stage2.close();
         }
         else if(logout_status.contains("already logged in")){
