@@ -18,6 +18,7 @@ import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 import javafx.scene.control.Alert;
 
 /**
@@ -45,6 +46,29 @@ public class dbconnection {
         return connection;
     }
     
+    public static List<String> listUsers(String Owner){
+        String strStatement = """
+                              SELECT email
+                              FROM users
+                              WHERE NOT email = ?
+                              """;
+        
+        List<String> users = new ArrayList<>();
+        try(Connection connection = dbconnection.dbconnection();){
+            PreparedStatement sqlSelectUsers = connection.prepareStatement(strStatement);
+            sqlSelectUsers.setString(1, Owner);
+            ResultSet userResults = sqlSelectUsers.executeQuery();
+            
+            while(userResults.next())
+            {
+                users.add(userResults.getString("email"));
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return users;
+    }
     public static List<UserFile> permaDeleteFile(){ 
         
         initDeletedTable();
@@ -162,6 +186,29 @@ public class dbconnection {
         }
          return ownerId;
     }
+//    public static String getEmail(Integer userId)
+//    {
+//        String strStatement = """
+//                              SELECT email
+//                              FROM users
+//                              WHERE id = ?
+//                              """;
+//        
+//        String email = "";
+//        
+//        try(Connection connection = dbconnection.dbconnection();){
+//            Logger_Controller.log_info("Function getEmail Started");
+//            
+//            PreparedStatement selectId = connection.prepareStatement(strStatement);
+//            selectId.setInt(1, userId);
+//            
+//            email = selectId.executeQuery().getString("email");
+//            
+//         } catch (SQLException ex) {
+//            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+//        }
+//         return email;
+//    }
     public static void deleteFile(String Owner, UserFile userFile){
         
         String delStatement = """
@@ -376,6 +423,49 @@ public class dbconnection {
         return fileList;
     }
     
+    public static void shareFile(UserFile userFile, Map<String,Boolean> newValue , String Owner)
+    {
+        //check if File is already shared ask to overwrite?
+        String strStatement = """
+                              SELECT SHAREDWITH
+                              FROM Files
+                              WHERE FILENAME = ? AND FILEPATH = ? AND OWNER = ?
+                              """;
+        
+        String updStatement = """
+                              UPDATE Files
+                              SET SHAREDWITH = ?
+                              WHERE FILENAME = ? AND FILEPATH = ? AND OWNER = ?
+                              """;
+        try(Connection connection = dbconnection.dbconnection();){
+           
+            PreparedStatement Shared = connection.prepareStatement(strStatement);
+           
+            Shared.setString(1,userFile.getName());
+            Shared.setString(2,userFile.getPath());
+            Shared.setInt(3,getOwnerId(Owner));
+            ResultSet sharedResult = Shared.executeQuery();
+            
+            if(sharedResult.getInt("SHAREDWITH") != 0){
+                Alert existsAlert = new Alert(Alert.AlertType.ERROR);
+                existsAlert.contentTextProperty().setValue("File Name: " + userFile.getName() +" is already shared\nWith User: " +  newValue.keySet().toArray()[0].toString());
+                existsAlert.show();
+                return;
+            }
+            
+            PreparedStatement updShared = connection.prepareStatement(updStatement);
+            
+            updShared.setInt(1, getOwnerId(newValue.keySet().toArray()[0].toString()) );
+            updShared.setString(2,userFile.getName());
+            updShared.setString(3,userFile.getPath());
+            updShared.setInt(4,getOwnerId(Owner));
+            updShared.executeUpdate();
+            
+         } catch (SQLException ex) {
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+    
     public static void filesUpdate(Operation operation,String newValue, UserFile userFile,String Owner){
         
          String op = "";
@@ -408,7 +498,7 @@ public class dbconnection {
             int ownerId = getOwnerId(Owner);
            
             PreparedStatement updateFiles = connection.prepareStatement(strStatement);
-            
+           
             updateFiles.setString(1,newValue);
             updateFiles.setString(2,userFile.getName());
             updateFiles.setString(3,userFile.getPath());
