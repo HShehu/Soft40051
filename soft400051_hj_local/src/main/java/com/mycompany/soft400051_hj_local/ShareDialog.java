@@ -6,7 +6,10 @@ package com.mycompany.soft400051_hj_local;
 
 import com.mycompany.soft400051_hj_local.model.UserFolder;
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.Objects;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
@@ -67,7 +70,22 @@ public class ShareDialog implements Initializable {
         btnShare.setOnAction(e->{
             Node  source = (Node)  e.getSource(); 
             Stage stage  = (Stage) source.getScene().getWindow();
+            Map<String,Boolean> sharedUser = new HashMap<>(); 
+            Boolean readWrite = false;
             
+            if(Objects.isNull(cbShareWith.getSelectionModel().getSelectedItem()))
+            {
+                Alert btnAlert = new Alert(Alert.AlertType.ERROR);
+                btnAlert.contentTextProperty().setValue("Select User to Share File With");
+                btnAlert.show();
+                return;
+            }
+            if(radioGroup.getSelectedToggle().equals(rbReadWrite))
+            {
+                readWrite = true;
+            }
+            sharedUser.put(cbShareWith.getSelectionModel().getSelectedItem(), readWrite);
+            parent.ReceiveReadOrWrite(sharedUser);
             stage.close();
         });
         

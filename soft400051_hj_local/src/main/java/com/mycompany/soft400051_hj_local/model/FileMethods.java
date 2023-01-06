@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -436,6 +437,9 @@ public abstract class FileMethods {
             btnAlert.showAndWait();
     }
         
-       
+    public void ShareFile(UserFile userFile,Map<String,Boolean> userToShare){
+        dbconnection.shareFile(userFile,userToShare , owner);
+    }
+            
     
 }

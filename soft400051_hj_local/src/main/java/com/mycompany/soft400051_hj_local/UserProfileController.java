@@ -11,7 +11,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.ResourceBundle;
@@ -55,6 +57,7 @@ public class UserProfileController extends FileMethods implements Initializable 
     private String childReceive = ""; //!< New Name received from renameDialog fxml
     private UserFolder dstFolder; //!< selectedFolder received from moveDialog fxml
     private String[] createFileContent = null; //!< File Name and Content received from createDialog fxml
+    private Map<String,Boolean> readWritePerm = new HashMap<>();
     private final LoginController parent; //!< Parent loginController
     
 
@@ -293,24 +296,33 @@ public class UserProfileController extends FileMethods implements Initializable 
             loader.setController(share);
             
             Parent root = loader.load();
-            List<String> users = Arrays.asList("You ","Me","DunDundun");
+            List<String> users = dbconnection.listUsers(getOwner());
+            if(users.isEmpty())
+            {
+                Alert btnAlert = new Alert(Alert.AlertType.ERROR);
+                btnAlert.contentTextProperty().setValue("No Users");
+                btnAlert.show();
+                return;
+            }
             share.SetCBShareWith(users);
             
             Scene scene = new Scene(root);
             shareWindow.setScene(scene);
             shareWindow.showAndWait();
             
-//            if(Objects.nonNull(dstFolder))
-//            {
-//                String folderName = dstFolder.getName();
-//                if(folderName.equals("home"))
-//                {
-//                    folderName = "./";
-//                }
+            if(!readWritePerm.isEmpty())
+            {
+                ShareFile(srcFile,readWritePerm);
+                Alert btnAlert = new Alert(Alert.AlertType.INFORMATION);
+                btnAlert.contentTextProperty().setValue("File: "+srcFile.getName()+"\nShared Successfully With: "+readWritePerm.keySet().toArray()[0].toString());
+                btnAlert.show();
+                readWritePerm.clear();
+                refreshGrid();
+                
+            }
 //                MoveFile(folderName,srcFile);
 //                dstFolder = null;
 //                refreshGrid();
-//            }
         } catch (IOException ex) {
             Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -409,7 +421,7 @@ public class UserProfileController extends FileMethods implements Initializable 
     public void SetButtons()
     {
         btnRecycleBin.visibleProperty().setValue(Boolean.FALSE);
-        List<Button> allButtons = Arrays.asList(btnMoveFile,btnCopyFile,btnDeleteFile,btnRenameFile,btnUploadFile,btnCreateFile);
+        List<Button> allButtons = Arrays.asList(btnMoveFile,btnCopyFile,btnDeleteFile,btnRenameFile,btnUploadFile,btnCreateFile,btnShareFile,btnDownloadFile);
         
         allButtons.forEach((button)->{
             if(button.disableProperty().isBound())
@@ -439,7 +451,7 @@ public class UserProfileController extends FileMethods implements Initializable 
     }
     public void ReceiveRename(String newName){this.childReceive = newName;}
     public void ReceiveCreateFileContent(String[] newFile){this.createFileContent = newFile;}
-    public void RecieveMoveFolder(UserFolder dstFolder){this.dstFolder = dstFolder;};
-    public void ReceiveReadOrWrite(){}
+    public void RecieveMoveFolder(UserFolder dstFolder){this.dstFolder = dstFolder;}
+    public void ReceiveReadOrWrite(Map<String,Boolean> readWrite){this.readWritePerm = readWrite;}
    
 }
