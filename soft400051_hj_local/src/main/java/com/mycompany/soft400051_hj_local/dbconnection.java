@@ -182,29 +182,29 @@ public class dbconnection {
         }
          return ownerId;
     }
-//    public static String getEmail(Integer userId)
-//    {
-//        String strStatement = """
-//                              SELECT email
-//                              FROM users
-//                              WHERE id = ?
-//                              """;
-//        
-//        String email = "";
-//        
-//        try(Connection connection = dbconnection.dbconnection();){
-//            Logger_Controller.log_info("Function getEmail Started");
-//            
-//            PreparedStatement selectId = connection.prepareStatement(strStatement);
-//            selectId.setInt(1, userId);
-//            
-//            email = selectId.executeQuery().getString("email");
-//            
-//         } catch (SQLException ex) {
-//            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-//         return email;
-//    }
+    public static String getEmail(Integer userId)
+    {
+        String strStatement = """
+                              SELECT email
+                              FROM users
+                              WHERE id = ?
+                              """;
+        
+        String email = "";
+        
+        try(Connection connection = dbconnection.dbconnection();){
+            Logger_Controller.log_info("Function getEmail Started");
+            
+            PreparedStatement selectId = connection.prepareStatement(strStatement);
+            selectId.setInt(1, userId);
+            
+            email = selectId.executeQuery().getString("email");
+            
+         } catch (SQLException ex) {
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         return email;
+    }
     public static void deleteFile(String Owner, UserFile userFile){
         
         String delStatement = """
@@ -418,14 +418,17 @@ public class dbconnection {
                     userFile.setId(userFiles.getInt("FILEID"));
                 }
                 if(filePath.equals("Shared"))
-                {
+                {   
+                    
                     userFile.setIsOwned(Boolean.FALSE);
+                    userFile.setIsWritable(userFiles.getBoolean("ISWRITABLE"));
                     if(ownerId == userFiles.getInt("OWNER"))
                     {
                         userFile.setIsOwned(Boolean.TRUE);
                     }
                     
                 }
+                userFile.setOwnerId(userFiles.getInt("OWNER"));
                 userFile.setName(userFiles.getString("FILENAME"));
                 userFile.setPath(userFiles.getString("FILEPATH"));
                 userFile.setChunk1(userFiles.getString("CHUNK1"));                
@@ -488,7 +491,7 @@ public class dbconnection {
         
         String updStatement = """
                               UPDATE Files
-                              SET SHAREDWITH = ?
+                              SET SHAREDWITH = ? , ISWRITABLE = ?
                               WHERE FILENAME = ? AND FILEPATH = ? AND OWNER = ?
                               """;
         try(Connection connection = dbconnection.dbconnection();){
@@ -510,9 +513,30 @@ public class dbconnection {
             PreparedStatement updShared = connection.prepareStatement(updStatement);
             
             updShared.setInt(1, getOwnerId(newValue.keySet().toArray()[0].toString()) );
-            updShared.setString(2,userFile.getName());
-            updShared.setString(3,userFile.getPath());
-            updShared.setInt(4,getOwnerId(Owner));
+            updShared.setBoolean(2, newValue.get(newValue.keySet().toArray()[0].toString()));
+            updShared.setString(3,userFile.getName());
+            updShared.setString(4,userFile.getPath());
+            updShared.setInt(5,getOwnerId(Owner));
+            updShared.executeUpdate();
+            
+         } catch (SQLException ex) {
+            Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
+            }
+    }
+    
+    public static void unShareFile(UserFile userFile, String Owner){
+                String updStatement = """
+                              UPDATE Files
+                              SET SHAREDWITH = NULL , ISWRITABLE = FALSE
+                              WHERE FILENAME = ? AND FILEPATH = ? AND OWNER = ?
+                              """;
+        try(Connection connection = dbconnection.dbconnection();){
+            
+            PreparedStatement updShared = connection.prepareStatement(updStatement);
+            
+            updShared.setString(1,userFile.getName());
+            updShared.setString(2,userFile.getPath());
+            updShared.setInt(3,getOwnerId(Owner));
             updShared.executeUpdate();
             
          } catch (SQLException ex) {

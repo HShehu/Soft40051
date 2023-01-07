@@ -15,7 +15,11 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.nio.file.CopyOption;
 import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardCopyOption;
+import static java.nio.file.StandardCopyOption.COPY_ATTRIBUTES;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -25,6 +29,7 @@ import java.util.UUID;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.scene.control.Alert;
+import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 
 
@@ -322,7 +327,7 @@ public abstract class FileMethods {
     }
 
     public void  RenameFile(String newName, UserFile userFile){
-        dbconnection.filesUpdate(Operation.RENAME,newName,userFile,owner);
+        dbconnection.filesUpdate(Operation.RENAME,newName,userFile,dbconnection.getEmail(userFile.getOwnerId()));
     }
     public void  MoveFile(String dstPath, UserFile userFile){
         dbconnection.filesUpdate(Operation.MOVE,dstPath,userFile,owner);
@@ -440,6 +445,25 @@ public abstract class FileMethods {
     public void ShareFile(UserFile userFile,Map<String,Boolean> userToShare){
         dbconnection.shareFile(userFile,userToShare , owner);
     }
-            
     
+    public void UnshareFile(UserFile userFile){
+        dbconnection.unShareFile(userFile, owner);
+    }
+    
+    public void DownloadFile(UserFile userFile) throws IOException{
+        DirectoryChooser selectDirectory = new DirectoryChooser();
+        File downloadFile = selectDirectory.showDialog(null);
+
+        if(downloadFile == null)
+        {
+            return;
+        }
+        
+        System.out.println(downloadFile.toString());
+        File tmpFile = new File(downloadFile.getPath()+"/"+userFile.getName());
+        tmpFile.deleteOnExit();
+        downloadFile.delete();
+        
+        Files.copy(grabFile(userFile).toPath(), tmpFile.toPath(), StandardCopyOption.REPLACE_EXISTING);
+    }
 }

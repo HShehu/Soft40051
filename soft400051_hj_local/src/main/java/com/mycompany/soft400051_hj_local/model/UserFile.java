@@ -13,6 +13,8 @@ import javafx.beans.value.ObservableBooleanValue;
 public class UserFile extends Directory {
     private Integer id;
     private Boolean isOwned;
+    private Boolean isWritable;
+    private Integer ownerId;
     private String chunk1;
     private String chunk2;
     private String chunk3;
@@ -33,9 +35,15 @@ public class UserFile extends Directory {
     public void setId(Integer id){
         this.id = id;
     }
+    public void setOwnerId(Integer ownerId){
+        this.ownerId = ownerId;
+    }
     public void setIsOwned(Boolean isOwned)
     {  
         this.isOwned = isOwned;
+    }
+    public void setIsWritable(Boolean isWritable){
+        this.isWritable = isWritable;
     }
     public void setChunk1(String chunk1){
         this.chunk1 = chunk1;
@@ -54,8 +62,14 @@ public class UserFile extends Directory {
     public Integer getId(){
         return this.id;
     }
+    public Integer getOwnerId(){
+        return this.ownerId;
+    }
     public Boolean getIsOwned(){
         return this.isOwned;
+    }
+    public Boolean getIsWritable(){
+        return this.isWritable;
     }
     public String getChunk1(){
         return this.chunk1;

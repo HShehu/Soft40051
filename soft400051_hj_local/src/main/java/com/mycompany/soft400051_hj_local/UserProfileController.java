@@ -323,6 +323,36 @@ public class UserProfileController extends FileMethods implements Initializable 
             Logger.getLogger(UserProfileController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    public void UnshareBtnClicked(){
+        UserFile srcFile = tableFiles.getSelectionModel().getSelectedItem();
+        
+        Alert btnAlert = new Alert(AlertType.CONFIRMATION);
+        btnAlert.contentTextProperty().setValue("Are you Sure you want to Unshare this File?\nFile Name: "+srcFile.getName());
+        
+        Optional<ButtonType> result = btnAlert.showAndWait();
+        if(result.get() == ButtonType.OK)
+        {
+           UnshareFile(srcFile);
+            refreshGrid();
+        }  
+        
+        
+    }
+    public void DownloadBtnClicked(){
+        UserFile srcFile = tableFiles.getSelectionModel().getSelectedItem();
+        
+        Alert btnAlert = new Alert(AlertType.CONFIRMATION);
+        btnAlert.contentTextProperty().setValue("Do you Want to Download this File?\nFile Name: "+srcFile.getName());
+        
+        Optional<ButtonType> result = btnAlert.showAndWait();
+        if(result.get() == ButtonType.OK)
+        {
+           DownloadFile(srcFile);
+           refreshGrid();
+        }  
+        
+    }
    
     public void RestoreBtnClicked(){
         Alert btnAlert = new Alert(AlertType.CONFIRMATION);
@@ -357,7 +387,7 @@ public class UserProfileController extends FileMethods implements Initializable 
         loadFolders(); 
     }
     public void loadFolders(){
-        if(!currentDir.equals("Home")){
+        if(!currentDir.equals("Deleted") && !currentDir.equals("Home") ){
             
             userFolders.add(homeFolder);
         }
@@ -405,7 +435,11 @@ public class UserProfileController extends FileMethods implements Initializable 
                     .otherwise(false);
         
         btnRecycleBin.visibleProperty().bind(isDeleted);
+        btnRecycleBin.managedProperty().bind(isDeleted);
         btnUnshareFile.visibleProperty().bind(isShared);
+        btnUnshareFile.managedProperty().bind(isShared);
+        btnShareFile.visibleProperty().bind(isShared.not());
+        btnShareFile.managedProperty().bind(isShared.not());
         
         List<Button> allButtons = Arrays.asList(btnMoveFile,btnCopyFile,btnDeleteFile,btnRenameFile,btnUploadFile,btnCreateFile,btnShareFile,btnDownloadFile,btnUnshareFile);
         
@@ -442,7 +476,7 @@ public class UserProfileController extends FileMethods implements Initializable 
                     button.disableProperty().unbind();
                 }
                 
-                if(button.equals(btnCreateFile) || button.equals(btnUploadFile) || button.equals(btnMoveFile))
+                if(button.equals(btnCreateFile) || button.equals(btnUploadFile) || button.equals(btnMoveFile) || button.equals(btnCopyFile))
                 {
                     button.disableProperty().setValue(Boolean.TRUE);
                 }
@@ -455,6 +489,15 @@ public class UserProfileController extends FileMethods implements Initializable 
                     button.disableProperty().bind(buttonDis);
                 }
                 
+                if(button.equals(btnRenameFile)){
+                    BooleanBinding buttonDis = Bindings.when(Bindings
+                            .and(Bindings.isNotNull(tableFiles.getSelectionModel().selectedItemProperty()),Bindings.or(Bindings.selectBoolean(tableFiles.getSelectionModel().selectedItemProperty(), "isOwned"), Bindings.selectBoolean(tableFiles.getSelectionModel().selectedItemProperty(), "isWritable") )  ))
+                            .then(false).otherwise(true);
+                    button.disableProperty().bind(buttonDis);
+                }
+                if(button.equals(btnDownloadFile)){
+                    button.disableProperty().bind(Bindings.isNull(tableFiles.getSelectionModel().selectedItemProperty()));
+                }
                 
             });
             
