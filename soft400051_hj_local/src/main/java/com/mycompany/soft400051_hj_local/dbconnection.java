@@ -91,20 +91,14 @@ public class dbconnection {
             while(userFiles.next())
             {   
                 UserFile userFile = new UserFile();
-                if(userFiles.getBoolean("ISFOLDER"))
-                {
-                    userFile = new UserFile(userFiles.getString("FILENAME"),userFiles.getString("FILEPATH"),userFiles.getBoolean("ISFOLDER"));
-                    
-                }
                 
-                else{
                     userFile.setName(userFiles.getString("FILENAME"));
                     userFile.setPath(userFiles.getString("FILEPATH"));
                     userFile.setChunk1(userFiles.getString("CHUNK1"));
                     userFile.setChunk2(userFiles.getString("CHUNK2"));
                     userFile.setChunk3(userFiles.getString("CHUNK3"));
                     userFile.setChunk4(userFiles.getString("CHUNK4"));
-                }
+                
                 fileList.add(userFile);
             }
         }catch(SQLException err){
@@ -313,6 +307,7 @@ public class dbconnection {
                                     CHUNK3 string ,
                                     CHUNK4 string ,
                                     SHAREDWITH integer,
+                                    ISWRITABLE boolean DEFAULT false NOT NULL,
                                     CONSTRAINT FILEID PRIMARY KEY (FILENAME,FILEPATH,OWNER),
                                     FOREIGN KEY (OWNER) REFERENCES users(id),
                                     FOREIGN KEY (SHAREDWITH) REFERENCES users(id)
@@ -372,13 +367,19 @@ public class dbconnection {
         String strStatement = """
                               SELECT *
                               FROM Files
-                              WHERE OWNER = ? AND FILEPATH = ?
+                              WHERE OWNER = ? AND FILEPATH = ? AND SHAREDWITH IS NULL
                               """;
         
         String delStatement = """
                               SELECT *
                               FROM Deleted
                               WHERE OWNER = ?
+                              """;
+        
+        String shdStatement = """
+                              SELECT *
+                              FROM Files
+                              WHERE SHAREDWITH = ? OR (OWNER = ? AND SHAREDWITH is NOT NUll)
                               """;
         
         
@@ -391,14 +392,16 @@ public class dbconnection {
             
             PreparedStatement sqlSelectFiles = null;
          
-            if(filePath.equals("Deleted"))
-            {
-                sqlSelectFiles = connection.prepareStatement(delStatement);
-            }
-            else{
-               sqlSelectFiles = connection.prepareStatement(strStatement);
-               sqlSelectFiles.setString(2, filePath);
-                
+            switch (filePath) {
+                case "Deleted" -> sqlSelectFiles = connection.prepareStatement(delStatement);
+                case "Shared" -> {
+                    sqlSelectFiles = connection.prepareStatement(shdStatement);
+                    sqlSelectFiles.setInt(2, ownerId);
+                }
+                default -> {
+                    sqlSelectFiles = connection.prepareStatement(strStatement);
+                    sqlSelectFiles.setString(2, filePath);
+                }
             }
             
             sqlSelectFiles.setInt(1, ownerId);
@@ -412,6 +415,15 @@ public class dbconnection {
                
                 if(filePath.equals("Deleted")){
                     userFile.setId(userFiles.getInt("FILEID"));
+                }
+                if(filePath.equals("Shared"))
+                {
+                    userFile.setIsOwned(Boolean.FALSE);
+                    if(ownerId == userFiles.getInt("OWNER"))
+                    {
+                        userFile.setIsOwned(Boolean.TRUE);
+                    }
+                    
                 }
                 userFile.setName(userFiles.getString("FILENAME"));
                 userFile.setPath(userFiles.getString("FILEPATH"));
@@ -462,6 +474,7 @@ public class dbconnection {
         
         return folderList; 
     }
+ 
     
     public static void shareFile(UserFile userFile, Map<String,Boolean> newValue , String Owner)
     {

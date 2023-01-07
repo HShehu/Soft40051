@@ -344,7 +344,7 @@ public class UserProfileController extends FileMethods implements Initializable 
         List<UserFile> userFiles = dbconnection.listDirectory(getOwner(), getCurDir());
         userFolders = dbconnection.listFolders(getOwner(), getCurDir());
 
-        
+       
         filesList = FXCollections.observableArrayList(userFiles);
         tableFiles.setItems(filesList);
        

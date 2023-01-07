@@ -10,6 +10,7 @@ package com.mycompany.soft400051_hj_local.model;
  */
 public class UserFile extends Directory {
     private Integer id;
+    private Boolean isOwned;
     private String chunk1;
     private String chunk2;
     private String chunk3;
@@ -22,13 +23,17 @@ public class UserFile extends Directory {
         this.chunk3 = chunk3;
         this.chunk4 = chunk4;
     }
-    public UserFile(String name,String path,Boolean isFolder){
+    public UserFile(String name,String path){
         super(name,path);
     }
     public UserFile(){}
 
     public void setId(Integer id){
         this.id = id;
+    }
+    public void setIsOwned(Boolean isOwned)
+    {  
+        this.isOwned = isOwned;
     }
     public void setChunk1(String chunk1){
         this.chunk1 = chunk1;
@@ -46,6 +51,9 @@ public class UserFile extends Directory {
     
     public Integer getId(){
         return this.id;
+    }
+    public Boolean getIsOwned(){
+        return this.isOwned;
     }
     public String getChunk1(){
         return this.chunk1;
