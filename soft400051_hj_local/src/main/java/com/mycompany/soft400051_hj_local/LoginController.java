@@ -93,6 +93,8 @@ public class LoginController {
                             }
                         });
                         Logger_Controller.log_info("Login Screen Loaded to User ");
+                        Stage thisStage = (Stage) node.getScene().getWindow();
+                        thisStage.hide();
                     }
                     else if(user_log_status.contains("already logged in")){
                         Logger_Controller.log_info("User Already Logged in "+Name);
