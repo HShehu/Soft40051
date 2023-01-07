@@ -4,6 +4,8 @@
  */
 package com.mycompany.soft400051_hj_local.model;
 
+import javafx.beans.value.ObservableBooleanValue;
+
 /**
  *
  * @author ntu-user

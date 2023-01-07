@@ -20,6 +20,8 @@ import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
+import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -82,6 +84,8 @@ public class UserProfileController extends FileMethods implements Initializable 
     private Button btnShareFile;
     @FXML
     private Button btnDownloadFile;
+    @FXML
+    private Button btnUnshareFile;
     @FXML
     private TableView<UserFile> tableFiles; //!< Table of Files in Current Directory
 
@@ -392,8 +396,18 @@ public class UserProfileController extends FileMethods implements Initializable 
         refreshGrid();
     }
     public void SetButtons(){
-        btnRecycleBin.visibleProperty().setValue(Boolean.FALSE);
-        List<Button> allButtons = Arrays.asList(btnMoveFile,btnCopyFile,btnDeleteFile,btnRenameFile,btnUploadFile,btnCreateFile,btnShareFile,btnDownloadFile);
+        
+        BooleanBinding isShared = Bindings.when(Bindings.equal(getCurDir(), new SimpleStringProperty(sharedFolder.getName())))
+                    .then(true)
+                    .otherwise(false);
+        BooleanBinding isDeleted = Bindings.when(Bindings.equal(getCurDir(), new SimpleStringProperty("Deleted")))
+                    .then(true)
+                    .otherwise(false);
+        
+        btnRecycleBin.visibleProperty().bind(isDeleted);
+        btnUnshareFile.visibleProperty().bind(isShared);
+        
+        List<Button> allButtons = Arrays.asList(btnMoveFile,btnCopyFile,btnDeleteFile,btnRenameFile,btnUploadFile,btnCreateFile,btnShareFile,btnDownloadFile,btnUnshareFile);
         
         allButtons.forEach((button)->{
             if(button.disableProperty().isBound())
@@ -410,7 +424,6 @@ public class UserProfileController extends FileMethods implements Initializable 
         
         if(getCurDir().equals("Deleted"))
         {
-            btnRecycleBin.visibleProperty().setValue(Boolean.TRUE);
             btnRecycleBin.disableProperty().bind(Bindings.isNull(tableFiles.getSelectionModel().selectedItemProperty()));
             allButtons.forEach((button)->{
                 if(button.disableProperty().isBound())
@@ -419,6 +432,32 @@ public class UserProfileController extends FileMethods implements Initializable 
                 }
                 button.disableProperty().setValue(Boolean.TRUE);
             });
+        }
+        
+        if (getCurDir().equals(sharedFolder.getName())){
+            
+            allButtons.forEach((Button button)->{
+                if(button.disableProperty().isBound())
+                {
+                    button.disableProperty().unbind();
+                }
+                
+                if(button.equals(btnCreateFile) || button.equals(btnUploadFile) || button.equals(btnMoveFile))
+                {
+                    button.disableProperty().setValue(Boolean.TRUE);
+                }
+                
+                if(button.equals(btnUnshareFile) || button.equals(btnDeleteFile))
+                {
+                    BooleanBinding buttonDis = Bindings.when(Bindings
+                            .and(Bindings.isNotNull(tableFiles.getSelectionModel().selectedItemProperty()),Bindings.selectBoolean(tableFiles.getSelectionModel().selectedItemProperty(), "isOwned") ))
+                            .then(false).otherwise(true);
+                    button.disableProperty().bind(buttonDis);
+                }
+                
+                
+            });
+            
         }
     }
     
