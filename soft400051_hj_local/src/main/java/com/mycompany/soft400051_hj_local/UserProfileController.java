@@ -44,7 +44,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 /**
  *
- * @author ntu-user
+ * @author Joshua Miner
  */
 
 
@@ -132,6 +132,11 @@ public class UserProfileController extends FileMethods implements Initializable 
         setCurDir(currentDir);
     }
     
+    
+/*! \brief Begins the logout process.
+ *    @throws java.io.IOException  
+ */
+    
     public void Logout() throws IOException
     {
         Alert btnAlert = new Alert(Alert.AlertType.CONFIRMATION);
@@ -145,6 +150,10 @@ public class UserProfileController extends FileMethods implements Initializable 
         }
 
     }
+    
+    /*! \brief Begins the Copy process.
+ *        
+ */
     public void CopyBtnClicked()
     {
         Alert btnAlert = new Alert(AlertType.CONFIRMATION);
@@ -159,6 +168,9 @@ public class UserProfileController extends FileMethods implements Initializable 
         }  
     }
     
+       /*! \brief Begins the Create process.
+ *        
+ */
     public void CreateBtnClicked()
     {
        try {
@@ -189,12 +201,19 @@ public class UserProfileController extends FileMethods implements Initializable 
         
     }
     
+/*! \brief Begins the Upload process.
+ *        
+ */
+    
     public void UploadBtnClicked()
     {
         UploadFile();
         refreshGrid();
     };
     
+/*! \brief Begins the Rename process.
+ *        
+ */
     public void RenameBtnClicked()
     {
         try {
@@ -224,6 +243,9 @@ public class UserProfileController extends FileMethods implements Initializable 
         }
     }
     
+/*! \brief Begins the Move process.
+ *        
+ */
     public void MoveBtnClicked()
     {
         try {
@@ -257,6 +279,9 @@ public class UserProfileController extends FileMethods implements Initializable 
         }
     }
     
+/*! \brief Begins the Delete process.
+ *        
+ */
     public void DeleteBtnClicked()
     {
         Alert btnAlert = new Alert(AlertType.CONFIRMATION);
@@ -271,17 +296,26 @@ public class UserProfileController extends FileMethods implements Initializable 
         
     }
     
+/*! \brief Move to Deleted Files Page
+ *        
+ */
     public void RecycleBtnClicked()
     {
         setCurDir("Deleted");
         
     }
  
+ /*! \brief Move to Home Page
+ *        
+ */
     public void HomeBtnClicked()
     {
         setCurDir("Home");   
     }
     
+/*! \brief Begin Share Process
+ *        
+ */
     public void ShareBtnClicked(){
         try {
             UserFile srcFile = tableFiles.getSelectionModel().getSelectedItem();
@@ -324,6 +358,9 @@ public class UserProfileController extends FileMethods implements Initializable 
         }
     }
     
+ /*! \brief Begin UnShare Process
+ *        
+ */
     public void UnshareBtnClicked(){
         UserFile srcFile = tableFiles.getSelectionModel().getSelectedItem();
         
@@ -339,7 +376,11 @@ public class UserProfileController extends FileMethods implements Initializable 
         
         
     }
-    public void DownloadBtnClicked(){
+    
+/*! \brief Begin Download Process
+ *        t
+ */
+    public void DownloadBtnClicked() throws IOException{
         UserFile srcFile = tableFiles.getSelectionModel().getSelectedItem();
         
         Alert btnAlert = new Alert(AlertType.CONFIRMATION);
@@ -354,6 +395,9 @@ public class UserProfileController extends FileMethods implements Initializable 
         
     }
    
+/*! \brief Restore Deleted File
+ *        t
+ */
     public void RestoreBtnClicked(){
         Alert btnAlert = new Alert(AlertType.CONFIRMATION);
         btnAlert.contentTextProperty().setValue("Are you Sure you want to Restore this File?");
@@ -366,6 +410,9 @@ public class UserProfileController extends FileMethods implements Initializable 
         }  
     }
  
+/*! \brief Refresh the View
+ *        t
+ */
     public void refreshGrid(){
         
         //SetLblCurDir(getCurDir());
@@ -386,6 +433,10 @@ public class UserProfileController extends FileMethods implements Initializable 
         
         loadFolders(); 
     }
+    
+/*! \brief Show Folders in the Directory
+ *        t
+ */
     public void loadFolders(){
         if(!currentDir.equals("Deleted") && !currentDir.equals("Home") ){
             
@@ -417,7 +468,9 @@ public class UserProfileController extends FileMethods implements Initializable 
             }
         }
     }
-    //public void SetLblCurDir(String curDir){lblCurDir.setText(curDir);}
+/*! \brief Set the Current Directory
+ *   \param[in]     currentDir    A string representing the current Directory
+ */
         @Override
     public void setCurDir(String currentDir)
     {
@@ -425,6 +478,11 @@ public class UserProfileController extends FileMethods implements Initializable 
         lblCurDir.setText(getCurDir());
         refreshGrid();
     }
+    
+   
+/*! \brief Set the Buttons. Hidden,Shown,Disabled and the various Bindings
+ *
+ */
     public void SetButtons(){
         
         BooleanBinding isShared = Bindings.when(Bindings.equal(getCurDir(), new SimpleStringProperty(sharedFolder.getName())))
@@ -504,9 +562,24 @@ public class UserProfileController extends FileMethods implements Initializable 
         }
     }
     
+    /*! \brief Receive new Name from RenameDialog
+     * @param newName String argument 
+     */
     public void ReceiveRename(String newName){this.childReceive = newName;}
+    
+    /*! \brief Receive File name and File Content from CreateDialog
+    * @param newName String[] argument 
+    */
     public void ReceiveCreateFileContent(String[] newFile){this.createFileContent = newFile;}
+    
+    /*! \brief Receive Folder from MoveDialog
+    * @param dstFolder UserFolder argument 
+    */
     public void RecieveMoveFolder(UserFolder dstFolder){this.dstFolder = dstFolder;}
+    
+    /*! \brief Receive Read and Write Permission and User to share with
+    * @param readWrite Map<String,Boolean> argument 
+    */
     public void ReceiveReadOrWrite(Map<String,Boolean> readWrite){this.readWritePerm = readWrite;}
    
 }

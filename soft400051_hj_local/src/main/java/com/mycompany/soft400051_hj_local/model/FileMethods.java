@@ -15,11 +15,8 @@ import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.OutputStream;
-import java.nio.file.CopyOption;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
-import static java.nio.file.StandardCopyOption.COPY_ATTRIBUTES;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -34,9 +31,9 @@ import javafx.stage.FileChooser;
 
 
 /**
- *
- * @author ntu-user
- */
+* @brief Abstract class with the methods for a users file operations.
+* @author Joshua Miner
+*/
 public abstract class FileMethods {
     
     private final String owner;
@@ -47,6 +44,10 @@ public abstract class FileMethods {
         RENAME
     }
     
+/**
+* @brief FileMethods Constructor
+* @param email final String of the logged in user email
+*/
     protected FileMethods(String email){
         
         this.owner = email;
@@ -99,20 +100,38 @@ public abstract class FileMethods {
         
     }
     
+    /**
+    * @brief set the current Directory
+    * @param currentDir String
+    */
     public void setCurDir(String currentDir)
     {
         this.currentDir = currentDir;
     }
+    
+    /**
+    * @brief get the current Directory as a String
+    * @return  String
+    */
     public String getCurDir()
     {
         return this.currentDir;
     }
+    
+    /**
+    * @brief returns the owner email
+    * @return String 
+    */
     public String getOwner()
     {
         return this.owner;
     }
     
-    
+     /**
+    * @brief Function to create a new file
+    * @param fileName String
+    * @param fileContent String
+    */
     public void CreateFile(String fileName,String fileContent){
     try {
 
@@ -131,6 +150,10 @@ public abstract class FileMethods {
     }
     };
 
+     /**
+    * @brief Function to split file into 4 chunks
+    * @param ogFile File 
+    */
     public  void ChunkFile(File ogFile)
 {
     try{
@@ -187,6 +210,11 @@ public abstract class FileMethods {
     }
 }
 
+     /**
+    * @brief Sends the chunks to the various storage containers
+    * @param fileName String
+    * @param chunks List of File
+    */
     public void SendFile(String fileName, List<File> chunks)
 {
     List<String> containers = Arrays.asList("172.18.0.3","172.18.0.4","172.18.0.5","172.18.0.6");
@@ -228,6 +256,10 @@ public abstract class FileMethods {
 
 } 
 
+     /**
+    * @brief Uploads file with File Chooser
+    *  
+    */
     public  void UploadFile(){
     FileChooser selectFile = new FileChooser();
     File uploadFile = selectFile.showOpenDialog(null);
@@ -239,6 +271,10 @@ public abstract class FileMethods {
     ChunkFile(uploadFile); 
 }
 
+     /**
+    * @brief copies a file already in storage
+    * @param srcFile UserFile 
+    */
     public void CopyFile(UserFile srcFile)
     {
         File copyFile = new File("copy"+srcFile.getName());
@@ -247,6 +283,11 @@ public abstract class FileMethods {
         copyFile.delete();
     }
 
+     /**
+     * @param userFile
+    * @brief Gets a file from the cloud and writes it to a File
+    * @return File  
+    */
     public File grabFile(UserFile userFile)
     {
         List<String> chunks = Arrays.asList(
@@ -295,6 +336,11 @@ public abstract class FileMethods {
         return grabFile;
     }
 
+     /**
+     * @param chunks
+    * @brief Assemble file chunks from various containers
+    * @return ByteArray of file contents 
+    */
     public byte[] assembleFile(List<File> chunks){
 
         String str = new String();
@@ -326,12 +372,29 @@ public abstract class FileMethods {
         return byteArray; 
     }
 
+     /**
+    * @brief Function to rename a file in the cloud
+    * @param newName
+    * @param userFile
+    */
     public void  RenameFile(String newName, UserFile userFile){
         dbconnection.filesUpdate(Operation.RENAME,newName,userFile,dbconnection.getEmail(userFile.getOwnerId()));
     }
+    
+    /**
+    * @brief Function to move file
+    * @param dstPath String
+    * @param userFile UserFile
+    */
     public void  MoveFile(String dstPath, UserFile userFile){
         dbconnection.filesUpdate(Operation.MOVE,dstPath,userFile,owner);
     }
+    
+    /**
+    * @brief Function to Delete a File
+    * 
+    * @param userFile UserFile
+    */
     public void DeleteFile(UserFile userFile)
     {
        List<String> chunks = Arrays.asList(
@@ -387,6 +450,12 @@ public abstract class FileMethods {
 
        }
     }
+    
+    /**
+    * @brief Function to Restore a deleted File
+    * 
+    * @param userFile UserFile
+    */
     public void RestoreFile(UserFile userFile){
         
         if(dbconnection.restoreFile(owner, userFile) == false)
@@ -441,15 +510,31 @@ public abstract class FileMethods {
             btnAlert.contentTextProperty().setValue("File "+ userFile.getName()+"\nRestored to Path "+userFile.getPath()+" successfully");
             btnAlert.showAndWait();
     }
-        
+    
+    /**
+    * @brief Function to Share File
+    * @param userToShare Map
+    * @param userFile UserFile
+    */  
     public void ShareFile(UserFile userFile,Map<String,Boolean> userToShare){
         dbconnection.shareFile(userFile,userToShare , owner);
     }
     
+    /**
+    * @brief Function to Unshare File
+    * 
+    * @param userFile UserFile
+    */
     public void UnshareFile(UserFile userFile){
         dbconnection.unShareFile(userFile, owner);
     }
     
+    /**
+     * @throws java.io.IOException
+    * @brief Function to Download file
+    * 
+    * @param userFile UserFile
+    */
     public void DownloadFile(UserFile userFile) throws IOException{
         DirectoryChooser selectDirectory = new DirectoryChooser();
         File downloadFile = selectDirectory.showDialog(null);

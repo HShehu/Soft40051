@@ -21,7 +21,7 @@ import javafx.stage.Stage;
 
 
 /*! \brief This Class controls the fxml Page for Moving a File.
- *        
+ *      \author Joshua Miner 
  */
 
 public class MoveDialog implements Initializable {

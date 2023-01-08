@@ -18,6 +18,8 @@ import javafx.scene.control.TextField;
 * @brief Creating a class LoginController to control Function of button
 * @brief All function are performed in class LoginController based on flow from ButtonController
 * @brief Loading Fields for Register and Flags  
+* @author Harsh
+* @author Joshua Miner
 */
 
 public class LoginController {

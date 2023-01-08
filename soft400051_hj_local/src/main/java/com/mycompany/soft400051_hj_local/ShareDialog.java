@@ -4,7 +4,6 @@
  */
 package com.mycompany.soft400051_hj_local;
 
-import com.mycompany.soft400051_hj_local.model.UserFolder;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.List;
@@ -23,12 +22,12 @@ import javafx.scene.control.ToggleGroup;
 import javafx.stage.Stage;
 
 /**
- * FXML Controller class
- *
- * @author ntu-user
- */
+* 
+* @brief Controller for the ShareDialog fxml
+* 
+*/
 public class ShareDialog implements Initializable {
-    private UserProfileController parent;
+    private final UserProfileController parent;
     private final ToggleGroup radioGroup = new ToggleGroup();
     
     @FXML
@@ -47,12 +46,20 @@ public class ShareDialog implements Initializable {
     private RadioButton rbReadWrite;
 
     
+    /**
+    *
+    * @brief Constructor
+    * 
+    * @param controller UserProfileController 
+    */
     ShareDialog(UserProfileController controller){
         this.parent = controller;
     }
 
     /**
      * Initializes the controller class.
+     * @param url
+     * @param rb
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -91,6 +98,12 @@ public class ShareDialog implements Initializable {
         
     }   
     
+    /**
+     * 
+    * @brief Sets the ChoiceBox
+    * 
+    * @param users List of string of users from db
+    */
     public void SetCBShareWith(List<String> users)
     {   
         cbShareWith.setItems(FXCollections.observableArrayList(users));

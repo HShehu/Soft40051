@@ -5,8 +5,8 @@
 package com.mycompany.soft400051_hj_local.model;
 
 /**
- *
- * @author ntu-user
+ *@brief Abstract class to be extended to UserFile and UserFolder
+ * @author Joshua Miner
  */
 public abstract class Directory {
     private String name;

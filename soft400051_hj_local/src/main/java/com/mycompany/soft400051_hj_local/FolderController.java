@@ -12,11 +12,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 
 /*! \brief This Class controls the Folderfxml.
- *        
+ *  \author Joshua Miner   
  */
 public class FolderController implements Initializable{
     
-    private UserFolder folder;   //!< UserFolder Object
+    private final UserFolder folder;   //!< UserFolder Object
     private final UserProfileController parent; //!< UserProfileController Object
 
     @FXML

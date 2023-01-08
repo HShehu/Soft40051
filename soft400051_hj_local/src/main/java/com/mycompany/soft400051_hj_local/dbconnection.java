@@ -1,4 +1,4 @@
-package com.mycompany.soft400051_hj_local;
+ package com.mycompany.soft400051_hj_local;
 
 import com.mycompany.soft400051_hj_local.model.FileMethods.Operation;
 import com.mycompany.soft400051_hj_local.model.UserFile;
@@ -20,13 +20,14 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
-import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.control.Alert;
 
 /**
 * @brief Creating a class dbconnection to control Database Connection and Query
 * @brief All Queries related to User and File are mentioned in this file
 * @brief Maintaing Flags and String to Control Flow 
+* @author Harsh
+* @auhor Joshua Miner
 */
 
 public class dbconnection {
@@ -48,6 +49,13 @@ public class dbconnection {
         return connection;
     }
     
+    /**
+     * 
+     * @return List of Strings
+    * @brief Retrieve a list of Users except the current logged in user
+    * 
+    * @param Owner String 
+    */
     public static List<String> listUsers(String Owner){
         String strStatement = """
                               SELECT email
@@ -71,6 +79,13 @@ public class dbconnection {
         }
         return users;
     }
+    
+    /**
+    * @brief Get the list of Files to be permanently deleted from the system
+    * 
+    * @return List of UserFile
+    */
+    
     public static List<UserFile> permaDeleteFile(){ 
         
         initDeletedTable();
@@ -111,6 +126,12 @@ public class dbconnection {
         
 
     }
+    
+    /**
+    * @brief Delete files older than 30 days from the database
+    * 
+    * 
+    */
     public static void finalDeleteFile(){
         String delStatement = """
                             DELETE 
@@ -126,6 +147,15 @@ public class dbconnection {
         }
        
     }
+    
+    /**
+     * @param fileName
+     * @param filePath
+     * @param Owner
+    * @brief Check if a file already exists for the user at that path
+    * 
+    * @return Boolean
+    */
     public static Boolean checkFileExists(String fileName,String filePath,String Owner){
         Boolean exists = false;
             String selStatement = """
@@ -160,7 +190,14 @@ public class dbconnection {
         }
         
         return exists;
-    }         
+    }   
+    
+    /**
+    * @brief Get the Users id from their email
+    * @param Owner
+    * 
+    * @return UserId
+    */
     public static Integer getOwnerId(String Owner){
          String selectOwnerId = """
                                SELECT id
@@ -182,6 +219,13 @@ public class dbconnection {
         }
          return ownerId;
     }
+    
+    /**
+     * @param userId
+    * @brief Get user email from their ID
+    * 
+    * @return User email as String
+    */
     public static String getEmail(Integer userId)
     {
         String strStatement = """
@@ -205,6 +249,13 @@ public class dbconnection {
         }
          return email;
     }
+    
+    /**
+    * @brief Temporarily delete a file from the cloud
+    * 
+    * @param Owner String
+    * @param userFile UserFile
+    */
     public static void deleteFile(String Owner, UserFile userFile){
         
         String delStatement = """
@@ -227,6 +278,14 @@ public class dbconnection {
             }
         }
     }
+    
+    /**
+     * @param Owner
+     * @param userFile
+    * @brief Restore Temporarily deleted files to the cloud
+    * 
+    * @return Boolean
+    */
     public static Boolean restoreFile(String Owner,UserFile userFile)
     {
         Boolean restored = false;
@@ -257,6 +316,14 @@ public class dbconnection {
 
         return restored;
     }
+    
+    /**
+     * @param Owner
+     * @param userFile
+    * @brief Insert File into Deleted Table
+    * 
+    * @return Boolean
+    */
     public static Boolean insertDeletedTable(String Owner, UserFile userFile){
         Boolean flag = false;
         
@@ -297,6 +364,12 @@ public class dbconnection {
         
         return flag;
     }
+    
+    /**
+    * @brief Initialize Files and Folder Table
+    * 
+    * 
+    */
     public static void initFilesTable(){
         String createFileTable = """
                                  CREATE TABLE IF NOT EXISTS Files(
@@ -335,6 +408,12 @@ public class dbconnection {
             Logger.getLogger(dbconnection.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    /**
+    * @brief Initialize Deleted Tale
+    * 
+    * 
+    */
     public static void initDeletedTable(){
         String createFileTable = """
                                 CREATE TABLE IF NOT EXISTS Deleted(
@@ -363,6 +442,13 @@ public class dbconnection {
         }
     }
     
+    /**
+     * @param owner
+     * @param filePath
+    * @brief List all the files in a directory
+    * 
+    * @return List of UserFile
+    */
     public static List<UserFile> listDirectory(String owner, String filePath){
         
         String strStatement = """
@@ -445,6 +531,14 @@ public class dbconnection {
         System.out.println("Gotten User Items Done");
         return fileList;
     }
+    
+    /**
+     * @param Owner
+     * @param folderPath
+    * @brief List all the folders in a directory
+    * 
+    * @return List of UserFile
+    */
     public static List<UserFolder> listFolders(String Owner,String folderPath){
        String strStatement = """
                               SELECT *
@@ -480,6 +574,14 @@ public class dbconnection {
     }
  
     
+    /**
+     * @param userFile
+     * @param newValue
+     * @param Owner
+    * @brief Add user to be shared with another user
+    * 
+    *
+    */
     public static void shareFile(UserFile userFile, Map<String,Boolean> newValue , String Owner)
     {
         //check if File is already shared ask to overwrite?
@@ -524,6 +626,13 @@ public class dbconnection {
             }
     }
     
+    /**
+     * @param userFile
+     * @param Owner
+    * @brief Unshare a shared file
+    * 
+    *
+    */
     public static void unShareFile(UserFile userFile, String Owner){
                 String updStatement = """
                               UPDATE Files
@@ -544,6 +653,15 @@ public class dbconnection {
             }
     }
     
+    /**
+     * @param operation
+     * @param newValue
+     * @param userFile
+     * @param Owner
+    * @brief Update a files details
+    * 
+    * 
+    */
     public static void filesUpdate(Operation operation,String newValue, UserFile userFile,String Owner){
         
          String op = "";
@@ -589,6 +707,16 @@ public class dbconnection {
         }
 
     }
+    
+    /**
+     * @param fileName
+     * @param Owner
+     * @param filePath
+     * @param chunks
+    * @brief Insert new File entry
+    * 
+    * @return Boolean
+    */
     
     public static Boolean filesInsert(String fileName,String Owner,String filePath,List<String> chunks)
     {

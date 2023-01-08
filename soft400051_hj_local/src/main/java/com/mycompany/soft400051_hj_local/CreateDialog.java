@@ -16,7 +16,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 /*! \brief This Class controls the fxml Page for Creating a new File.
- *        
+ *  \author Joshua Miner
  */
 
 public class CreateDialog implements Initializable{
