@@ -1,0 +1,433 @@
+<?xml version="1.0" encoding="windows-1252" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-12-12T01:10:22</date>
+  <millis>1670787622780</millis>
+  <sequence>0</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Application Resource Loading...</message>
+</record>
+<record>
+  <date>2022-12-12T01:10:28</date>
+  <millis>1670787628099</millis>
+  <sequence>2</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Application Started...</message>
+</record>
+<record>
+  <date>2022-12-12T01:10:53</date>
+  <millis>1670787653497</millis>
+  <sequence>3</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Register Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-12T01:10:53</date>
+  <millis>1670787653503</millis>
+  <sequence>4</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Register Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-12T01:10:53</date>
+  <millis>1670787653510</millis>
+  <sequence>5</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Function register_details Started</message>
+</record>
+<record>
+  <date>2022-12-12T01:10:53</date>
+  <millis>1670787653514</millis>
+  <sequence>6</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Register Screen check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-12T01:10:54</date>
+  <millis>1670787654617</millis>
+  <sequence>7</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Function data_exist Started</message>
+</record>
+<record>
+  <date>2022-12-12T01:10:54</date>
+  <millis>1670787654653</millis>
+  <sequence>8</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Register Password Hash Success</message>
+</record>
+<record>
+  <date>2022-12-12T01:10:54</date>
+  <millis>1670787654662</millis>
+  <sequence>9</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Function data_insert Started</message>
+</record>
+<record>
+  <date>2022-12-12T01:10:54</date>
+  <millis>1670787654756</millis>
+  <sequence>10</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Insert Query Execution Success for Registration</message>
+</record>
+<record>
+  <date>2022-12-12T01:10:54</date>
+  <millis>1670787654761</millis>
+  <sequence>11</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>User Registered Successfully harsh12@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-12T01:10:55</date>
+  <millis>1670787655061</millis>
+  <sequence>12</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Register Function Execution Success</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:09</date>
+  <millis>1670787669011</millis>
+  <sequence>13</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Login Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:09</date>
+  <millis>1670787669015</millis>
+  <sequence>14</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Login Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:09</date>
+  <millis>1670787669018</millis>
+  <sequence>15</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Function login_details_check Started</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:09</date>
+  <millis>1670787669020</millis>
+  <sequence>16</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Login Field Check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:09</date>
+  <millis>1670787669029</millis>
+  <sequence>17</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Function data_login Started</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:09</date>
+  <millis>1670787669191</millis>
+  <sequence>18</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>User Details Found - Flag set Timestamp Set harsh12@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:09</date>
+  <millis>1670787669196</millis>
+  <sequence>19</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>User Logged in Successfully harsh12@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:11</date>
+  <millis>1670787671637</millis>
+  <sequence>21</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Login Screen Loaded to User </message>
+</record>
+<record>
+  <date>2022-12-12T01:11:11</date>
+  <millis>1670787671641</millis>
+  <sequence>22</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Login Function Execution Success</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:22</date>
+  <millis>1670787682955</millis>
+  <sequence>23</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Function logout Started</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:25</date>
+  <millis>1670787685887</millis>
+  <sequence>24</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Function user_logout Started</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:25</date>
+  <millis>1670787685904</millis>
+  <sequence>25</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Function user_logout Started</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:26</date>
+  <millis>1670787686103</millis>
+  <sequence>26</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>User Found and Unset Login and Timestamp</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:26</date>
+  <millis>1670787686107</millis>
+  <sequence>27</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>User Logged Out Success harsh12@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:28</date>
+  <millis>1670787688289</millis>
+  <sequence>28</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>User Logged Out harsh12@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:42</date>
+  <millis>1670787702767</millis>
+  <sequence>29</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Delete Button Clicked</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:42</date>
+  <millis>1670787702770</millis>
+  <sequence>30</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Delete Function Execution to Start</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:42</date>
+  <millis>1670787702773</millis>
+  <sequence>31</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Function delete_details Started</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:42</date>
+  <millis>1670787702776</millis>
+  <sequence>32</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Delete Screen check 1 Success</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:42</date>
+  <millis>1670787702785</millis>
+  <sequence>33</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Function data_del Started</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:42</date>
+  <millis>1670787702794</millis>
+  <sequence>34</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>User Account Found - For Delete</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:42</date>
+  <millis>1670787702797</millis>
+  <sequence>35</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>User Found - Delete harsh12@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:46</date>
+  <millis>1670787706921</millis>
+  <sequence>36</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Function data_del Started</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:46</date>
+  <millis>1670787706927</millis>
+  <sequence>37</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>User Account Found - For Delete</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:47</date>
+  <millis>1670787707051</millis>
+  <sequence>38</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>User Account Deleted harsh12@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:47</date>
+  <millis>1670787707054</millis>
+  <sequence>39</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Account Deleted harsh12@gmail.com</message>
+</record>
+<record>
+  <date>2022-12-12T01:11:47</date>
+  <millis>1670787707056</millis>
+  <sequence>40</sequence>
+  <logger>com.mycompany.soft400051_hj_local</logger>
+  <level>INFO</level>
+  <class>com.mycompany.soft400051_hj_local.Logger_Controller</class>
+  <method>log_info</method>
+  <thread>13</thread>
+  <message>Delete Function Execution Success</message>
+</record>
+</log>

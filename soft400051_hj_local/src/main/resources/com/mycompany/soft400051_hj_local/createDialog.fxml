@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="372.0" prefWidth="389.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+   <children>
+      <TextArea fx:id="tafileContent" layoutX="140.0" layoutY="109.0" prefHeight="200.0" prefWidth="200.0" />
+      <TextField fx:id="tfFileName" layoutX="155.0" layoutY="29.0" />
+      <Label fx:id="lbFileName" layoutX="46.0" layoutY="34.0" text="FIle Name" />
+      <Label fx:id="lbFileContent" layoutX="46.0" layoutY="109.0" text="Content" />
+      <Button fx:id="btnSave" layoutX="249.0" layoutY="336.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="66.0" text="Save" />
+      <Button fx:id="btnCancel" layoutX="81.0" layoutY="336.0" mnemonicParsing="false" text="Cancel" />
+   </children>
+</AnchorPane>

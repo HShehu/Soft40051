@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<TitledPane animated="false" collapsible="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" scaleShape="false" text="Register" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.soft400051_hj_local.ButtonController">
+  <content>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+         <children>
+            <Label layoutX="69.0" layoutY="25.0" text="Welcome to HJ" />
+            <Text layoutX="69.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" />
+            <PasswordField layoutX="157.0" layoutY="132.0" promptText="Enter Password" />
+            <Button layoutX="157.0" layoutY="187.0" mnemonicParsing="false" text="Register" textFill="#000000f2" />
+            <ImageView fitHeight="263.0" fitWidth="367.0" layoutX="279.0" layoutY="54.0" rotate="90.0">
+               <image>
+                  <Image url="file:C:\\Users\\harsh\\Documents\\NetBeansProjects\\resource\\bg_main_login.jpg" />
+               </image>
+            </ImageView>
+            <Text layoutX="373.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Already Have an Account" underline="true">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font></Text>
+            <Label layoutX="373.0" layoutY="149.0" text="Grab your offers when you Login IN!!" wrapText="true" />
+            <Button fx:id="Login" layoutX="373.0" layoutY="187.0" onAction="#handlelogin" style="-fx-background-color: #00FF70;" text="Login" />
+            <TextField layoutX="157.0" layoutY="87.0" promptText="Enter Name" />
+            <Label layoutX="68.0" layoutY="91.0" text="Username" />
+         </children></AnchorPane>
+  </content>
+</TitledPane>

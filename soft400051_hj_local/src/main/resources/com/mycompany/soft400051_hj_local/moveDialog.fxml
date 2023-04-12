@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.paint.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" prefHeight="142.0" prefWidth="285.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label fx:id="lblMoveTo" layoutX="14.0" layoutY="51.0" text="Move To:" />
+      <Button fx:id="btnConfirm" layoutX="178.0" layoutY="92.0" mnemonicParsing="false" text="Confirm" />
+      <ChoiceBox fx:id="cbFolderList" layoutX="81.0" layoutY="46.0" prefWidth="150.0" />
+      <Button fx:id="btnCancel" layoutX="81.0" layoutY="92.0" mnemonicParsing="false" text="Cancel" />
+   </children>
+</AnchorPane>

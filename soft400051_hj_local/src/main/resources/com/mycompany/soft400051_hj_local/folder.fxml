@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onMouseClicked="#Clicked" prefHeight="140.0" prefWidth="140.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fx:id="imgFolder" fitHeight="82.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true" VBox.vgrow="ALWAYS">
+         <image>
+            <Image url="@image/icons8-live-folder-64.png" />
+         </image>
+      </ImageView>
+      <Separator prefHeight="17.0" prefWidth="200.0" />
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label fx:id="lbFolderName" alignment="CENTER" contentDisplay="CENTER" text="Folder Name" textAlignment="CENTER">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+   </children>
+</VBox>
